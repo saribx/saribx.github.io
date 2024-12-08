@@ -6,3 +6,5 @@
 # Datasource local storage ignored files
 /dataSources/
 /dataSources.local.xml
+# Ignoriere die IDE-Konfigurationsdateien
+.idea/
