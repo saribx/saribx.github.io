@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tom Man - Portfolio</title>
+    <style>
+        :root {
+            --primary-color: #000;
+            --secondary-color: #fff;
+            --accent-color: #06c;
+            --background-color: #f5f5f7;
+            --text-color: #1d1d1f;
+        }
+        
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .intro {
+            font-size: 24px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .content {
+            padding: 80px 0;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .card {
+            background-color: var(--secondary-color);
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-content {
+            padding: 30px;
+        }
+        
+        h2 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        p {
+            margin-bottom: 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--secondary-color);
+            padding: 12px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: #004499;
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            text-align: center;
+            padding: 20px 0;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Tom Man</h1>
+            <p class="intro">Willkommen auf meiner Portfolio-Website. Hier finden Sie innovative Designs und kreative Lösungen für die digitale Welt von morgen.</p>
+        </div>
+    </header>
+    
+    <main class="content">
+        <div class="container">
+            <div class="grid">
+                <div class="card">
+                    <div class="card-content">
+                        <h2>Innovatives Design</h2>
+                        <p>Meine Designs verbinden Ästhetik mit Funktionalität. Jedes Projekt ist eine Gelegenheit, Grenzen zu überschreiten und Neues zu schaffen.</p>
+                        <a href="#" class="btn">Mehr erfahren</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <h2>Kreative Lösungen</h2>
+                        <p>Komplexe Herausforderungen erfordern innovative Ansätze. Ich entwickle maßgeschneiderte Lösungen, die begeistern und inspirieren.</p>
+                        <a href="#" class="btn">Entdecken</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <h2>Zukunftsorientiert</h2>
+                        <p>Mit Blick auf kommende Trends und Technologien gestalte ich Projekte, die nicht nur heute, sondern auch morgen relevant sind.</p>
+                        <a href="#" class="btn">Mehr sehen</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Tom Man. Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
+</body>
+</html>
