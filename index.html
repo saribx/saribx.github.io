@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Sarib Samdani - AI Engineer and Computer Science student specializing in Machine Learning and Computer Vision">
-    <title>Sarib Samdani - AI Engineer & ML Enthusiast</title>
+    <title>Sarib Samdani - Personal Website</title>
     <style>
         :root {
             --primary: #0A0A0A;
@@ -34,7 +34,7 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 24px;
+            padding: 0 80px;
         }
 
         .header {
@@ -68,7 +68,9 @@
         }
 
         .title-group {
-            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
         }
 
         .gradient-text {
@@ -76,6 +78,43 @@
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+        }
+
+        .title-and-role {
+            margin-right: 6rem;
+        }
+
+        .profile-picture {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid transparent;
+            background: linear-gradient(var(--primary), var(--primary)), var(--gradient);
+            background-origin: border-box;
+            background-clip: content-box, border-box;
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            padding: 2px;
+            box-sizing: border-box;
+        }
+
+        .profile-picture:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
+            padding: 6px;
+        }
+
+        @media (max-width: 768px) {
+            .title-group {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+
+            .profile-picture {
+                margin: 0 auto;
+            }
         }
 
         h1 {
@@ -121,14 +160,14 @@
         }
 
         .section {
-            margin-top: 120px;
+            margin-top: 10px;
             padding: 40px 0;
         }
 
         .section-title {
             font-size: 2.5rem;
             margin-bottom: 40px;
-            background: var(--gradient);
+            background: linear-gradient(90deg, #4169E1, #ADD8E6); /* Brighter dark blue */
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -209,118 +248,55 @@
                 grid-template-columns: 1fr;
                 text-align: center;
             }
-            
+
             .section {
                 margin-top: 80px;
             }
         }
-    </style>
-</head>
-</head>
-<body>
-    <canvas class="particle-canvas"></canvas>
-    <header class="header">
-        <div class="container">
-            <div class="header-content">
-                <div class="title-group">
-                    <h1 class="gradient-text">Sarib Samdani</h1>
-                    <div class="role">AI Engineer</div>
-                </div>
-                <p class="bio">
-                    Passionate about pushing the boundaries of AI technology while maintaining a strong focus on ethical implementation and real-world impact. Currently working on projects involving explainable AI and advanced neural network architectures, while preparing for the next chapter in my academic journey.<br><br>
-                    <a href="https://www.linkedin.com/in/sarib-samdani/" class="social-link" target="_blank">Let's connect on LinkedIn →</a>
-                </p>
-                <div class="metrics">
-                    <div class="metric">
-                        <div class="metric-value">48K€</div>
-                        <p>Scholarship Grant</p>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-value">4</div>
-                        <p>AI Projects</p>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-value">4+</div>
-                        <p>Years Experience & Education in CS & AI</p>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-value">10+</div>
-                        <p>Countries visited</p>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-value">20+</div>
-                        <p>AI-related events attended in person</p>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-value">20</div>
-                        <p>Years old, based in Berlin</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-        <section class="section">
-            <h2 class="section-title">Education</h2>
-            <div class="card">
-                <div class="education-header">
-                    <h3>Technical University Berlin</h3>
-                    <span class="year">2022 - 2025</span>
-                </div>
-                <p class="degree">B.Sc. in Computer Science & Business</p>
-                <div class="education-details">
-                    <h4 class="societies-title">AI Societies</h4>
-                    <div class="societies">
-                        <span class="society-badge">Google Developer Student Club</span>
-                        <span class="society-badge">BLISS e.V.</span>
-                        <span class="society-badge">Naturefit e.V.</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <style>    
+
         .education-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 1rem;
         }
-        
+
         .education-header h3 {
             font-size: 1.5rem;
             background: linear-gradient(90deg, #64B5F6, #2196F3);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        
+
         .year {
             color: #A0A0A0;
             font-weight: 500;
         }
-        
+
         .degree {
             font-size: 1.2rem;
             margin-bottom: 1.5rem;
             color: #E0E0E0;
         }
-        
+
         .education-details {
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 1.5rem;
+            padding-top: 0.5rem;
+            margin-top: 1rem;
         }
-        
+
         .societies-title {
             font-size: 1.1rem;
             margin-bottom: 1rem;
             color: #90CAF9;
         }
-        
+
         .societies {
             display: flex;
             flex-wrap: wrap;
             gap: 0.8rem;
         }
-        
+
         .society-badge {
             background: rgba(33, 150, 243, 0.15);
             color: #90CAF9;
@@ -330,112 +306,205 @@
             transition: all 0.3s ease;
             border: 1px solid rgba(33, 150, 243, 0.2);
         }
-        
+
         .society-badge:hover {
             background: rgba(33, 150, 243, 0.25);
             transform: translateY(-2px);
         }
-        </style>
-
-        <section class="section">
-            <h2 class="section-title">Research & Projects</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3 class="card-title">Neural Network Visualization Platform</h3>
-                    <p>Pioneered an interactive platform for neural network visualization, contributing to explainable AI research. Features include real-time neuron activation mapping and custom model analysis.</p>
-                    <div class="tech-stack">
-                        <span class="tech-badge">PyTorch</span>
-                        <span class="tech-badge">D3.js</span>
-                        <span class="tech-badge">React</span>
-                    </div>
+    </style>
+</head>
+<body>
+<canvas class="particle-canvas"></canvas>
+<header class="header">
+    <div class="container">
+        <div class="header-content">
+            <div class="title-group">
+                <div class="title-and-role">
+                    <h1 class="gradient-text">Sarib Samdani</h1>
+                    <div class="role">AI Engineer</div>
                 </div>
-                <div class="card">
-                    <h3 class="card-title">Smart Kitchen AI System</h3>
-                    <p>Developed an advanced grocery management system using computer vision and natural language processing. Integrated with OpenAI for intelligent recipe generation and inventory tracking.</p>
-                    <div class="tech-stack">
-                        <span class="tech-badge">OpenAI</span>
-                        <span class="tech-badge">Python</span>
-                        <span class="tech-badge">OpenCV</span>
-                    </div>
-                </div>
-                <div class="card">
-                    <h3 class="card-title">Plant Disease Classification</h3>
-                    <p>Implemented CNN models for automated plant disease detection, achieving 94% accuracy. Created comprehensive documentation and evaluation framework.</p>
-                    <div class="tech-stack">
-                        <span class="tech-badge">TensorFlow</span>
-                        <span class="tech-badge">Keras</span>
-                        <span class="tech-badge">scikit-learn</span>
-                    </div>
-                </div>
-                <div class="card">
-                    <h3 class="card-title">AI Assignment Assistant</h3>
-                    <p>Led development of an AI-powered tool for automated assignment feedback. Organized expert roundtable discussions and won "Best Code" recognition.</p>
-                    <div class="tech-stack">
-                        <span class="tech-badge">EdTech</span>
-                        <span class="tech-badge">Vercel</span>
-                        <span class="tech-badge">entrepreneurship</span>
-                    </div>
-                </div>
-                <div class="card">
-                    <h3 class="card-title">GPT & BERT Analysis Research</h3>
-                    <p>Conducted comprehensive research on GPT-4 and BERT language models, analyzing their technical architectures, business strategies, and economic implications. Produced academic paper and presentation exploring monopolistic tendencies in AI markets.</p>
-                    <div class="tech-stack">
-                        <span class="tech-badge">AI Research</span>
-                        <span class="tech-badge">LLM Analysis</span>
-                        <span class="tech-badge">Economic Analysis</span>
-                    </div>
-                </div> 
+                <img src="profilepicture.png" alt="Profile Picture" class="profile-picture">
             </div>
-        </section>
-
-        <section class="section">
-            <h2 class="section-title">Professional Experience</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3 class="card-title">Lufthansa Industry Solutions</h3>
-                    <p>AI Engineer (Work Study) - Developing RAG-based chatbot systems and implementing advanced NLP solutions for enterprise applications.</p>
-                    <div class="tech-stack">
-                        <span class="tech-badge">Haystack</span>
-                        <span class="tech-badge">FastAPI</span>
-                        <span class="tech-badge">ElasticSearch</span>
-                    </div>
+            <p class="bio">
+                As I near the completion of my B.Sc. in Computer Science and Business, I’m excited to take the next step in my academic journey by pursuing a Master's in Machine Learning.
+                Over the years, I’ve built a solid foundation in Artificial Intelligence through hands-on projects, internships, and active involvement in student associations, with the goal of using AI to solve real-world challenges and explore the intersection of technology, creativity, and leadership.
+                With a vision of one day stepping responsibly into a leadership role, I am focused on developing the expertise and experience needed to make meaningful contributions in the fields of AI.<br><br>
+                <a href="https://www.linkedin.com/in/sarib-samdani/" class="social-link" target="_blank">Let's connect on LinkedIn →</a>
+            </p>
+            <div class="metrics">
+                <div class="metric">
+                    <div class="metric-value">48K€</div>
+                    <p>Scholarship Grant</p>
                 </div>
-                <div class="card">
-                    <h3 class="card-title">KPMG</h3>
-                    <p>IT Architect (Work Study) - Spearheaded AI prototype development for SAP S/4HANA error analysis and innovation management.</p>
-                    <div class="tech-stack">
-                        <span class="tech-badge">Innovation Management</span>
-                        <span class="tech-badge">SAP</span>
-                        <span class="tech-badge">Python</span>
-                    </div>
+                <div class="metric">
+                    <div class="metric-value">5</div>
+                    <p>AI Projects</p>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">4+</div>
+                    <p>Years Experience & Education in CS & AI</p>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">10+</div>
+                    <p>Countries visited</p>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">20+</div>
+                    <p>AI-related events attended in person</p>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">20</div>
+                    <p>Years old, based in Berlin</p>
                 </div>
             </div>
-        </section>
-    
-        <section class="section">
-            <h2 class="section-title">Technical Skills</h2>
-            <div class="tech-stack">
-                <span class="tech-badge">PyTorch</span>
-                <span class="tech-badge">TensorFlow</span>
-                <span class="tech-badge">NLP</span>
-                <span class="tech-badge">MLOps</span>
-                <span class="tech-badge">Docker</span>
-                <span class="tech-badge">Haystack</span>
-                <span class="tech-badge">Python</span>
-                <span class="tech-badge">Java</span>
-                <span class="tech-badge">Scala</span>
-                <span class="tech-badge">React</span>
-                <span class="tech-badge">FastAPI</span>
-                <span class="tech-badge">scikit-learn</span>
-                <span class="tech-badge">apple programs</span>
-            </div>
-        </section> 
-    </main>
-
-    <footer class="footer">
-        <div class="container">
-            <p>© 2024 Sarib Samdani, this page is just created and will be updated after my شاورما break🌯🧃</p>
         </div>
-    </footer>
+    </div>
+</header>
+<section class="section galaxy-background">
+    <div class="container">
+        <h2 class="section-title">Education</h2>
+        <div class="card">
+            <div class="education-header">
+                <h3>Technical University Berlin</h3>
+                <span class="year">Berlin, 2022 - 2025</span>
+            </div>
+            <p class="degree">B.Sc. in Computer Science & Business</p>
+            <div class="education-details">
+                <h4 class="societies-title">AI Societies</h4>
+                <div class="societies">
+                    <span class="society-badge">Google Developer Student Club</span>
+                    <span class="society-badge">BLISS e.V.</span>
+                    <span class="society-badge">Naturefit e.V.</span>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="education-header">
+                <h3>To be announced...</h3>
+                <span class="year">xxx, 2025 - 2027</span>
+            </div>
+            <p class="degree">M.Sc. in Machine Learning</p>
+            </div>
+    </div>
+</section>
+
+<section class="section galaxy-background">
+    <div class="container">
+        <h2 class="section-title">Professional Experience</h2>
+        <div class="card">
+            <div class="education-header">
+                <h3>Lufthansa Industry Solutions</h3>
+                <span class="year">Oct 2024 - exp. Feb 2025</span>
+            </div>
+            <p class="degree">AI Engineer (Work Study)</p>
+            <p>Developing RAG-based chatbot systems and implementing advanced NLP solutions for enterprise applications.</p>
+            <div class="education-details">
+                <h4 class="societies-title">Tech Stack</h4>
+                <div class="societies">
+                    <span class="society-badge">Haystack</span>
+                    <span class="society-badge">FastAPI</span>
+                    <span class="society-badge">ElasticSearch</span>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="education-header">
+                <h3>KPMG</h3>
+                <span class="year">Sep 2023 - Jan 2024</span>
+            </div>
+            <p class="degree">IT Architect (Work Study)</p>
+            <p>Spearheaded AI prototype development for SAP S/4HANA error analysis and innovation management.</p>
+            <div class="education-details">
+                <h4 class="societies-title">Tech Stack</h4>
+                <div class="societies">
+                    <span class="society-badge">Innovation Management</span>
+                    <span class="society-badge">SAP</span>
+                    <span class="society-badge">Python</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section galaxy-background">
+    <div class="container">
+        <h2 class="section-title">Research & Projects</h2>
+        <div class="grid">
+            <div class="card">
+                <h3 class="card-title">Neural Network Visualization Platform</h3>
+                <p>Pioneered an interactive platform for neural network visualization, contributing to explainable AI research. Features include real-time neuron activation mapping and custom model analysis.</p>
+                <div class="tech-stack">
+                    <span class="tech-badge">PyTorch</span>
+                    <span class="tech-badge">D3.js</span>
+                    <span class="tech-badge">React</span>
+                </div>
+            </div>
+            <div class="card">
+                <h3 class="card-title">Smart Kitchen AI System</h3>
+                <p>Developed an advanced grocery management system using computer vision and natural language processing. Integrated with OpenAI for intelligent recipe generation and inventory tracking.</p>
+                <div class="tech-stack">
+                    <span class="tech-badge">OpenAI</span>
+                    <span class="tech-badge">Python</span>
+                    <span class="tech-badge">OpenCV</span>
+                </div>
+            </div>
+            <div class="card">
+                <h3 class="card-title">Plant Disease Classification</h3>
+                <p>Implemented CNN models for automated plant disease detection, achieving 94% accuracy. Created comprehensive documentation and evaluation framework.</p>
+                <div class="tech-stack">
+                    <span class="tech-badge">TensorFlow</span>
+                    <span class="tech-badge">Keras</span>
+                    <span class="tech-badge">Scikit-learn</span>
+                </div>
+            </div>
+            <div class="card">
+                <h3 class="card-title">AI Assignment Assistant</h3>
+                <p>Led development of an AI-powered tool for automated assignment feedback. Organized expert roundtable discussions and won "Best Code" recognition.</p>
+                <div class="tech-stack">
+                    <span class="tech-badge">EdTech</span>
+                    <span class="tech-badge">Vercel</span>
+                    <span class="tech-badge">Entrepreneurship</span>
+                </div>
+            </div>
+            <div class="card">
+                <h3 class="card-title">GPT & BERT Analysis Research</h3>
+                <p>Conducted comprehensive research for an academic paper and poster on GPT-4 and BERT language models, analyzing their technical architectures, business strategies, and economic implications.</p>
+                <div class="tech-stack">
+                    <span class="tech-badge">AI Research</span>
+                    <span class="tech-badge">LLM Analysis</span>
+                    <span class="tech-badge">Economic Analysis</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="tech-stack">
+            <span class="tech-badge">PyTorch</span>
+            <span class="tech-badge">TensorFlow</span>
+            <span class="tech-badge">NLP</span>
+            <span class="tech-badge">MLOps</span>
+            <span class="tech-badge">Docker</span>
+            <span class="tech-badge">Haystack</span>
+            <span class="tech-badge">Python</span>
+            <span class="tech-badge">Java</span>
+            <span class="tech-badge">Scala</span>
+            <span class="tech-badge">React</span>
+            <span class="tech-badge">FastAPI</span>
+            <span class="tech-badge">Scikit-learn</span>
+            <span class="tech-badge">Apple Programs</span>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <p>© 2024 Sarib Samdani, this page was created after an energizing شاورما break🌯🧃</p>
+        <p><em>Last updated: 26.12.2024</em></p>
+    </div>
+</footer>
 </body>
 </html>
