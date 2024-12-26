@@ -31,10 +31,20 @@
             overflow-x: hidden;
         }
 
+        input, textarea, [contenteditable] {
+            caret-color: #3B82F6;
+        }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 80px;
+            padding: 0 20px;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                padding: 0 80px;
+            }
         }
 
         .header {
@@ -44,6 +54,7 @@
             background: radial-gradient(circle at 50% 50%, rgba(59,130,246,0.15) 0%, transparent 50%);
             position: relative;
             overflow: hidden;
+            padding: 20px 0;
         }
 
         .header::after {
@@ -65,164 +76,28 @@
         .header-content {
             position: relative;
             z-index: 2;
+            width: 100%;
         }
 
         .title-group {
             display: flex;
+            flex-direction: column;
             align-items: center;
+            text-align: center;
+            gap: 2rem;
             margin-bottom: 2rem;
         }
 
-        .gradient-text {
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .title-and-role {
-            margin-right: 6rem;
-        }
-
-        .profile-picture {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid transparent;
-            background: linear-gradient(var(--primary), var(--primary)), var(--gradient);
-            background-origin: border-box;
-            background-clip: content-box, border-box;
-            box-shadow: 0 0 20px rgba(139, 92, 246, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            padding: 2px;
-            box-sizing: border-box;
-        }
-
-        .profile-picture:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
-            padding: 6px;
-        }
-
-        @media (max-width: 768px) {
+        @media (min-width: 768px) {
             .title-group {
-                flex-direction: column;
-                gap: 20px;
-                text-align: center;
+                flex-direction: row;
+                text-align: left;
+                gap: 0;
             }
 
-            .profile-picture {
-                margin: 0 auto;
+            .title-and-role {
+                margin-right: 6rem;
             }
-        }
-
-        h1 {
-            font-size: clamp(3rem, 8vw, 5.5rem);
-            line-height: 1.1;
-        }
-
-        .role {
-            font-size: clamp(1.5rem, 4vw, 2.5rem);
-            opacity: 0.9;
-            margin-top: 8px;
-        }
-
-        .bio {
-            font-size: 1.25rem;
-            color: var(--text-secondary);
-            max-width: 800px;
-            margin-bottom: 40px;
-        }
-
-        .metrics {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 24px;
-            margin-top: 48px;
-            padding: 32px;
-            background: var(--card-gradient);
-            border-radius: 16px;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .metric {
-            text-align: center;
-        }
-
-        .metric-value {
-            font-size: 2.5rem;
-            font-weight: 700;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .section {
-            margin-top: 10px;
-            padding: 40px 0;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            margin-bottom: 40px;
-            background: linear-gradient(90deg, #4169E1, #ADD8E6); /* Brighter dark blue */
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
-        }
-
-        .card {
-            background: var(--card-gradient);
-            border-radius: 16px;
-            padding: 32px;
-            transition: transform 0.3s ease, border-color 0.3s ease;
-            border: 1px solid rgba(255,255,255,0.1);
-            height: 100%;
-        }
-
-        .card:hover {
-            transform: translateY(-8px);
-            border-color: var(--accent);
-        }
-
-        .card-title {
-            font-size: 1.5rem;
-            margin-bottom: 16px;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .tech-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 20px;
-        }
-
-        .tech-badge {
-            background: rgba(59,130,246,0.1);
-            padding: 6px 14px;
-            border-radius: 20px;
-            color: var(--text);
-            font-size: 0.9rem;
-            border: 1px solid rgba(59,130,246,0.3);
-            transition: all 0.3s ease;
-        }
-
-        .tech-badge:hover {
-            background: rgba(59,130,246,0.2);
-            border-color: rgba(59,130,246,0.5);
-            transform: translateY(-2px);
         }
 
         .social-link {
@@ -235,82 +110,339 @@
             color: var(--accent-secondary);
         }
 
-        .footer {
-            text-align: center;
-            padding: 24px 0;
-            color: var(--text-secondary);
-            margin-top: 80px;
-            border-top: 1px solid rgba(255,255,255,0.1);
+        .gradient-text {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
 
-        @media (max-width: 768px) {
-            .metrics {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
+        .profile-picture {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid transparent;
+            background: linear-gradient(var(--primary), var(--primary)), var(--gradient);
+            background-origin: border-box;
+            background-clip: content-box, border-box;
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            padding: 2px;
+        }
 
-            .section {
-                margin-top: 80px;
+        @media (min-width: 768px) {
+            .profile-picture {
+                width: 180px;
+                height: 180px;
             }
+        }
+
+        .profile-picture:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
+            padding: 6px;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 8vw, 5.5rem);
+            line-height: 1.1;
+        }
+
+        .role {
+            font-size: clamp(1.2rem, 4vw, 2.5rem);
+            opacity: 0.9;
+            margin-top: 8px;
+        }
+
+        .bio {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        @media (min-width: 768px) {
+            .bio {
+                font-size: 1.25rem;
+                text-align: left;
+            }
+        }
+
+        .metrics {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            margin-top: 48px;
+            padding: 20px;
+            background: var(--card-gradient);
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        @media (min-width: 768px) {
+            .metrics {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                padding: 32px;
+            }
+        }
+
+        .metric {
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 2rem;
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        @media (min-width: 768px) {
+            .metric-value {
+                font-size: 2.5rem;
+            }
+        }
+
+        .section {
+            margin-top: 30px;
+            padding: 20px 0;
+        }
+
+        @media (min-width: 768px) {
+            .section {
+                margin-top: 10px;
+                padding: 40px 0;
+            }
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            background: linear-gradient(90deg, #4169E1, #ADD8E6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-align: center;
+        }
+
+        @media (min-width: 768px) {
+            .section-title {
+                font-size: 2.5rem;
+                margin-bottom: 40px;
+                text-align: left;
+            }
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 24px;
+            }
+        }
+
+        .card {
+            background: var(--card-gradient);
+            border-radius: 16px;
+            padding: 20px;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.1);
+            height: 100%;
+        }
+
+        @media (min-width: 768px) {
+            .card {
+                padding: 32px;
+            }
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent);
         }
 
         .education-header {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            flex-direction: column;
+            gap: 0.5rem;
             margin-bottom: 1rem;
         }
 
+        @media (min-width: 768px) {
+            .education-header {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
+
         .education-header h3 {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             background: linear-gradient(90deg, #64B5F6, #2196F3);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .year {
-            color: #A0A0A0;
-            font-weight: 500;
+        @media (min-width: 768px) {
+            .education-header h3 {
+                font-size: 1.5rem;
+            }
         }
 
-        .degree {
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
-            color: #E0E0E0;
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+            justify-content: center;
         }
 
-        .education-details {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 0.5rem;
-            margin-top: 1rem;
+        @media (min-width: 768px) {
+            .tech-stack {
+                justify-content: flex-start;
+            }
         }
 
-        .societies-title {
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-            color: #90CAF9;
+        .tech-badge, .society-badge {
+            background: rgba(59,130,246,0.1);
+            padding: 6px 12px;
+            border-radius: 20px;
+            color: var(--text);
+            font-size: 0.85rem;
+            border: 1px solid rgba(59,130,246,0.3);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        @media (min-width: 768px) {
+            .tech-badge, .society-badge {
+                padding: 6px 14px;
+                font-size: 0.9rem;
+            }
+        }
+
+        .footer {
+            text-align: center;
+            padding: 24px 20px;
+            color: var(--text-secondary);
+            margin-top: 60px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+        }
+
+        @media (min-width: 768px) {
+            .footer {
+                margin-top: 80px;
+                font-size: 1rem;
+            }
         }
 
         .societies {
             display: flex;
             flex-wrap: wrap;
             gap: 0.8rem;
+            justify-content: center;
         }
 
-        .society-badge {
-            background: rgba(33, 150, 243, 0.15);
-            color: #90CAF9;
-            padding: 0.6rem 1.2rem;
-            border-radius: 25px;
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(33, 150, 243, 0.2);
+        @media (min-width: 768px) {
+            .societies {
+                justify-content: flex-start;
+            }
         }
 
-        .society-badge:hover {
-            background: rgba(33, 150, 243, 0.25);
-            transform: translateY(-2px);
+        .ai-demo {
+            background: var(--card-gradient);
+            border-radius: 16px;
+            padding: 24px;
+            margin-top: 40px;
+            border: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+            overflow: hidden;
         }
+
+        .ai-demo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--gradient);
+            animation: gradient-shift 3s linear infinite;
+        }
+
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        @media (max-width: 768px) {
+            .ai-demo {
+                padding: 16px;
+            }
+            .uae-section {
+                padding: 16px;
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        .slide-up {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideUp 0.8s ease-out forwards;
+        }
+
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.8);
+            animation: scaleIn 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+
     </style>
 </head>
 <body>
@@ -319,19 +451,17 @@
     <div class="container">
         <div class="header-content">
             <div class="title-group">
-                <div class="title-and-role">
+                <div class="title-and-role fade-in" style="animation-delay: 0.2s">
                     <h1 class="gradient-text">Sarib Samdani</h1>
                     <div class="role">AI Engineer</div>
                 </div>
-                <img src="profilepicture.png" alt="Profile Picture" class="profile-picture">
+                <img src="profilepicture.png" alt="Profile Picture" class="profile-picture scale-in" style="animation-delay: 0.4s">
             </div>
-            <p class="bio">
-                As I near the completion of my B.Sc. in Computer Science and Business, I’m excited to take the next step in my academic journey by pursuing a Master's in Machine Learning.
-                Over the years, I’ve built a solid foundation in Artificial Intelligence through hands-on projects, internships, and active involvement in student associations, with the goal of using AI to solve real-world challenges and explore the intersection of technology, creativity, and leadership.
-                With a vision of one day stepping responsibly into a leadership role, I am focused on developing the expertise and experience needed to make meaningful contributions in the fields of AI.<br><br>
+            <p class="bio slide-up" style="animation-delay: 0.6s">
+                As I near the completion of my B.Sc. in Computer Science and Business, I'm excited to take the next step in my academic journey by pursuing a Master's in Machine Learning. Over the years, I've built a solid foundation in Artificial Intelligence through hands-on projects, internships, and active involvement in student associations, with the goal of using AI to solve real-world challenges and explore the intersection of technology, creativity, and leadership. With a vision of one day stepping responsibly into a leadership role, I am focused on developing the expertise and experience needed to make meaningful contributions in the fields of AI.<br><br>
                 <a href="https://www.linkedin.com/in/sarib-samdani/" class="social-link" target="_blank">Let's connect on LinkedIn →</a>
             </p>
-            <div class="metrics">
+            <div class="metrics slide-up" style="animation-delay: 0.8s">
                 <div class="metric">
                     <div class="metric-value">48K€</div>
                     <p>Scholarship Grant</p>
@@ -349,7 +479,7 @@
                     <p>Countries visited</p>
                 </div>
                 <div class="metric">
-                    <div class="metric-value">20+</div>
+                    <div class="metric-value">25+</div>
                     <p>AI-related events attended in person</p>
                 </div>
                 <div class="metric">
@@ -384,7 +514,7 @@
                 <span class="year">xxx, 2025 - 2027</span>
             </div>
             <p class="degree">M.Sc. in Machine Learning</p>
-            </div>
+        </div>
     </div>
 </section>
 
@@ -458,7 +588,7 @@
                 </div>
             </div>
             <div class="card">
-                <h3 class="card-title">AI Assignment Assistant</h3>
+                <h3 class="card-title
                 <p>Led development of an AI-powered tool for automated assignment feedback. Organized expert roundtable discussions and won "Best Code" recognition.</p>
                 <div class="tech-stack">
                     <span class="tech-badge">EdTech</span>
@@ -499,6 +629,19 @@
         </div>
     </div>
 </section>
+
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">Interactive AI Demo</h2>
+        <div class="ai-demo">
+            <h3>Try My Latest AI Project</h3>
+            <p>Coming soon: Interactive demos of my neural network visualizations</p>
+            <div class="tech-stack">
+            </div>
+        </div>
+    </div>
+</section>
+
 
 <footer class="footer">
     <div class="container">
