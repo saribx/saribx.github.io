@@ -1,155 +1,200 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sarib Samdani - Portfolio</title>
+    <title>Sarib Samdani - AI Engineer</title>
     <style>
         :root {
-            --primary-color: #000;
-            --secondary-color: #fff;
-            --accent-color: #06c;
-            --background-color: #f5f5f7;
-            --text-color: #1d1d1f;
+            --primary: #0A0A0A;
+            --secondary: #1A1A1A;
+            --accent: #3B82F6;
+            --text: #FFFFFF;
+            --text-secondary: #A3A3A3;
+            --gradient: linear-gradient(90deg, #3B82F6 0%, #8B5CF6 100%);
         }
 
-        body, html {
+        * {
             margin: 0;
             padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background-color: var(--background-color);
-            color: var(--text-color);
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--primary);
+            color: var(--text);
             line-height: 1.6;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
 
         header {
-            background-color: var(--primary-color);
-            color: var(--secondary-color);
-            padding: 80px 0;
-            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: var(--primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .gradient-text {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
         }
 
         h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
+            font-size: 4.5rem;
+            line-height: 1.1;
+            margin-bottom: 24px;
         }
 
-        .name-bold {
-            font-weight: bold;
-        }
-
-        .name-regular {
-            font-weight: normal;
-        }
-
-        .intro {
-            font-size: 24px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .content {
-            padding: 80px 0;
+        .lead {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin-bottom: 40px;
         }
 
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-top: 60px;
+            gap: 24px;
+            margin-top: 80px;
         }
 
         .card {
-            background-color: var(--secondary-color);
-            border-radius: 18px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background: var(--secondary);
+            border-radius: 16px;
+            padding: 32px;
+            transition: transform 0.3s ease;
         }
 
-        .card-content {
-            padding: 30px;
+        .card:hover {
+            transform: translateY(-8px);
         }
 
-        h2 {
-            font-size: 28px;
-            margin-bottom: 15px;
-            color: var(--primary-color);
+        .card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
 
-        p {
-            margin-bottom: 20px;
+        .card p {
+            color: var(--text-secondary);
         }
 
-        .btn {
-            display: inline-block;
-            background-color: var(--accent-color);
-            color: var(--secondary-color);
-            padding: 12px 24px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background-color 0.3s ease;
+        .stats {
+            display: flex;
+            gap: 48px;
+            margin-top: 48px;
         }
 
-        .btn:hover {
-            background-color: #004499;
+        .stat-item h3 {
+            font-size: 2.5rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .stat-item p {
+            color: var(--text-secondary);
+            font-size: 1rem;
         }
 
         footer {
-            background-color: var(--primary-color);
-            color: var(--secondary-color);
             text-align: center;
-            padding: 20px 0;
-            font-size: 14px;
+            padding: 24px 0;
+            color: var(--text-secondary);
+            margin-top: 80px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3rem;
+            }
+            
+            .stats {
+                flex-direction: column;
+                gap: 24px;
+            }
         }
     </style>
 </head>
 <body>
-<header>
-    <div class="container">
-        <h1>
-            <span class="name-bold">Sarib</span>
-            <span class="name-regular">Samdani</span>
-        </h1>
-        <p class="intro">AI Engineer in the making, blending cutting-edge innovation with a vision for meaningful impact. As I near the finish line of my Bachelor's in Computer Science, I'm driven to craft intelligent solutions that inspire change. Rooted in a culture of resilience and ambition, I'm here to lead the future of AI, one breakthrough at a time.</p>
-    </div>
-</header>
-
-<main class="content">
-    <div class="container">
-        <div class="grid">
-            <div class="card">
-                <div class="card-content">
-                    <h2>Computer Science B.Sc.</h2>
-                    <p>@Technical University of Berlin with focus on AI, ML and entrepreneurship</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-content">
-                    <h2>AI Engineer</h2>
-                    <p>@Lufthansa Industry Solutions</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-content">
-                    <h2>Machine Learning <br> M.Sc.</h2>
-                    <p>@MBZUAI applying for Fall 2025</p>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1>
+                    Hi, I'm <span class="gradient-text">Sarib Samdani</span>
+                    <br>AI Engineer
+                </h1>
+                <p class="lead">
+                    Blending cutting-edge innovation with a vision for meaningful impact. As I near the finish line of my Bachelor's in Computer Science, I'm driven to craft intelligent solutions that inspire change.
+                </p>
+                <div class="stats">
+                    <div class="stat-item">
+                        <h3>3+</h3>
+                        <p>Years of Experience</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>15+</h3>
+                        <p>Projects Completed</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>2</h3>
+                        <p>Research Papers</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</main>
+    </header>
 
-<footer>
-    <div class="container">
-        <p>&copy; 2024 Sarib Samdani, this page is just created and will be updated after my شاورما break🌯🧃</p>
-    </div>
-</footer>
+    <main class="container">
+        <div class="grid">
+            <div class="card">
+                <h2>Computer Science B.Sc.</h2>
+                <p>Technical University of Berlin</p>
+                <p>Focus on AI, ML and entrepreneurship</p>
+            </div>
+            <div class="card">
+                <h2>AI Engineer</h2>
+                <p>Lufthansa Industry Solutions</p>
+                <p>Building next-gen AI solutions</p>
+            </div>
+            <div class="card">
+                <h2>Machine Learning M.Sc.</h2>
+                <p>MBZUAI</p>
+                <p>Applying for Fall 2025</p>
+            </div>
+            <div class="card">
+                <h2>Research Interests</h2>
+                <p>Large Language Models</p>
+                <p>Computer Vision & Deep Learning</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2024 Sarib Samdani • Built with passion 🚀</p>
+        </div>
+    </footer>
 </body>
 </html>
