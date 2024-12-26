@@ -216,42 +216,127 @@
         }
     </style>
 </head>
+</head>
 <body>
+    <canvas class="particle-canvas"></canvas>
     <header class="header">
         <div class="container">
             <div class="header-content">
                 <div class="title-group">
                     <h1 class="gradient-text">Sarib Samdani</h1>
-                    <div class="role">AI Engineer & ML Enthusiast</div>
+                    <div class="role">AI Engineer</div>
                 </div>
                 <p class="bio">
-                    Hey there, let's talk and connect 🌯🧃<br><br>
                     Passionate about pushing the boundaries of AI technology while maintaining a strong focus on ethical implementation and real-world impact. Currently working on projects involving explainable AI and advanced neural network architectures, while preparing for the next chapter in my academic journey.<br><br>
                     <a href="https://www.linkedin.com/in/sarib-samdani/" class="social-link" target="_blank">Let's connect on LinkedIn →</a>
                 </p>
                 <div class="metrics">
                     <div class="metric">
                         <div class="metric-value">48K€</div>
-                        <p>Research Grant</p>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-value">4+</div>
-                        <p>Major AI Projects</p>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-value">3+</div>
-                        <p>Years Experience</p>
+                        <p>Scholarship Grant</p>
                     </div>
                     <div class="metric">
                         <div class="metric-value">4</div>
-                        <p>Languages</p>
+                        <p>AI Projects</p>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">4+</div>
+                        <p>Years Experience & Education in CS & AI</p>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">10+</div>
+                        <p>Countries visited</p>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">20+</div>
+                        <p>AI-related events attended in person</p>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">20</div>
+                        <p>Years old, based in Berlin</p>
                     </div>
                 </div>
             </div>
         </div>
     </header>
+        <section class="section">
+            <h2 class="section-title">Education</h2>
+            <div class="card">
+                <div class="education-header">
+                    <h3>Technical University Berlin</h3>
+                    <span class="year">2022 - 2025</span>
+                </div>
+                <p class="degree">B.Sc. in Computer Science & Business</p>
+                <div class="education-details">
+                    <h4 class="societies-title">AI Societies</h4>
+                    <div class="societies">
+                        <span class="society-badge">Google Developer Student Club</span>
+                        <span class="society-badge">BLISS e.V.</span>
+                        <span class="society-badge">Naturefit e.V.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <style>    
+        .education-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .education-header h3 {
+            font-size: 1.5rem;
+            background: linear-gradient(90deg, #64B5F6, #2196F3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .year {
+            color: #A0A0A0;
+            font-weight: 500;
+        }
+        
+        .degree {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: #E0E0E0;
+        }
+        
+        .education-details {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.5rem;
+        }
+        
+        .societies-title {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: #90CAF9;
+        }
+        
+        .societies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+        
+        .society-badge {
+            background: rgba(33, 150, 243, 0.15);
+            color: #90CAF9;
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(33, 150, 243, 0.2);
+        }
+        
+        .society-badge:hover {
+            background: rgba(33, 150, 243, 0.25);
+            transform: translateY(-2px);
+        }
+        </style>
 
-    <main class="container">
         <section class="section">
             <h2 class="section-title">Research & Projects</h2>
             <div class="grid">
@@ -286,11 +371,20 @@
                     <h3 class="card-title">AI Assignment Assistant</h3>
                     <p>Led development of an AI-powered tool for automated assignment feedback. Organized expert roundtable discussions and won "Best Code" recognition.</p>
                     <div class="tech-stack">
-                        <span class="tech-badge">NLP</span>
+                        <span class="tech-badge">EdTech</span>
                         <span class="tech-badge">Vercel</span>
-                        <span class="tech-badge">Next.js</span>
+                        <span class="tech-badge">entrepreneurship</span>
                     </div>
                 </div>
+                <div class="card">
+                    <h3 class="card-title">GPT & BERT Analysis Research</h3>
+                    <p>Conducted comprehensive research on GPT-4 and BERT language models, analyzing their technical architectures, business strategies, and economic implications. Produced academic paper and presentation exploring monopolistic tendencies in AI markets.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">AI Research</span>
+                        <span class="tech-badge">LLM Analysis</span>
+                        <span class="tech-badge">Economic Analysis</span>
+                    </div>
+                </div> 
             </div>
         </section>
 
@@ -310,31 +404,32 @@
                     <h3 class="card-title">KPMG</h3>
                     <p>IT Architect (Work Study) - Spearheaded AI prototype development for SAP S/4HANA error analysis and innovation management.</p>
                     <div class="tech-stack">
-                        <span class="tech-badge">Machine Learning</span>
+                        <span class="tech-badge">Innovation Management</span>
                         <span class="tech-badge">SAP</span>
                         <span class="tech-badge">Python</span>
                     </div>
                 </div>
             </div>
         </section>
-
+    
         <section class="section">
             <h2 class="section-title">Technical Skills</h2>
             <div class="tech-stack">
                 <span class="tech-badge">PyTorch</span>
                 <span class="tech-badge">TensorFlow</span>
-                <span class="tech-badge">Computer Vision</span>
                 <span class="tech-badge">NLP</span>
                 <span class="tech-badge">MLOps</span>
                 <span class="tech-badge">Docker</span>
-                <span class="tech-badge">AWS</span>
+                <span class="tech-badge">Haystack</span>
                 <span class="tech-badge">Python</span>
-                <span class="tech-badge">JavaScript</span>
+                <span class="tech-badge">Java</span>
+                <span class="tech-badge">Scala</span>
                 <span class="tech-badge">React</span>
                 <span class="tech-badge">FastAPI</span>
                 <span class="tech-badge">scikit-learn</span>
+                <span class="tech-badge">apple programs</span>
             </div>
-        </section>
+        </section> 
     </main>
 
     <footer class="footer">
