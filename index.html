@@ -726,11 +726,13 @@
 </body>
 
 <audio id="background-music" loop>
-  <source src="Deep_Space_Brown_Noise.mp3" type="audio/mpeg">
+  <source src="Deep_Space Brown_Noise.mp3" type="audio/mpeg">
 </audio>
-<div class="audio-controls" style="position: fixed; bottom: 15px; right: 15px; z-index: 1000; background: rgba(59,130,246,0.05); padding: 4px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1);">
-  <button id="play-pause-btn" class="social-link" style="cursor: pointer; padding: 2px 4px; font-size: 0.6rem;">Play Brown Noise</button>
+
+<div class="audio-controls" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000; background: var(--card-gradient); padding: 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2);">
+  <button id="play-pause-btn" class="social-link" style="cursor: pointer; padding: 5px 10px;">Play Brown Noise</button>
 </div>
+
 <script>
   const audio = document.getElementById('background-music');
   const playPauseBtn = document.getElementById('play-pause-btn');
