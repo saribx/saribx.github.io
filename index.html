@@ -430,6 +430,39 @@
             animation: scaleIn 0.8s ease-out forwards;
         }
 
+        /* PDF embed styles */
+        .pdf-container {
+            margin-top: 20px;
+            width: 100%;
+            height: 500px;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .pdf-object {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+
+        .download-link {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 16px;
+            background: var(--gradient);
+            border-radius: 20px;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .download-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -482,8 +515,8 @@
             </p>
             <div class="metrics slide-up" style="animation-delay: 0.8s">
                 <div class="metric">
-                    <div class="metric-value">48K€</div>
-                    <p>Scholarship Grant</p>
+                    <div class="metric-value">38K+</div>
+                    <p>Euro in Scholarship Grant</p>
                 </div>
                 <div class="metric">
                     <div class="metric-value">5</div>
@@ -543,16 +576,18 @@
         <div class="card">
             <div class="education-header">
                 <h3><a href="https://www.lufthansa-industry-solutions.com/de-en/" class="social-link" target="_blank">Lufthansa Industry Solutions</a></h3>
-                <span class="year">Oct 2024 - exp. Feb 2025</span>
+                <span class="year">Oct 2024 - exp. May 2025</span>
             </div>
             <p class="degree">AI Engineer (Work Study)</p>
-            <p>Collaborated on RAG-based "Smart Assistant“ chatbot; backend development
+            <p>Collaborated on RAG-based "Smart Assistant" chatbot; backend development
                 using various technologies</p>
             <div class="education-details">
                 <div class="societies">
                     <span class="society-badge">Haystack</span>
                     <span class="society-badge">FastAPI</span>
                     <span class="society-badge">ElasticSearch</span>
+                    <span class="society-badge">AzureDevOps</span>
+
                 </div>
             </div>
         </div>
@@ -620,8 +655,6 @@
                     </a>
                 </h3>
                 <p>Developed an AI tool for ai assisted assignment correction (spelling, grammar, tone) with a small team using Vercel; Organized a podcast with industry experts, pitched product to an live audience, and won the "Best Code" prize.</p>
-                <h3 class="card-title
-                <p>Led development of an AI-powered tool for automated assignment feedback. Organized expert roundtable discussions and won "Best Code" recognition.</p>
                 <div class="tech-stack">
                     <span class="tech-badge">EdTech</span>
                     <span class="tech-badge">Vercel</span>
@@ -671,8 +704,11 @@
         <div class="ai-demo">
             <h3>Try My Latest AI Project</h3>
             <p>Coming soon: Interactive demos of my neural network visualizations</p>
-            <p>The code is opensource and available on my GitHub: https://github.com/saribx/Explainable-AI-neural-network-visualisation-tool</p>
-            <div class="tech-stack">
+            <p>The code is opensource and available on my GitHub: <a href="https://github.com/saribx/Explainable-AI-neural-network-visualisation-tool" class="social-link" target="_blank">https://github.com/saribx/Explainable-AI-neural-network-visualisation-tool</a></p>
+            
+            <h4 style="margin-top: 20px;">XAI Research Poster</h4>
+            <div class="pdf-container">
+                <object class="pdf-object" data="XAL_Poster_Sarib.pdf" type="application/pdf"></object>
             </div>
         </div>
     </div>
