@@ -706,11 +706,11 @@
         <div class="ai-demo">
             <h3>Try My Latest AI Project</h3>
             <p>Coming soon: Interactive demos of my neural network visualizations</p>
-            <p>The code is opensource and available on my GitHub: <a href="https://github.com/saribx/Explainable-AI-neural-network-visualisation-tool" class="social-link" target="_blank">https://github.com/saribx/Explainable-AI-neural-network-visualisation-tool</a></p>
+            <p>The code is Open Source and available on my GitHub: <a href="https://github.com/saribx/Explainable-AI-neural-network-visualisation-tool" class="social-link" target="_blank">https://github.com/saribx/Explainable-AI-neural-network-visualisation-tool</a></p>
             
             <h4 style="margin-top: 20px;">XAI Research Poster</h4>
             <div class="pdf-container" style="height: auto; overflow: visible;">
-                <img src="XAL_Poster_Sarib.png" alt="XAI Research Poster" style="width: 100%; border-radius: 8px;">
+                <img src="XAI_Poster_Sarib.png" alt="XAI Research Poster" style="width: 100%; border-radius: 8px;">
             </div>
         </div>
     </div>
@@ -724,4 +724,37 @@
     </div>
 </footer>
 </body>
+
+    
+<audio id="background-music" loop>
+  <source src="Deep_Space Brown_Noise.mp3" type="audio/mpeg">
+</audio>
+<div class="audio-controls" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000; background: var(--card-gradient); padding: 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2);">
+  <button id="play-pause-btn" class="social-link" style="cursor: pointer; padding: 5px 10px;">Play Music</button>
+</div>
+<script>
+  const audio = document.getElementById('background-music');
+  const playPauseBtn = document.getElementById('play-pause-btn');
+  
+  playPauseBtn.addEventListener('click', function() {
+    if (audio.paused) {
+      audio.play();
+      playPauseBtn.textContent = 'Pause Music';
+    } else {
+      audio.pause();
+      playPauseBtn.textContent = 'Play Music';
+    }
+  });
+  
+  audio.volume = 0.3;
+  const playPromise = audio.play();
+  
+  if (playPromise !== undefined) {
+    playPromise.catch(function() {
+      playPauseBtn.textContent = 'Play Music';
+    }).then(function() {
+      playPauseBtn.textContent = 'Pause Music';
+    });
+  }
+</script>
 </html>
