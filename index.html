@@ -725,48 +725,23 @@
 </footer>
 </body>
 
-    
 <audio id="background-music" loop>
   <source src="Deep_Space_Brown_Noise.mp3" type="audio/mpeg">
 </audio>
-
-<div class="audio-controls" style="position: fixed; bottom: 15px; right: 15px; z-index: 1000; background: rgba(59,130,246,0.15); padding: 8px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1);">
-  <button id="play-pause-btn" class="social-link" style="cursor: pointer; padding: 4px 8px; font-size: 0.8rem; display: flex; align-items: center;">
-    <span>Play Brown Noise</span>
-    <span id="audio-indicator" style="margin-left: 5px; display: none; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); opacity: 0.8;"></span>
-  </button>
+<div class="audio-controls" style="position: fixed; bottom: 15px; right: 15px; z-index: 1000; background: rgba(59,130,246,0.1); padding: 6px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1);">
+  <button id="play-pause-btn" class="social-link" style="cursor: pointer; padding: 3px 6px; font-size: 0.8rem;">Play Brown Noise</button>
 </div>
-
 <script>
   const audio = document.getElementById('background-music');
   const playPauseBtn = document.getElementById('play-pause-btn');
-  const audioIndicator = document.getElementById('audio-indicator');
-  
-  let animationId = null;
-  
-  function animateIndicator(timestamp) {
-    const radius = 3;
-    const speed = 0.003;
-    const x = radius * Math.cos(timestamp * speed);
-    const y = radius * Math.sin(timestamp * speed);
-    
-    audioIndicator.style.transform = `translate(${x}px, ${y}px)`;
-    animationId = requestAnimationFrame(animateIndicator);
-  }
   
   playPauseBtn.addEventListener('click', function() {
     if (audio.paused) {
       audio.play();
-      playPauseBtn.querySelector('span').textContent = 'Stop Brown Noise';
-      audioIndicator.style.display = 'block';
-      animationId = requestAnimationFrame(animateIndicator);
+      playPauseBtn.textContent = 'Pause Brown Noise';
     } else {
       audio.pause();
-      playPauseBtn.querySelector('span').textContent = 'Play Brown Noise';
-      audioIndicator.style.display = 'none';
-      if (animationId) {
-        cancelAnimationFrame(animationId);
-      }
+      playPauseBtn.textContent = 'Play Brown Noise';
     }
   });
   
@@ -775,13 +750,9 @@
   
   if (playPromise !== undefined) {
     playPromise.catch(function() {
-      playPauseBtn.querySelector('span').textContent = 'Play Brown Noise';
-      audioIndicator.style.display = 'none';
+      playPauseBtn.textContent = 'Play Brown Noise';
     }).then(function() {
-      playPauseBtn.querySelector('span').textContent = 'Stop Brown Noise';
-      audioIndicator.style.display = 'block';
-      animationId = requestAnimationFrame(animateIndicator);
+      playPauseBtn.textContent = 'Pause Brown Noise';
     });
   }
-</script>
-</html>
+</script>   
