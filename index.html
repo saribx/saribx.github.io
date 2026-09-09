@@ -6,22 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Sarib Samdani - AI Engineer and Computer Science Student">
     <title>Sarib Samdani | Personal Website</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/sf-pro-display">
     <style>
         :root {
-            --primary: #030712;
-            --secondary: rgba(17, 24, 39, 0.7);
-            --accent: #3b82f6;
-            --accent-secondary: #a855f7;
-            --text: #f8fafc;
-            --text-secondary: #94a3b8;
-            --gradient: linear-gradient(135deg, var(--accent) 0%, var(--accent-secondary) 100%);
-            --card-gradient: linear-gradient(145deg, rgba(59, 130, 246, 0.05) 0%, rgba(168, 85, 247, 0.05) 100%);
-            --glass-border: 1px solid rgba(255, 255, 255, 0.08);
-            --glass-bg: rgba(10, 15, 30, 0.5);
-            --glass-blur: blur(16px);
+            --font-display: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --font-text: 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            --primary: #070709;
+            --secondary: rgba(255, 255, 255, 0.04);
+            --accent: #ffffff;
+            --accent-secondary: #d4d4d8;
+            --text: #ffffff;
+            --text-secondary: #ffffff;
+            --gradient: linear-gradient(180deg, #ffffff 0%, #d4d4d8 100%);
+            --card-gradient: linear-gradient(145deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+            --glass-border: 1px solid rgba(255, 255, 255, 0.1);
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-blur: blur(20px);
         }
 
         * {
@@ -31,12 +31,29 @@
         }
 
         body {
-            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: var(--font-text);
             background-color: var(--primary);
             color: var(--text);
             line-height: 1.7;
             overflow-x: hidden;
             position: relative;
+        }
+
+        h1, h2, h3, h4, h5, h6,
+        .section-title,
+        .card-title,
+        .metric-value,
+        .role {
+            font-family: var(--font-display);
+            color: #ffffff;
+        }
+
+        p, span, em, a, li {
+            color: #ffffff;
+        }
+
+        button, input, textarea, select {
+            font-family: inherit;
         }
 
         /* Particle Network Background */
@@ -53,7 +70,7 @@
         input,
         textarea,
         [contenteditable] {
-            caret-color: #3B82F6;
+            caret-color: #ffffff;
         }
 
         .container {
@@ -72,7 +89,7 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
-            background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 50%);
+            background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.03) 0%, transparent 65%);
             position: relative;
             overflow: hidden;
             padding: 20px 0;
@@ -82,9 +99,9 @@
             content: '';
             position: absolute;
             inset: 0;
-            background-image: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-image: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
             background-size: 50px 50px;
-            opacity: 0.5;
+            opacity: 0.4;
             animation: drift 60s linear infinite;
             pointer-events: none;
         }
@@ -117,73 +134,200 @@
         @media (min-width: 768px) {
             .title-group {
                 flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
                 text-align: left;
-                gap: 0;
+                width: 100%;
+                gap: 2rem;
             }
 
             .title-and-role {
-                margin-right: 6rem;
+                margin-right: 0;
             }
         }
 
         .social-link {
-            color: var(--accent);
+            color: #ffffff;
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
+            opacity: 0.9;
         }
 
         .social-link:hover {
-            color: var(--accent-secondary);
+            color: #ffffff;
+            opacity: 1;
+            text-decoration: underline;
         }
 
         .gradient-text {
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            color: #ffffff;
+            background: none;
+            -webkit-text-fill-color: #ffffff;
         }
 
-        .profile-picture {
+        .avatar-container {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             width: 150px;
             height: 150px;
+            flex-shrink: 0;
             border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid transparent;
-            background: linear-gradient(var(--primary), var(--primary)), var(--gradient);
-            background-origin: border-box;
-            background-clip: content-box, border-box;
-            box-shadow: 0 0 20px rgba(139, 92, 246, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            padding: 2px;
         }
 
         @media (min-width: 768px) {
-            .profile-picture {
+            .avatar-container {
                 width: 180px;
                 height: 180px;
             }
         }
 
-        .profile-picture:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
-            padding: 6px;
+        .avatar-glow {
+            position: absolute;
+            inset: -12px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.05) 45%, transparent 70%);
+            filter: blur(12px);
+            animation: avatarBreathe 4s ease-in-out infinite alternate;
+            pointer-events: none;
+            transition: opacity 0.4s ease, filter 0.4s ease;
+        }
+
+        .avatar-outer-reticle {
+            position: absolute;
+            inset: -9px;
+            border-radius: 50%;
+            border: 1px dashed rgba(255, 255, 255, 0.25);
+            animation: reticleSpin 26s linear infinite;
+            pointer-events: none;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.5s ease;
+        }
+
+        .avatar-outer-reticle::before {
+            content: '';
+            position: absolute;
+            top: -3.5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #ffffff;
+            box-shadow: 0 0 8px #ffffff, 0 0 16px rgba(255, 255, 255, 0.8);
+        }
+
+        .avatar-outer-reticle::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.7);
+            box-shadow: 0 0 6px rgba(255, 255, 255, 0.7);
+        }
+
+        .avatar-orbit-beam {
+            position: absolute;
+            inset: -2px;
+            border-radius: 50%;
+            padding: 2.5px;
+            background: conic-gradient(from 0deg, transparent 0%, rgba(255, 255, 255, 0.05) 35%, rgba(255, 255, 255, 0.5) 70%, #ffffff 92%, #ffffff 100%);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            animation: beamOrbit 5s linear infinite;
+            filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.7));
+            pointer-events: none;
+            transition: filter 0.4s ease;
+        }
+
+        .profile-picture {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1.5px solid rgba(255, 255, 255, 0.2);
+            background: transparent;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.08);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .avatar-container:hover .profile-picture {
+            transform: scale(1.04);
+            border-color: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 0 35px rgba(255, 255, 255, 0.25);
+        }
+
+        .avatar-container:hover .avatar-orbit-beam {
+            animation-duration: 2.5s;
+            filter: drop-shadow(0 0 12px #ffffff);
+        }
+
+        .avatar-container:hover .avatar-outer-reticle {
+            transform: scale(1.06);
+            border-color: rgba(255, 255, 255, 0.45);
+        }
+
+        .avatar-container:hover .avatar-glow {
+            opacity: 0.95;
+            filter: blur(16px);
+        }
+
+        @keyframes beamOrbit {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes reticleSpin {
+            from {
+                transform: rotate(360deg);
+            }
+            to {
+                transform: rotate(0deg);
+            }
+        }
+
+        @keyframes avatarBreathe {
+            0% {
+                transform: scale(0.95);
+                opacity: 0.35;
+            }
+            50% {
+                transform: scale(1.06);
+                opacity: 0.75;
+            }
+            100% {
+                transform: scale(0.95);
+                opacity: 0.35;
+            }
         }
 
         h1 {
             font-size: clamp(2.5rem, 8vw, 5.5rem);
             line-height: 1.1;
+            color: #ffffff;
         }
 
         .role {
             font-size: clamp(1.2rem, 4vw, 2.5rem);
             opacity: 0.9;
             margin-top: 8px;
+            color: #ffffff;
         }
 
         .bio {
             font-size: 1.1rem;
-            color: var(--text-secondary);
+            color: #ffffff;
             max-width: 800px;
             margin-bottom: 40px;
             text-align: center;
@@ -193,6 +337,7 @@
             .bio {
                 font-size: 1.25rem;
                 text-align: left;
+                max-width: 100%;
             }
         }
 
@@ -201,20 +346,13 @@
             grid-template-columns: repeat(2, 1fr);
             gap: 16px;
             margin-top: 48px;
-            padding: 20px;
+            padding: 20px 16px;
             background: var(--glass-bg);
             backdrop-filter: var(--glass-blur);
             -webkit-backdrop-filter: var(--glass-blur);
             border-radius: 20px;
             border: var(--glass-border);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-        }
-
-        @media (min-width: 768px) {
-            .metrics {
-                gap: 24px;
-                padding: 32px;
-            }
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
 
         .metric {
@@ -222,17 +360,33 @@
         }
 
         .metric-value {
-            font-size: 2rem;
+            font-size: 1.6rem;
             font-weight: 700;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            color: #ffffff;
+            background: none;
+            -webkit-text-fill-color: #ffffff;
+        }
+
+        .metric p {
+            font-size: 0.82rem;
+            margin-top: 6px;
+            line-height: 1.35;
+            color: #ffffff;
         }
 
         @media (min-width: 768px) {
+            .metrics {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 20px;
+                padding: 24px 28px;
+            }
+
             .metric-value {
-                font-size: 2.5rem;
+                font-size: 1.75rem;
+            }
+
+            .metric p {
+                font-size: 0.85rem;
             }
         }
 
@@ -251,15 +405,14 @@
         .section-title {
             font-size: 2rem;
             margin-bottom: 30px;
-            background: linear-gradient(90deg, #4169E1, #ADD8E6);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            color: #ffffff;
+            background: none;
+            -webkit-text-fill-color: #ffffff;
             text-align: center;
         }
 
         .company-name {
-            color: white;
+            color: #ffffff;
             font-style: italic;
             font-weight: normal;
             margin-top: -0.5rem;
@@ -297,7 +450,8 @@
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             border: var(--glass-border);
             height: 100%;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+            color: #ffffff;
         }
 
         @media (min-width: 768px) {
@@ -308,8 +462,22 @@
 
         .card:hover {
             transform: translateY(-10px) scale(1.02);
-            border-color: rgba(168, 85, 247, 0.5);
-            box-shadow: 0 15px 40px rgba(168, 85, 247, 0.2);
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 255, 255, 0.05);
+        }
+
+        .card-title a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .card-title a:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        .card p {
+            color: #ffffff;
         }
 
         .education-header {
@@ -329,9 +497,9 @@
 
         .education-header h3 {
             font-size: 1.3rem;
-            background: linear-gradient(90deg, #64B5F6, #2196F3);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #ffffff;
+            background: none;
+            -webkit-text-fill-color: #ffffff;
         }
 
         @media (min-width: 768px) {
@@ -356,25 +524,25 @@
 
         .tech-badge,
         .society-badge {
-            background: rgba(255, 255, 255, 0.03);
+            background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(4px);
             -webkit-backdrop-filter: blur(4px);
             padding: 8px 16px;
             border-radius: 30px;
-            color: var(--text);
+            color: #ffffff;
             font-size: 0.85rem;
             font-weight: 500;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.12);
             transition: all 0.3s ease;
             text-align: center;
         }
 
         .tech-badge:hover,
         .society-badge:hover {
-            background: rgba(59, 130, 246, 0.15);
-            border-color: rgba(59, 130, 246, 0.5);
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.35);
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
         }
 
         @media (min-width: 768px) {
@@ -389,7 +557,7 @@
         .footer {
             text-align: center;
             padding: 24px 20px;
-            color: var(--text-secondary);
+            color: #ffffff;
             margin-top: 60px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             font-size: 0.9rem;
@@ -411,7 +579,7 @@
 
         .societies-title {
             margin-bottom: 1rem;
-            color: #FFFF;
+            color: #ffffff;
         }
 
         .societies {
@@ -428,7 +596,7 @@
         }
 
         .degree {
-            color: var(--text-secondary);
+            color: #ffffff;
             font-style: italic;
             margin-top: -1rem;
             /* Adjust this value as needed */
@@ -446,7 +614,8 @@
             border: var(--glass-border);
             position: relative;
             overflow: hidden;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            color: #ffffff;
         }
 
         .ai-demo::before {
@@ -456,7 +625,7 @@
             left: 0;
             right: 0;
             height: 2px;
-            background: var(--gradient);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
             animation: gradient-shift 3s linear infinite;
         }
 
@@ -514,7 +683,7 @@
             margin-top: 20px;
             width: 100%;
             height: 500px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 8px;
             overflow: hidden;
         }
@@ -529,9 +698,10 @@
             display: inline-block;
             margin-top: 10px;
             padding: 8px 16px;
-            background: var(--gradient);
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 20px;
-            color: white;
+            color: #ffffff;
             text-decoration: none;
             font-weight: 500;
             transition: all 0.3s ease;
@@ -539,7 +709,9 @@
 
         .download-link:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
         }
 
         @keyframes fadeIn {
@@ -595,8 +767,12 @@
                         <h1 class="gradient-text">Sarib Samdani</h1>
                         <div class="role">AI Engineer</div>
                     </div>
-                    <img src="profilepicture.png" alt="Profile Picture" class="profile-picture scale-in"
-                        style="animation-delay: 0.4s">
+                    <div class="avatar-container scale-in" style="animation-delay: 0.4s">
+                        <div class="avatar-glow"></div>
+                        <div class="avatar-outer-reticle"></div>
+                        <div class="avatar-orbit-beam"></div>
+                        <img src="profilepicture.png" alt="Profile Picture" class="profile-picture">
+                    </div>
                 </div>
                 <p class="bio slide-up" style="animation-delay: 0.6s">
                     Having recently completed my B.Sc. in Computer Science and Business, I'm now diving into my Master's
@@ -607,6 +783,8 @@
                     Driven by a global perspective, I regularly explore international tech ecosystems across regions
                     like China, Hong Kong, and the UAE to study how they build and deploy cutting-edge AI systems and
                     robotics firsthand.
+                    To keep challenging myself, I regularly compete in hackathons to test my skills under pressure and
+                    build real projects from scratch.
                     With a vision of one day stepping responsibly into a leadership role, I am focused on developing the
                     expertise and experience needed to make meaningful contributions in the fields of AI. <br><br>
                     Currently, I'm building AI Solutions in a variety of projects/startups, taking full ownership, all
@@ -624,19 +802,19 @@
 
                     <div class="metric">
                         <div class="metric-value">15+</div>
-                        <p>AI Projects🏗️</p>
+                        <p>AI Projects 🏗️</p>
                     </div>
                     <div class="metric">
                         <div class="metric-value">20+</div>
-                        <p>Countries visited🌏</p>
+                        <p>Countries visited 🌍</p>
                     </div>
                     <div class="metric">
                         <div class="metric-value">50+</div>
-                        <p>AI-related events attended in person💺</p>
+                        <p>AI-related events attended in person 💺</p>
                     </div>
                     <div class="metric">
                         <div class="metric-value">22</div>
-                        <p>Years old, based in Berlin🇩🇪</p>
+                        <p>Years old, based in Berlin 🇩🇪</p>
                     </div>
                 </div>
             </div>
@@ -715,17 +893,17 @@
 
                 <div class="card">
                     <h3 class="card-title">
-                        <a href="https://www.tu.berlin/en/" class="social-link" target="_blank">Potentials and
-                            challenges of ChatGPT and BERT</a>
+                        <a href="https://berlinaufdieeins.de" class="social-link" target="_blank">Berlin Citizen
+                            Fund</a>
                     </h3>
-                    <p class="company-name"><em>TU Berlin</em></p>
-                    <p>Conducted comprehensive research for an academic paper and poster on GPT-4 and BERT language
-                        models, analyzing their technical architectures, business strategies, and economic implications.
-                    </p>
+                    <p class="company-name"><em>Berlin Auf Die Eins (BAD1)</em></p>
+                    <p>Hackathon winner: designed a taxpayer-funded, vote-driven startup investment platform for Berlin,
+                        enabling democratic capital allocation to early-stage founders; pitched to the mayor of Berlin
+                        and other politicians.</p>
                     <div class="tech-stack">
-                        <span class="tech-badge">AI Research</span>
-                        <span class="tech-badge">LLM Analysis</span>
-                        <span class="tech-badge">Economic Analysis</span>
+                        <span class="tech-badge">CivicTech</span>
+                        <span class="tech-badge">FinTech</span>
+                        <span class="tech-badge">GovTech</span>
                     </div>
                 </div>
 
@@ -859,7 +1037,7 @@
 <div class="audio-controls"
     style="position: fixed; bottom: 30px; right: 30px; z-index: 1000; background: var(--glass-bg); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); padding: 12px 24px; border-radius: 30px; border: var(--glass-border); box-shadow: 0 8px 32px rgba(0,0,0,0.3); transition: transform 0.3s ease;">
     <button id="play-pause-btn"
-        style="cursor: pointer; background: transparent; border: none; color: var(--text); font-family: 'Outfit', -apple-system, sans-serif; font-size: 1rem; font-weight: 500; display: flex; align-items: center; gap: 8px;">
+        style="cursor: pointer; background: transparent; border: none; color: var(--text); font-family: var(--font-text); font-size: 1rem; font-weight: 500; display: flex; align-items: center; gap: 8px;">
         <span class="icon">🎧</span> <span id="btn-text">Play Brown Noise</span>
     </button>
 </div>
@@ -908,7 +1086,7 @@
         draw() {
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-            ctx.fillStyle = 'rgba(59, 130, 246, 0.5)';
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.35)';
             ctx.fill();
         }
     }
@@ -931,7 +1109,7 @@
 
                 if (distance < maxDistance) {
                     ctx.beginPath();
-                    ctx.strokeStyle = `rgba(168, 85, 247, ${1 - distance / maxDistance})`;
+                    ctx.strokeStyle = `rgba(255, 255, 255, ${(1 - distance / maxDistance) * 0.18})`;
                     ctx.lineWidth = 1;
                     ctx.moveTo(particles[i].x, particles[i].y);
                     ctx.lineTo(particles[j].x, particles[j].y);
@@ -945,8 +1123,8 @@
                 const distance = Math.sqrt(dx * dx + dy * dy);
                 if (distance < maxDistance) {
                     ctx.beginPath();
-                    ctx.strokeStyle = `rgba(59, 130, 246, ${1 - distance / maxDistance})`;
-                    ctx.lineWidth = 1.5;
+                    ctx.strokeStyle = `rgba(255, 255, 255, ${(1 - distance / maxDistance) * 0.35})`;
+                    ctx.lineWidth = 1.2;
                     ctx.moveTo(particles[i].x, particles[i].y);
                     ctx.lineTo(mouse.x, mouse.y);
                     ctx.stroke();
@@ -965,11 +1143,11 @@
 
     audioControls.addEventListener('mouseover', () => {
         audioControls.style.transform = 'scale(1.05)';
-        audioControls.style.borderColor = 'var(--accent)';
+        audioControls.style.borderColor = 'rgba(255, 255, 255, 0.35)';
     });
     audioControls.addEventListener('mouseout', () => {
         audioControls.style.transform = 'scale(1)';
-        audioControls.style.borderColor = 'rgba(255,255,255,0.08)';
+        audioControls.style.borderColor = 'rgba(255, 255, 255, 0.12)';
     });
 
     playPauseBtn.addEventListener('click', function () {
