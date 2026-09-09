@@ -39,7 +39,12 @@
             position: relative;
         }
 
-        h1, h2, h3, h4, h5, h6,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
         .section-title,
         .card-title,
         .metric-value,
@@ -48,11 +53,18 @@
             color: #ffffff;
         }
 
-        p, span, em, a, li {
+        p,
+        span,
+        em,
+        a,
+        li {
             color: #ffffff;
         }
 
-        button, input, textarea, select {
+        button,
+        input,
+        textarea,
+        select {
             font-family: inherit;
         }
 
@@ -283,6 +295,7 @@
             from {
                 transform: rotate(0deg);
             }
+
             to {
                 transform: rotate(360deg);
             }
@@ -292,6 +305,7 @@
             from {
                 transform: rotate(360deg);
             }
+
             to {
                 transform: rotate(0deg);
             }
@@ -302,10 +316,12 @@
                 transform: scale(0.95);
                 opacity: 0.35;
             }
+
             50% {
                 transform: scale(1.06);
                 opacity: 0.75;
             }
+
             100% {
                 transform: scale(0.95);
                 opacity: 0.35;
@@ -1025,7 +1041,7 @@
     <footer class="footer">
         <div class="container">
             <p>© 2026 Sarib Samdani, this page was created after an energizing شاورما break🌯</p>
-            <p><em>Last updated: 08.09.2026</em></p>
+            <p><em>Last updated: 09.09.2026</em></p>
         </div>
     </footer>
 </body>
@@ -1043,7 +1059,7 @@
 </div>
 
 <script>
-    // Particle Network Animation Logic
+    // Luminous Responsive Particle Network (Atmospheric, Edge-Rich & Balanced Speed)
     const canvas = document.getElementById('bg-canvas');
     const ctx = canvas.getContext('2d');
 
@@ -1051,86 +1067,246 @@
     let height = canvas.height = window.innerHeight;
 
     let particles = [];
-    const particleCount = 80;
-    const maxDistance = 150;
+    const mouse = { x: null, y: null, active: false };
 
-    const mouse = { x: null, y: null };
+    function getSettings() {
+        const isMobile = window.innerWidth < 768;
+        if (isMobile) {
+            return {
+                // Balanced mobile count with healthy edge presence
+                count: Math.max(18, Math.min(24, Math.floor((width * height) / 24000))),
+                maxDistance: 100,
+                speedMultiplier: 0.42,
+                mouseRadius: 90
+            };
+        } else {
+            // Well-populated desktop count with rich margin coverage
+            return {
+                count: Math.max(48, Math.min(62, Math.floor((width * height) / 25000))),
+                maxDistance: 145,
+                speedMultiplier: 0.52,
+                mouseRadius: 150
+            };
+        }
+    }
 
-    window.addEventListener('mousemove', (e) => {
-        mouse.x = e.x;
-        mouse.y = e.y;
-    });
-
-    window.addEventListener('resize', () => {
-        width = canvas.width = window.innerWidth;
-        height = canvas.height = window.innerHeight;
-    });
+    let settings = getSettings();
 
     class Particle {
-        constructor() {
-            this.x = Math.random() * width;
-            this.y = Math.random() * height;
-            this.vx = (Math.random() - 0.5) * 1;
-            this.vy = (Math.random() - 0.5) * 1;
-            this.radius = Math.random() * 2 + 1;
+        constructor(isEdge = false) {
+            this.init(isEdge);
+        }
+
+        init(forceEdge = false) {
+            // Guarantee rich presence at margins and outer edges (especially desktop sides)
+            if (forceEdge || Math.random() < 0.48) {
+                const side = Math.floor(Math.random() * 4);
+                if (side === 0) {
+                    // Left margin (0% to 22% width)
+                    this.x = Math.random() * (width * 0.22);
+                    this.y = Math.random() * height;
+                } else if (side === 1) {
+                    // Right margin (78% to 100% width)
+                    this.x = width * 0.78 + Math.random() * (width * 0.22);
+                    this.y = Math.random() * height;
+                } else if (side === 2) {
+                    // Top margin (0% to 20% height)
+                    this.x = Math.random() * width;
+                    this.y = Math.random() * (height * 0.20);
+                } else {
+                    // Bottom margin (80% to 100% height)
+                    this.x = Math.random() * width;
+                    this.y = height * 0.80 + Math.random() * (height * 0.20);
+                }
+            } else {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+            }
+
+            // Balanced speed: exact sweet spot between fast and sluggish
+            const speed = (Math.random() * 0.36 + 0.18) * settings.speedMultiplier;
+            const angle = Math.random() * Math.PI * 2;
+            this.vx = Math.cos(angle) * speed;
+            this.vy = Math.sin(angle) * speed;
+            this.baseRadius = Math.random() * 1.2 + 0.9;
+            this.pulseSpeed = Math.random() * 0.015 + 0.008;
+            this.pulsePhase = Math.random() * Math.PI * 2;
+            this.isHighlight = Math.random() > 0.65;
         }
 
         update() {
             this.x += this.vx;
             this.y += this.vy;
+            this.pulsePhase += this.pulseSpeed;
 
-            if (this.x < 0 || this.x > width) this.vx = -this.vx;
-            if (this.y < 0 || this.y > height) this.vy = -this.vy;
+            // Wide wrap margin so edge nodes linger naturally without popping
+            if (this.x < -25) this.x = width + 25;
+            else if (this.x > width + 25) this.x = -25;
+            if (this.y < -25) this.y = height + 25;
+            else if (this.y > height + 25) this.y = -25;
         }
 
         draw() {
+            const pulse = (Math.sin(this.pulsePhase) + 1) * 0.5;
+            const alpha = (0.32 + pulse * 0.24) * (this.isHighlight ? 1.25 : 0.92);
+            const currentRadius = this.baseRadius * (1 + pulse * 0.22);
+            const glowRadius = this.isHighlight ? currentRadius * 4.8 : currentRadius * 3.4;
+
+            // Soft outer starlight halo
+            const grad = ctx.createRadialGradient(
+                this.x, this.y, 0,
+                this.x, this.y, glowRadius
+            );
+            grad.addColorStop(0, `rgba(255, 255, 255, ${0.45 * alpha})`);
+            grad.addColorStop(0.35, `rgba(255, 255, 255, ${0.14 * alpha})`);
+            grad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+
             ctx.beginPath();
-            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-            ctx.fillStyle = 'rgba(255, 255, 255, 0.35)';
+            ctx.arc(this.x, this.y, glowRadius, 0, Math.PI * 2);
+            ctx.fillStyle = grad;
             ctx.fill();
+
+            // Delicate glowing core node
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, currentRadius * 0.8, 0, Math.PI * 2);
+            ctx.shadowBlur = this.isHighlight ? 8 : 4;
+            ctx.shadowColor = 'rgba(255, 255, 255, 0.45)';
+            ctx.fillStyle = `rgba(255, 255, 255, ${alpha * 0.9})`;
+            ctx.fill();
+            ctx.shadowBlur = 0;
         }
     }
 
-    for (let i = 0; i < particleCount; i++) {
-        particles.push(new Particle());
+    function initParticles() {
+        settings = getSettings();
+        particles = [];
+        const count = settings.count;
+        for (let i = 0; i < count; i++) {
+            particles.push(new Particle(i < Math.floor(count * 0.48)));
+        }
     }
+
+    initParticles();
+
+    window.addEventListener('resize', () => {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+        initParticles();
+    });
+
+    window.addEventListener('mousemove', (e) => {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+        mouse.active = true;
+    });
+
+    window.addEventListener('mouseleave', () => {
+        mouse.active = false;
+        mouse.x = null;
+        mouse.y = null;
+    });
+
+    window.addEventListener('touchstart', (e) => {
+        if (e.touches && e.touches.length > 0) {
+            mouse.x = e.touches[0].clientX;
+            mouse.y = e.touches[0].clientY;
+            mouse.active = true;
+        }
+    }, { passive: true });
+
+    window.addEventListener('touchmove', (e) => {
+        if (e.touches && e.touches.length > 0) {
+            mouse.x = e.touches[0].clientX;
+            mouse.y = e.touches[0].clientY;
+            mouse.active = true;
+        }
+    }, { passive: true });
+
+    window.addEventListener('touchend', () => {
+        mouse.active = false;
+        mouse.x = null;
+        mouse.y = null;
+    });
 
     function animate() {
         ctx.clearRect(0, 0, width, height);
 
+        const maxDist = settings.maxDistance;
+        const maxDistSq = maxDist * maxDist;
+
+        // Draw glowing connections
         for (let i = 0; i < particles.length; i++) {
             particles[i].update();
-            particles[i].draw();
 
-            for (let j = i; j < particles.length; j++) {
+            for (let j = i + 1; j < particles.length; j++) {
                 const dx = particles[i].x - particles[j].x;
                 const dy = particles[i].y - particles[j].y;
-                const distance = Math.sqrt(dx * dx + dy * dy);
+                const distSq = dx * dx + dy * dy;
 
-                if (distance < maxDistance) {
+                if (distSq < maxDistSq) {
+                    const dist = Math.sqrt(distSq);
+                    const ratio = 1 - dist / maxDist;
+                    const baseAlpha = Math.pow(ratio, 1.4) * 0.16;
+
+                    // Pass 1: Soft glowing bloom halo for the line
                     ctx.beginPath();
-                    ctx.strokeStyle = `rgba(255, 255, 255, ${(1 - distance / maxDistance) * 0.18})`;
-                    ctx.lineWidth = 1;
+                    ctx.strokeStyle = `rgba(255, 255, 255, ${baseAlpha * 0.35})`;
+                    ctx.lineWidth = ratio > 0.6 ? 2.4 : 1.8;
+                    ctx.shadowBlur = 4;
+                    ctx.shadowColor = 'rgba(255, 255, 255, 0.3)';
+                    ctx.moveTo(particles[i].x, particles[i].y);
+                    ctx.lineTo(particles[j].x, particles[j].y);
+                    ctx.stroke();
+
+                    // Pass 2: Clean luminous inner line core
+                    ctx.beginPath();
+                    ctx.strokeStyle = `rgba(255, 255, 255, ${baseAlpha})`;
+                    ctx.lineWidth = ratio > 0.6 ? 0.9 : 0.65;
+                    ctx.shadowBlur = 0;
                     ctx.moveTo(particles[i].x, particles[i].y);
                     ctx.lineTo(particles[j].x, particles[j].y);
                     ctx.stroke();
                 }
             }
 
-            if (mouse.x != null && mouse.y != null) {
+            // Mouse / Touch interaction glowing beam
+            if (mouse.active && mouse.x != null && mouse.y != null) {
                 const dx = particles[i].x - mouse.x;
                 const dy = particles[i].y - mouse.y;
-                const distance = Math.sqrt(dx * dx + dy * dy);
-                if (distance < maxDistance) {
+                const distSq = dx * dx + dy * dy;
+                const mouseRadSq = settings.mouseRadius * settings.mouseRadius;
+
+                if (distSq < mouseRadSq) {
+                    const dist = Math.sqrt(distSq);
+                    const ratio = 1 - dist / settings.mouseRadius;
+                    const beamAlpha = Math.pow(ratio, 1.2) * 0.38;
+
+                    // Glowing interactive beam pass
                     ctx.beginPath();
-                    ctx.strokeStyle = `rgba(255, 255, 255, ${(1 - distance / maxDistance) * 0.35})`;
-                    ctx.lineWidth = 1.2;
+                    ctx.strokeStyle = `rgba(255, 255, 255, ${beamAlpha * 0.4})`;
+                    ctx.lineWidth = 2.6;
+                    ctx.shadowBlur = 5;
+                    ctx.shadowColor = 'rgba(255, 255, 255, 0.45)';
+                    ctx.moveTo(particles[i].x, particles[i].y);
+                    ctx.lineTo(mouse.x, mouse.y);
+                    ctx.stroke();
+
+                    ctx.beginPath();
+                    ctx.strokeStyle = `rgba(255, 255, 255, ${beamAlpha})`;
+                    ctx.lineWidth = 1.0;
+                    ctx.shadowBlur = 0;
                     ctx.moveTo(particles[i].x, particles[i].y);
                     ctx.lineTo(mouse.x, mouse.y);
                     ctx.stroke();
                 }
             }
         }
+
+        // Draw particles on top of glowing lines
+        for (let i = 0; i < particles.length; i++) {
+            particles[i].draw();
+        }
+
         requestAnimationFrame(animate);
     }
     animate();
