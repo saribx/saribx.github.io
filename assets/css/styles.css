@@ -381,7 +381,7 @@ h1 {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
-    margin-top: 48px;
+    margin-top: 28px;
     padding: 22px 18px;
     background: var(--glass-bg);
     backdrop-filter: var(--glass-blur);
@@ -483,14 +483,14 @@ h1 {
 }
 
 .section {
-    margin-top: 30px;
-    padding: 20px 0;
+    margin-top: 18px;
+    padding: 12px 0;
 }
 
 @media (min-width: 768px) {
     .section {
-        margin-top: 10px;
-        padding: 40px 0;
+        margin-top: 8px;
+        padding: 20px 0;
     }
 }
 
@@ -520,7 +520,7 @@ h1 {
 }
 
 .research-section {
-    padding-top: 12px;
+    padding-top: 4px;
 }
 
 .research-shell {
@@ -684,7 +684,7 @@ h1 {
 .research-detail-title {
     font-size: clamp(1.9rem, 2.7vw, 3.2rem);
     line-height: 1.02;
-    letter-spacing: -0.06em;
+    letter-spacing: -0.02em;
     color: #ffffff;
     font-weight: 500;
     margin-bottom: 18px;
@@ -925,16 +925,16 @@ h1 {
 
 .footer {
     text-align: center;
-    padding: 24px 20px;
+    padding: 20px 20px 24px;
     color: #ffffff;
-    margin-top: 60px;
+    margin-top: 26px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     font-size: 0.72rem;
 }
 
 @media (min-width: 768px) {
     .footer {
-        margin-top: 80px;
+        margin-top: 32px;
         font-size: 0.82rem;
     }
 }

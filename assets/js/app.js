@@ -486,10 +486,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnText = document.getElementById('btn-text');
     const audioControls = document.querySelector('.audio-controls');
     const AudioCtx = window.AudioContext || window.webkitAudioContext;
-    const audioContext = AudioCtx ? new AudioCtx() : null;
+    let audioContext = null;
     let brownNoiseNode = null;
     let brownGainNode = null;
     let isPlayingBrownNoise = false;
+
+    function ensureAudioContext() {
+        if (!AudioCtx) {
+            return null;
+        }
+
+        if (!audioContext || audioContext.state === 'closed') {
+            audioContext = new AudioCtx();
+        }
+
+        return audioContext;
+    }
 
     function createBrownNoiseBuffer(context) {
         const buffer = context.createBuffer(1, context.sampleRate * 2, context.sampleRate);
@@ -499,19 +511,20 @@ document.addEventListener('DOMContentLoaded', () => {
         for (let i = 0; i < channelData.length; i++) {
             const white = Math.random() * 2 - 1;
             lastOut = (lastOut + 0.02 * white) / 1.02;
-            channelData[i] = lastOut * 0.25;
+            channelData[i] = lastOut * 0.9;
         }
 
         return buffer;
     }
 
     function startBrownNoise() {
-        if (!audioContext) {
+        const context = ensureAudioContext();
+        if (!context) {
             return;
         }
 
-        if (audioContext.state === 'suspended') {
-            audioContext.resume();
+        if (context.state === 'suspended') {
+            context.resume();
         }
 
         if (brownNoiseNode) {
@@ -519,21 +532,21 @@ document.addEventListener('DOMContentLoaded', () => {
             brownNoiseNode.disconnect();
         }
 
-        const source = audioContext.createBufferSource();
-        source.buffer = createBrownNoiseBuffer(audioContext);
+        const source = context.createBufferSource();
+        source.buffer = createBrownNoiseBuffer(context);
         source.loop = true;
 
-        const filter = audioContext.createBiquadFilter();
+        const filter = context.createBiquadFilter();
         filter.type = 'lowpass';
-        filter.frequency.value = 180;
-        filter.Q.value = 0.5;
+        filter.frequency.value = 220;
+        filter.Q.value = 0.9;
 
-        const gain = audioContext.createGain();
-        gain.gain.value = 0.09;
+        const gain = context.createGain();
+        gain.gain.value = 0.5;
 
         source.connect(filter);
         filter.connect(gain);
-        gain.connect(audioContext.destination);
+        gain.connect(context.destination);
         source.start();
 
         brownNoiseNode = source;
@@ -570,12 +583,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (playPauseBtn) {
         playPauseBtn.addEventListener('click', async () => {
-            if (!audioContext) {
+            const context = ensureAudioContext();
+            if (!context) {
                 btnText.textContent = 'Audio unsupported';
                 return;
             }
 
             try {
+                await context.resume();
+
                 if (isPlayingBrownNoise) {
                     stopBrownNoise();
                     btnText.textContent = 'Play Brown Noise';
