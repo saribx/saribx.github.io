@@ -1,4 +1,196 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const allProjects = [
+        {
+            id: 'robotics-x-computer-vision',
+            title: 'Robotics x Computer Vision',
+            meta: 'Robots · Vision · Systems',
+            date: '2026',
+            summary: 'Containerized perception stack for robots using WebRTC, computer vision, and structured scene understanding.',
+            content: [
+                'This project explores how robots can perceive and reason over dynamic environments in real time. The system ingests live video streams and converts them into structured metadata such as object detections, spatial relationships, and estimated distance cues.',
+                'The focus was on building a practical, portable stack that works even under constrained hardware and fragmented edge environments. I designed it to be containerized, modular, and easy to test in real-world deployments.',
+                'The work sits at the intersection of machine perception, robotics systems engineering, and product design. It gave me a strong understanding of how model outputs translate into operational decisions in the physical world.'
+            ]
+        },
+        {
+            id: 'berlin-citizen-fund',
+            title: 'Berlin Citizen Fund',
+            meta: 'CivicTech · Finance · GovTech',
+            date: '2026',
+            summary: 'Democratic, taxpayer-funded startup investment platform concept for Berlin.',
+            content: [
+                'This project looked at how public funding could become more transparent, participatory, and community-driven. The concept was a civic investment platform that allowed citizens to contribute to local startup decisions in a structured way.',
+                'The challenge was to connect democratic values with entrepreneurial funding. I focused on designing a system that could support public accountability while still being practical enough for early-stage innovation ecosystems.',
+                'The work strengthened my interest in AI, governance, and public-interest technology—especially where digital systems can improve participation, trust, and inclusive decision-making.'
+            ]
+        },
+        {
+            id: 'neural-network-visualization-platform',
+            title: 'Neural Network Visualization Platform',
+            meta: 'XAI · PyTorch · Research',
+            date: '2025',
+            summary: 'Interactive explainability tooling for model inspection and neuron-level understanding using PyTorch and D3.',
+            content: [
+                'I built an interactive platform to make neural network behavior more interpretable for non-experts and researchers alike. The system visualizes model activations, edge behavior, and feature-level patterns in ways that are easier to reason about than raw parameter tables.',
+                'The project centered on the idea that explainability should be usable, not just theoretical. By combining an interactive front end with model introspection, I was able to make the inner workings of a network more legible and better suited for research communication.',
+                'This work also fed directly into my interest in building human-centered AI systems: when users understand the model, their trust and decision-making become much more grounded.'
+            ]
+        },
+        {
+            id: 'smart-kitchen-ai-system',
+            title: 'Smart Kitchen AI System',
+            meta: 'IoT · AI · UX',
+            date: '2025',
+            summary: 'Voice-enabled grocery intelligence platform with expiry tracking, recommendations, and edge deployment logic.',
+            content: [
+                'This project explored how AI and everyday domestic tools could create a more seamless, intelligent living environment. I built a grocery-assistant concept that combined object detection, inventory tracking, and conversational AI to support decision-making in the kitchen.',
+                'The system integrated voice interaction, recommendation logic, and recipe generation based on what was available. The broad aim was to reduce friction in routine tasks while still keeping the experience natural and human-centered.',
+                'It was a compelling example of how AI systems can become useful when they sit directly inside a real context rather than in an abstract tool-only interface.'
+            ]
+        },
+        {
+            id: 'ai-assistant',
+            title: 'AI Assistant',
+            meta: 'LLMs · RAG · Product',
+            date: '2025',
+            summary: 'Real-time AI assistant powered by video input, retrieval infrastructure, and enterprise knowledge access.',
+            content: [
+                'This hackathon project focused on building a fast, useful AI assistant for real-world knowledge work. The system combined multimodal input, retrieval pipelines, and user guidance to help navigate large amounts of reference material in real time.',
+                'What made the project interesting was the pressure to move from rough concept to working product under a very short timeline. That forced clarity around the problem definition, information flow, and user value.',
+                'It was a strong example of how lightweight product engineering and AI orchestration can create highly useful tools when they are built around the actual usage context.'
+            ]
+        },
+        {
+            id: 'ai-calling-chat-agent',
+            title: 'AI Calling & Chat Agent',
+            meta: 'Voice · Automation · Support',
+            date: '2025',
+            summary: 'Automation platform for customer support tasks using voice, chat, and workflow orchestration.',
+            content: [
+                'The idea behind this project was to automate repetitive support workflows without losing the human feel of customer interaction. I designed a system that could handle inbound queries, schedule actions, and support chat-based communication at scale.',
+                'The project brought together workflow automation, AI conversation design, and business-process thinking. It highlighted to me how much value can be created when AI is embedded into operational systems rather than used as a isolated interface feature.',
+                'I was especially interested in the balance between convenience and trust—making automation useful without removing transparency or human judgment where it matters.'
+            ]
+        },
+        {
+            id: 'bachelors-thesis',
+            title: "Bachelor's Thesis",
+            meta: 'Forecasting · Research · Time Series',
+            date: '2025',
+            summary: 'Transformer-based forecasting for groundwater level prediction across distributed monitoring stations.',
+            content: [
+                'My bachelor thesis focused on applying deep learning to a real multivariate time series forecasting task. The project involved analyzing distributed environmental data and testing whether transformer-based models could capture the complex temporal dynamics of groundwater levels.',
+                'I was particularly interested in the gap between model performance and real-world interpretability. Forecasting tasks are often judged purely by metrics, but I wanted to understand the spatiotemporal structure behind the results as well.',
+                'The project strengthened both my technical confidence and my research instincts, especially in the translation of abstract methods into meaningful applied analysis.'
+            ]
+        },
+        {
+            id: 'plant-disease-classification',
+            title: 'Plant Disease Classification',
+            meta: 'Deep Learning · CV · Agriculture',
+            date: '2024',
+            summary: 'CNN-based image classification for early plant disease identification and evaluation under real-world data conditions.',
+            content: [
+                'This project focused on the challenge of using computer vision to detect plant diseases from image data. The approach combined model experimentation with careful evaluation of preprocessing steps, augmentation pipelines, and class imbalance handling.',
+                'I worked through multiple model iterations to understand how architecture choices affect performance in agricultural contexts, where data and labeling quality can vary considerably. The goal was not only to build a working classifier, but to document the reasoning behind the design decisions.',
+                'This project reinforced my appreciation for applied ML: the technical quality of a model matters, but so does the clarity of how it was built, tested, and interpreted.'
+            ]
+        },
+        {
+            id: 'ai-assignment-assistant',
+            title: 'AI Assignment Assistant',
+            meta: 'EdTech · UX · Product',
+            date: '2024',
+            summary: 'AI-powered assignment support tool for spelling, grammar, tone, and educational feedback.',
+            content: [
+                'This project explored how AI can support learning in a practical and constructive way. The assistant was designed to help with structure, spelling, tone, and clarity without replacing the learner’s agency in the process.',
+                'The core insight was that educational tools work best when they are warm, specific, and context-sensitive. It was less about producing polished output and more about helping students improve through actionable feedback.',
+                'This project also sharpened my interest in building AI products that are useful outside of purely technical audiences and that genuinely support human growth.'
+            ]
+        }
+    ];
+
+    const projects = allProjects.filter((project) => project.id !== 'bachelors-thesis');
+    const researchItems = allProjects.filter((project) => project.id === 'bachelors-thesis');
+
+    const researchNav = document.getElementById('research-nav');
+    const researchDetail = document.getElementById('research-detail');
+    let activeProjectId = projects[0].id;
+
+    function renderResearchNavigation() {
+        if (!researchNav) return;
+
+        const navSections = [
+            { label: 'Projects', items: projects },
+            { label: 'Research', items: researchItems }
+        ];
+
+        researchNav.innerHTML = navSections.map((section) => {
+            const sectionItems = section.items.map((project) => {
+                const isActive = project.id === activeProjectId;
+                return `
+                    <button class="research-item ${isActive ? 'is-active' : ''}" type="button" data-project-id="${project.id}" aria-pressed="${isActive}">
+                        <span class="research-item-header">
+                            <span class="research-item-title">${project.title}</span>
+                        </span>
+                        <span class="research-item-meta">${project.meta}</span>
+                    </button>
+                `;
+            }).join('');
+
+            return `
+                <div class="research-nav-section">
+                    <div class="research-nav-label">${section.label}</div>
+                    <div class="research-nav-group">${sectionItems}</div>
+                </div>
+            `;
+        }).join('');
+
+        researchNav.querySelectorAll('.research-item').forEach((button) => {
+            button.addEventListener('click', () => {
+                activeProjectId = button.dataset.projectId;
+                renderResearchNavigation();
+                renderResearchDetail();
+            });
+        });
+    }
+
+    function renderResearchDetail() {
+        if (!researchDetail) return;
+
+        const project = [...projects, ...researchItems].find((item) => item.id === activeProjectId) || projects[0];
+
+        researchDetail.innerHTML = `
+            <article class="research-detail-card">
+                <div class="research-detail-header">
+                    <div class="research-detail-title-group">
+                        <span class="research-date">${project.date}</span>
+                        <h2 class="research-detail-title">${project.title}</h2>
+                        <div class="research-tags">
+                            ${project.meta.split('·').map((tag) => `<span class="research-tag">${tag.trim()}</span>`).join('')}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="research-detail-body">
+                    ${project.content.map((paragraph) => `
+                        <p>${paragraph}</p>
+                    `).join('')}
+                </div>
+            </article>
+        `;
+
+        const card = researchDetail.querySelector('.research-detail-card');
+        if (card) {
+            card.classList.remove('research-animate-in');
+            void card.offsetWidth;
+            card.classList.add('research-animate-in');
+        }
+    }
+
+    renderResearchNavigation();
+    renderResearchDetail();
+
     const canvas = document.getElementById('bg-canvas');
     const ctx = canvas.getContext('2d');
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
