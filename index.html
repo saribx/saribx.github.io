@@ -18,10 +18,12 @@
             --text: #ffffff;
             --text-secondary: #ffffff;
             --gradient: linear-gradient(180deg, #ffffff 0%, #d4d4d8 100%);
-            --card-gradient: linear-gradient(145deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
-            --glass-border: 1px solid rgba(255, 255, 255, 0.1);
-            --glass-bg: rgba(255, 255, 255, 0.03);
-            --glass-blur: blur(20px);
+            --glass-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.10) 0%, rgba(255, 255, 255, 0.035) 45%, rgba(255, 255, 255, 0.02) 100%);
+            --glass-bg-strong: linear-gradient(135deg, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0.05) 55%, rgba(255, 255, 255, 0.025) 100%);
+            --glass-border: 1px solid rgba(255, 255, 255, 0.18);
+            --glass-shadow: 0 14px 36px rgba(0, 0, 0, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.22), inset 0 -1px 0 rgba(255, 255, 255, 0.03);
+            --glass-blur: blur(14px) saturate(150%);
+            --glass-blur-strong: blur(18px) saturate(170%);
         }
 
         * {
@@ -358,17 +360,71 @@
         }
 
         .metrics {
+            position: relative;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 16px;
             margin-top: 48px;
-            padding: 20px 16px;
+            padding: 22px 18px;
             background: var(--glass-bg);
             backdrop-filter: var(--glass-blur);
             -webkit-backdrop-filter: var(--glass-blur);
-            border-radius: 20px;
+            border-radius: 24px;
             border: var(--glass-border);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            box-shadow: var(--glass-shadow);
+            overflow: hidden;
+            transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
+            isolation: isolate;
+        }
+
+        .metrics::before,
+        .card::before,
+        .ai-demo::before,
+        .tech-badge::before,
+        .download-link::before,
+        .audio-controls::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(120deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.02) 28%, rgba(255, 255, 255, 0.08) 45%, rgba(255, 255, 255, 0.02) 60%, rgba(255, 255, 255, 0.12) 100%);
+            border-radius: inherit;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.8;
+        }
+
+        .metrics::after,
+        .card::after,
+        .ai-demo::after,
+        .tech-badge::after,
+        .download-link::after,
+        .audio-controls::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 10%;
+            right: 10%;
+            height: 1px;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0));
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .metrics>*,
+        .card>*,
+        .ai-demo>*,
+        .tech-badge,
+        .download-link,
+        .audio-controls>* {
+            position: relative;
+            z-index: 1;
+        }
+
+        .metrics:hover {
+            border-color: rgba(255, 255, 255, 0.22);
+            transform: translateY(-1px);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.28), inset 0 -1px 0 rgba(255, 255, 255, 0.04);
+            background: var(--glass-bg-strong);
         }
 
         .metric {
@@ -458,16 +514,18 @@
         }
 
         .card {
+            position: relative;
             background: var(--glass-bg);
             backdrop-filter: var(--glass-blur);
             -webkit-backdrop-filter: var(--glass-blur);
-            border-radius: 20px;
+            border-radius: 22px;
             padding: 24px;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
             border: var(--glass-border);
             height: 100%;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+            box-shadow: var(--glass-shadow);
             color: #ffffff;
+            isolation: isolate;
         }
 
         @media (min-width: 768px) {
@@ -477,9 +535,10 @@
         }
 
         .card:hover {
-            transform: translateY(-10px) scale(1.02);
-            border-color: rgba(255, 255, 255, 0.3);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 255, 255, 0.05);
+            transform: translateY(-4px);
+            border-color: rgba(255, 255, 255, 0.24);
+            background: var(--glass-bg-strong);
+            box-shadow: 0 18px 38px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.25), inset 0 -1px 0 rgba(255, 255, 255, 0.04);
         }
 
         .card-title a {
@@ -540,25 +599,29 @@
 
         .tech-badge,
         .society-badge {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(4px);
-            -webkit-backdrop-filter: blur(4px);
+            position: relative;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+            backdrop-filter: blur(10px) saturate(130%);
+            -webkit-backdrop-filter: blur(10px) saturate(130%);
             padding: 8px 16px;
-            border-radius: 30px;
+            border-radius: 999px;
             color: #ffffff;
             font-size: 0.85rem;
             font-weight: 500;
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
             text-align: center;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18), 0 10px 22px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            isolation: isolate;
         }
 
         .tech-badge:hover,
         .society-badge:hover {
-            background: rgba(255, 255, 255, 0.12);
-            border-color: rgba(255, 255, 255, 0.35);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.05));
+            border-color: rgba(255, 255, 255, 0.22);
+            transform: translateY(-1px);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 12px 22px rgba(0, 0, 0, 0.12);
         }
 
         @media (min-width: 768px) {
@@ -621,17 +684,18 @@
         }
 
         .ai-demo {
+            position: relative;
             background: var(--glass-bg);
-            backdrop-filter: var(--glass-blur);
-            -webkit-backdrop-filter: var(--glass-blur);
+            backdrop-filter: var(--glass-blur-strong);
+            -webkit-backdrop-filter: var(--glass-blur-strong);
             border-radius: 24px;
             padding: 32px;
             margin-top: 40px;
             border: var(--glass-border);
-            position: relative;
             overflow: hidden;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            box-shadow: var(--glass-shadow);
             color: #ffffff;
+            isolation: isolate;
         }
 
         .ai-demo::before {
@@ -641,8 +705,8 @@
             left: 0;
             right: 0;
             height: 2px;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            animation: gradient-shift 3s linear infinite;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.75), transparent);
+            opacity: 0.9;
         }
 
         @keyframes gradient-shift {
@@ -711,23 +775,27 @@
         }
 
         .download-link {
+            position: relative;
             display: inline-block;
             margin-top: 10px;
             padding: 8px 16px;
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 20px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.10), rgba(255, 255, 255, 0.04));
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 999px;
             color: #ffffff;
             text-decoration: none;
             font-weight: 500;
-            transition: all 0.3s ease;
+            transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18), 0 10px 22px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            isolation: isolate;
         }
 
         .download-link:hover {
-            transform: translateY(-2px);
-            background: rgba(255, 255, 255, 0.15);
-            border-color: rgba(255, 255, 255, 0.4);
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+            transform: translateY(-1px);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.07));
+            border-color: rgba(255, 255, 255, 0.26);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 12px 26px rgba(0, 0, 0, 0.12);
         }
 
         @keyframes fadeIn {
@@ -1051,7 +1119,7 @@
 </audio>
 
 <div class="audio-controls"
-    style="position: fixed; bottom: 30px; right: 30px; z-index: 1000; background: var(--glass-bg); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); padding: 12px 24px; border-radius: 30px; border: var(--glass-border); box-shadow: 0 8px 32px rgba(0,0,0,0.3); transition: transform 0.3s ease;">
+    style="position: fixed; bottom: 30px; right: 30px; z-index: 1000; background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.03)); backdrop-filter: blur(14px) saturate(140%); -webkit-backdrop-filter: blur(14px) saturate(140%); padding: 12px 24px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.18); box-shadow: inset 0 1px 0 rgba(255,255,255,0.22), 0 10px 22px rgba(0,0,0,0.12); transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; position: relative;">
     <button id="play-pause-btn"
         style="cursor: pointer; background: transparent; border: none; color: var(--text); font-family: var(--font-text); font-size: 1rem; font-weight: 500; display: flex; align-items: center; gap: 8px;">
         <span class="icon">🎧</span> <span id="btn-text">Play Brown Noise</span>
