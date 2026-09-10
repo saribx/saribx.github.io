@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
             date: '2026',
             summary: 'Democratic, taxpayer-funded startup investment platform concept for Berlin.',
             content: [
-                `I pitched a plan that could put an extra 190M€ a year into Berlin's startups to 
+                `I pitched a plan that could put an extra 190M€ a year into Berlin's startups to
                 Berlin's Mayor, policymakers, politicians, and the city's startup community.`,
                 {
                     image: 'assets/img/projects/berlin-citizen-fund/bad1_groupphoto.jpeg',
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     image: 'assets/img/projects/berlin-citizen-fund/bad1_present1.jpg',
                     caption: 'Pitching the Berliner Bürgerfonds on stage at The Delta Campus.'
                 },
-                `The idea won a track at the hackathon. You can see the plattform in this 
+                `The idea won a track at the hackathon. You can see the plattform in this
                 <a class="research-link" href="https://www.loom.com/share/14585aa36ecf4a6da3caebbbd57b90c3" target="_blank" rel="noopener">Video</a>.`,
                 {
                     image: 'assets/img/projects/berlin-citizen-fund/bad1_present2.PNG',
@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
             date: '2025',
             summary: 'Real-time, Flutter-based video assistant that recognizes what the camera sees and answers by voice, grounded in thousands of manuals via RAG.',
             content: [
-                `Won 1st place at the Google × BLISS Hackathon in Berlin with my team SatMeUp, 
+                `Won 1st place at the Google × BLISS Hackathon in Berlin with my team SatMeUp,
                 building a real-time, video-based AI assistant for TechniSat in one day.`,
                 {
                     image: 'assets/img/projects/ai-assistant/googlehack_teampic.jpeg',
@@ -124,6 +124,41 @@ document.addEventListener('DOMContentLoaded', () => {
                         {
                             label: 'Hackathon Aftermovie',
                             url: 'https://www.youtube.com/watch?v=_woI7QnVlcY'
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            id: 'desktop-ai-assistant-dramalabs',
+            title: 'Desktop AI Assistant',
+            company: 'DramaLabs',
+            meta: 'Electron · Desktop · Productivity',
+            date: '2026',
+            summary: 'An AI powered desktop companion for Mac, Windows, and Linux, free to try and built to boost daily productivity.',
+            content: [
+                `Some of the best products start with the right partner rather than the
+                right spec. I found someone with a genuine talent for taking a rough idea and
+                shaping it into something people would actually want, refining the concept,
+                designing the UX and UI, and driving marketing and direction. Together, with a small
+                team that joined us along the way, we built DramaLabs, an AI powered desktop companion built in Electron.`,
+                {
+                    image: 'assets/img/projects/desktop-ai-assistant-dramalabs/team_call.png',
+                    caption: 'The DramaLabs team, mid call <3: Woundioun, Sapar, Nisa, and me.',
+                    fit: 'full'
+                },
+                `It started as something we needed ourselves, a way to cut the daily friction
+                out of how a computer is supposed to help you work. Once we felt how much it
+                changed our own routine, it was clear the idea could hold up for a lot more
+                people than just us.`,
+                `DramaLabs is live for Mac, Windows, and Linux. It is free to try, with a
+                pricing model for anyone who wants more credits once they are hooked. More on
+                how it works, and what is next, is coming soon.`,
+                {
+                    media: [
+                        {
+                            label: 'DramaLabs',
+                            url: 'https://dramalabs.co/'
                         }
                     ]
                 }
@@ -271,58 +306,6 @@ document.addEventListener('DOMContentLoaded', () => {
             ]
         },
         {
-            id: 'smart-kitchen-ai-system',
-            title: 'Smart Kitchen AI System',
-            company: 'TU Berlin × ZEKI, Centre for Tangible AI',
-            meta: 'Computer Vision · Voice AI · Embedded Systems',
-            date: '2025',
-            summary: 'A physical kitchen at TU Berlin fitted with cameras, a voice assistant, and a web app that tracks groceries, flags expiry, and turns whatever is on the shelf into a recipe.',
-            content: [
-                `An office kitchen shared by thirty people loses its overview fast: nobody
-                remembers who bought the milk, how old the leftovers are, or what is even
-                still in the cabinet. At TU Berlin's ZEKI, Centre for Tangible Artificial
-                Intelligence, my team and I built a kitchen that keeps that overview for you,
-                and puts it on your phone, so you can stand in the supermarket and check
-                what's already at home before buying it twice.`,
-                {
-                    image: 'assets/img/projects/smart-kitchen/smartkitchen_overview.jpg',
-                    caption: 'The ZEKI Smart Kitchen: a cabinet camera, the Luna voice assistant, and a table camera running live object detection on a tomato and a lemon.',
-                    fit: 'full'
-                },
-                `A table camera and a cabinet camera log every item that enters or leaves,
-                Luna the voice assistant reads back the inventory or shopping list hands
-                free, and the website turns whatever is in stock into a recipe. Five of us
-                split the build by layer, Emil and Simla on the cameras and voice intents,
-                Linus and Anton on the frontend, recipes, and barcode scanning, and I
-                coordinated the team and tied the pieces into one working system.`,
-                {
-                    image: 'assets/img/projects/smart-kitchen/smartkitchen_inventory_screen.png',
-                    caption: 'The inventory view: every item color coded by how close it is to its expiry date.',
-                    fit: 'full'
-                },
-                `GPT-4o handles the object detection, replacing an earlier YOLO model once we
-                needed real categorization and quantity estimates, not just bounding boxes.
-                The cabinet camera runs on a VL53L0X distance sensor to tell when something
-                was actually placed inside. Vue and Python carry the app, Arduino runs the
-                microcontrollers, and PyzBar decodes barcodes for bulk grocery imports.`,
-                `It is a working prototype, not a finished product. Wider camera coverage,
-                letting Luna add items by voice, and weighing quantities instead of
-                estimating them are the clear next steps.`,
-                {
-                    media: [
-                        {
-                            label: 'Project Page',
-                            url: 'https://ze-ki.de/ss_anwendungen/'
-                        },
-                        {
-                            label: 'Centre for Tangible AI',
-                            url: 'https://ze-ki.de/en/eng/'
-                        }
-                    ]
-                }
-            ]
-        },
-        {
             id: 'ai-calling-chat-agent',
             title: 'AI Calling & Chat Agent',
             company: '{Tech:Europe} Hackathon',
@@ -373,59 +356,52 @@ document.addEventListener('DOMContentLoaded', () => {
             ]
         },
         {
-            id: 'bachelors-thesis',
-            title: "Bachelor's Thesis",
-            company: 'TU Berlin, Artificial Intelligence and Land Use Change',
-            meta: 'Groundwater · Transformer · Time Series',
+            id: 'smart-kitchen-ai-system',
+            title: 'Smart Kitchen AI System',
+            company: 'TU Berlin × ZEKI, Centre for Tangible AI',
+            meta: 'Computer Vision · Voice AI · Embedded Systems',
             date: '2025',
-            summary: 'Transformer-based forecasting for groundwater level prediction across 238 monitoring stations in Brandenburg, comparing four architectures and two training strategies.',
+            summary: 'A physical kitchen at TU Berlin fitted with cameras, a voice assistant, and a web app that tracks groceries, flags expiry, and turns whatever is on the shelf into a recipe.',
             content: [
-                `<em>Transformer-based Multivariate Time Series Forecasting: Groundwater Level
-                Prediction across distributed monitoring stations in Brandenburg, Germany</em>`,
-                `Brandenburg is one of Germany's driest regions, and its groundwater has been
-                declining for decades. The models used to forecast it, like MODFLOW, are
-                scientifically solid but slow to build: each site needs months of calibration
-                and a hydrogeologist to run it. My thesis asked whether a modern transformer,
-                the architecture behind most of today's language models, could forecast
-                groundwater levels well enough to complement that approach, and whether it
-                could do so without the huge datasets transformers are usually assumed to need.`,
-                `Using weekly data from 238 monitoring stations across Brandenburg (1990 to
-                2024), I compared four implementations: a vanilla Transformer trained
-                separately for each station, the same vanilla Transformer trained once across
-                all stations, and two specialised time series architectures, Autoformer and
-                PatchTST, both trained globally. Every model shared the same preprocessing,
-                regularisation, and hyperparameter search, so the comparison came down to the
-                architecture and training strategy alone.`,
+                `An office kitchen shared by thirty people loses its overview fast: nobody
+                remembers who bought the milk, how old the leftovers are, or what is even
+                still in the cabinet. At TU Berlin's ZEKI, Centre for Tangible Artificial
+                Intelligence, my team and I built a kitchen that keeps that overview for you,
+                and puts it on your phone, so you can stand in the supermarket and check
+                what's already at home before buying it twice.`,
                 {
-                    image: 'assets/img/research/bachelor-thesis/station_30370039_comparison.png',
-                    caption: 'Prediction comparison for station 30370039 (1 out of 238) across all four transformer implementations with error distributions.',
+                    image: 'assets/img/projects/smart-kitchen/smartkitchen_overview.jpg',
+                    caption: 'The ZEKI Smart Kitchen: a cabinet camera, the Luna voice assistant, and a table camera running live object detection on a tomato and a lemon.',
                     fit: 'full'
                 },
-                `The result ran against what I expected going in. The Transformer trained
-                separately per station reached an NSE of 0.70, well ahead of every globally
-                trained model, which ranged from 0.18 to 0.44, despite the common assumption
-                that transformers need large aggregated datasets to perform well. Among the
-                global models, PatchTST, which splits each sequence into patches rather than
-                attending over every timestep, was consistently the strongest and the fastest
-                to train. Autoformer, whose design leans on frequency domain decomposition,
-                came in last across every metric, likely because its assumptions about clean
-                trend and seasonal separation do not hold well against Brandenburg's irregular
-                recharge patterns.`,
+                `A table camera and a cabinet camera log every item that enters or leaves,
+                Luna the voice assistant reads back the inventory or shopping list hands
+                free, and the website turns whatever is in stock into a recipe. Five of us
+                split the build by layer, Emil and Simla on the cameras and voice intents,
+                Linus and Anton on the frontend, recipes, and barcode scanning, and I
+                coordinated the team and tied the pieces into one working system.`,
                 {
-                    image: 'assets/img/research/bachelor-thesis/results_summary.png',
-                    caption: 'Summary of mean evaluation metrics and runtime across all four architectures, aggregated over all 238 stations.',
+                    image: 'assets/img/projects/smart-kitchen/smartkitchen_inventory_screen.png',
+                    caption: 'The inventory view: every item color coded by how close it is to its expiry date.',
                     fit: 'full'
                 },
-                `Taken together, the findings suggest that a well implemented, standard PyTorch
-                Transformer, trained per station rather than globally, can be a practical,
-                accessible alternative to resource-intensive physically based groundwater
-                models, without requiring the massive datasets or specialised hydrogeological
-                expertise those models demand.`,
+                `GPT-4o handles the object detection, replacing an earlier YOLO model once we
+                needed real categorization and quantity estimates, not just bounding boxes.
+                The cabinet camera runs on a VL53L0X distance sensor to tell when something
+                was actually placed inside. Vue and Python carry the app, Arduino runs the
+                microcontrollers, and PyzBar decodes barcodes for bulk grocery imports.`,
+                `It is a working prototype, not a finished product. Wider camera coverage,
+                letting Luna add items by voice, and weighing quantities instead of
+                estimating them are the clear next steps.`,
                 {
                     media: [
                         {
-                            label: 'GitLab Repository',
-                            url: 'https://git.tu-berlin.de/ground-water-modelling/bb_transformer_models'
+                            label: 'Project Page',
+                            url: 'https://ze-ki.de/ss_anwendungen/'
+                        },
+                        {
+                            label: 'Centre for Tangible AI',
+                            url: 'https://ze-ki.de/en/eng/'
                         }
                     ]
                 }
@@ -507,41 +483,6 @@ document.addEventListener('DOMContentLoaded', () => {
             ]
         },
         {
-            id: 'desktop-ai-assistant-dramalabs',
-            title: 'Desktop AI Assistant',
-            company: 'DramaLabs',
-            meta: 'Electron · Desktop · Productivity',
-            date: '2026',
-            summary: 'An AI powered desktop companion for Mac, Windows, and Linux, free to try and built to boost daily productivity.',
-            content: [
-                `Some of the best products start with the right partner rather than the
-                right spec. I found someone with a genuine talent for taking a rough idea and
-                shaping it into something people would actually want, refining the concept,
-                designing the UX and UI, and driving marketing and direction. Together, with a small
-                team that joined us along the way, we built DramaLabs, an AI powered desktop companion built in Electron.`,
-                {
-                    image: 'assets/img/projects/desktop-ai-assistant-dramalabs/team_call.png',
-                    caption: 'The DramaLabs team, mid call <3: Woundioun, Sapar, Nisa, and me.',
-                    fit: 'full'
-                },
-                `It started as something we needed ourselves, a way to cut the daily friction
-                out of how a computer is supposed to help you work. Once we felt how much it
-                changed our own routine, it was clear the idea could hold up for a lot more
-                people than just us.`,
-                `DramaLabs is live for Mac, Windows, and Linux. It is free to try, with a
-                pricing model for anyone who wants more credits once they are hooked. More on
-                how it works, and what is next, is coming soon.`,
-                {
-                    media: [
-                        {
-                            label: 'DramaLabs',
-                            url: 'https://dramalabs.co/'
-                        }
-                    ]
-                }
-            ]
-        },
-        {
             id: 'ai-assignment-assistant',
             title: 'AI Assignment Assistant',
             company: 'Designing Education Project Lab',
@@ -569,6 +510,65 @@ document.addEventListener('DOMContentLoaded', () => {
                         {
                             label: 'Podcast: Future of Education',
                             url: 'https://music.amazon.com/podcasts/fcce9fa7-8194-4498-9805-6074a8e963af/future-of-education'
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            id: 'bachelors-thesis',
+            title: "Bachelor's Thesis",
+            company: 'TU Berlin, Artificial Intelligence and Land Use Change',
+            meta: 'Groundwater · Transformer · Time Series',
+            date: '2025',
+            summary: 'Transformer-based forecasting for groundwater level prediction across 238 monitoring stations in Brandenburg, comparing four architectures and two training strategies.',
+            content: [
+                `<em>Transformer-based Multivariate Time Series Forecasting: Groundwater Level
+                Prediction across distributed monitoring stations in Brandenburg, Germany</em>`,
+                `Brandenburg is one of Germany's driest regions, and its groundwater has been
+                declining for decades. The models used to forecast it, like MODFLOW, are
+                scientifically solid but slow to build: each site needs months of calibration
+                and a hydrogeologist to run it. My thesis asked whether a modern transformer,
+                the architecture behind most of today's language models, could forecast
+                groundwater levels well enough to complement that approach, and whether it
+                could do so without the huge datasets transformers are usually assumed to need.`,
+                `Using weekly data from 238 monitoring stations across Brandenburg (1990 to
+                2024), I compared four implementations: a vanilla Transformer trained
+                separately for each station, the same vanilla Transformer trained once across
+                all stations, and two specialised time series architectures, Autoformer and
+                PatchTST, both trained globally. Every model shared the same preprocessing,
+                regularisation, and hyperparameter search, so the comparison came down to the
+                architecture and training strategy alone.`,
+                {
+                    image: 'assets/img/research/bachelor-thesis/station_30370039_comparison.png',
+                    caption: 'Prediction comparison for station 30370039 (1 out of 238) across all four transformer implementations with error distributions.',
+                    fit: 'full'
+                },
+                `The result ran against what I expected going in. The Transformer trained
+                separately per station reached an NSE of 0.70, well ahead of every globally
+                trained model, which ranged from 0.18 to 0.44, despite the common assumption
+                that transformers need large aggregated datasets to perform well. Among the
+                global models, PatchTST, which splits each sequence into patches rather than
+                attending over every timestep, was consistently the strongest and the fastest
+                to train. Autoformer, whose design leans on frequency domain decomposition,
+                came in last across every metric, likely because its assumptions about clean
+                trend and seasonal separation do not hold well against Brandenburg's irregular
+                recharge patterns.`,
+                {
+                    image: 'assets/img/research/bachelor-thesis/results_summary.png',
+                    caption: 'Summary of mean evaluation metrics and runtime across all four architectures, aggregated over all 238 stations.',
+                    fit: 'full'
+                },
+                `Taken together, the findings suggest that a well implemented, standard PyTorch
+                Transformer, trained per station rather than globally, can be a practical,
+                accessible alternative to resource-intensive physically based groundwater
+                models, without requiring the massive datasets or specialised hydrogeological
+                expertise those models demand.`,
+                {
+                    media: [
+                        {
+                            label: 'GitLab Repository',
+                            url: 'https://git.tu-berlin.de/ground-water-modelling/bb_transformer_models'
                         }
                     ]
                 }
