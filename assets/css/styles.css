@@ -105,13 +105,18 @@ textarea,
 }
 
 .header {
-    min-height: 100vh;
     display: flex;
     align-items: center;
     background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.03) 0%, transparent 65%);
     position: relative;
     overflow: hidden;
-    padding: 20px 0;
+    padding: 100px 0 40px;
+}
+
+@media (min-width: 768px) {
+    .header {
+        padding: 60px 0 40px;
+    }
 }
 
 .header::after {
@@ -637,6 +642,13 @@ h1 {
     font-weight: 600;
     letter-spacing: -0.02em;
     color: rgba(255, 255, 255, 0.96);
+}
+
+.research-item-company {
+    font-size: 0.65rem;
+    letter-spacing: 0.06em;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.6);
 }
 
 .research-item-meta {

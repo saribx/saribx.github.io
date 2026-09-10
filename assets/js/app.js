@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             id: 'robotics-x-computer-vision',
             title: 'Robotics x Computer Vision',
+            company: 'T-Systems, Telekom',
             meta: 'Robots · Vision · Systems',
             date: '2026',
             summary: 'Containerized perception stack for robots using WebRTC, computer vision, and structured scene understanding.',
@@ -14,7 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             id: 'berlin-citizen-fund',
-            title: 'Berlin Citizen Fund',
+            title: 'Berlin Citizen Fund (Hackathon win)',
+            company: 'Berlin Auf Die Eins, BAD1',
             meta: 'CivicTech · Finance · GovTech',
             date: '2026',
             summary: 'Democratic, taxpayer-funded startup investment platform concept for Berlin.',
@@ -25,8 +27,22 @@ document.addEventListener('DOMContentLoaded', () => {
             ]
         },
         {
+            id: 'ai-assistant',
+            title: 'AI Video Assistant (Hackathon win)',
+            company: 'Google x BLISS ',
+            meta: 'LLMs · RAG · Product',
+            date: '2025',
+            summary: 'Real-time AI assistant powered by video input, retrieval infrastructure, and enterprise knowledge access.',
+            content: [
+                'This hackathon project focused on building a fast, useful AI assistant for real-world knowledge work. The system combined multimodal input, retrieval pipelines, and user guidance to help navigate large amounts of reference material in real time.',
+                'What made the project interesting was the pressure to move from rough concept to working product under a very short timeline. That forced clarity around the problem definition, information flow, and user value.',
+                'It was a strong example of how lightweight product engineering and AI orchestration can create highly useful tools when they are built around the actual usage context.'
+            ]
+        },
+        {
             id: 'neural-network-visualization-platform',
             title: 'Neural Network Visualization Platform',
+            company: 'Quality in Artificial Intelligence Labs',
             meta: 'XAI · PyTorch · Research',
             date: '2025',
             summary: 'Interactive explainability tooling for model inspection and neuron-level understanding using PyTorch and D3.',
@@ -39,6 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             id: 'smart-kitchen-ai-system',
             title: 'Smart Kitchen AI System',
+            company: 'Centre for tangible artificial intelligence',
             meta: 'IoT · AI · UX',
             date: '2025',
             summary: 'Voice-enabled grocery intelligence platform with expiry tracking, recommendations, and edge deployment logic.',
@@ -49,20 +66,9 @@ document.addEventListener('DOMContentLoaded', () => {
             ]
         },
         {
-            id: 'ai-assistant',
-            title: 'AI Assistant',
-            meta: 'LLMs · RAG · Product',
-            date: '2025',
-            summary: 'Real-time AI assistant powered by video input, retrieval infrastructure, and enterprise knowledge access.',
-            content: [
-                'This hackathon project focused on building a fast, useful AI assistant for real-world knowledge work. The system combined multimodal input, retrieval pipelines, and user guidance to help navigate large amounts of reference material in real time.',
-                'What made the project interesting was the pressure to move from rough concept to working product under a very short timeline. That forced clarity around the problem definition, information flow, and user value.',
-                'It was a strong example of how lightweight product engineering and AI orchestration can create highly useful tools when they are built around the actual usage context.'
-            ]
-        },
-        {
             id: 'ai-calling-chat-agent',
             title: 'AI Calling & Chat Agent',
+            company: '{Tech:Europe} Hackathon',
             meta: 'Voice · Automation · Support',
             date: '2025',
             summary: 'Automation platform for customer support tasks using voice, chat, and workflow orchestration.',
@@ -75,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             id: 'bachelors-thesis',
             title: "Bachelor's Thesis",
-            meta: 'Forecasting · Research · Time Series',
+            meta: 'Groundwater · Transformer · Time Series',
             date: '2025',
             summary: 'Transformer-based forecasting for groundwater level prediction across distributed monitoring stations.',
             content: [
@@ -87,6 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             id: 'plant-disease-classification',
             title: 'Plant Disease Classification',
+            company: 'Name',
             meta: 'Deep Learning · CV · Agriculture',
             date: '2024',
             summary: 'CNN-based image classification for early plant disease identification and evaluation under real-world data conditions.',
@@ -99,7 +106,8 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             id: 'ai-assignment-assistant',
             title: 'AI Assignment Assistant',
-            meta: 'EdTech · UX · Product',
+            company: 'Designing Education Project Lab',
+            meta: 'EdTech · Vercel · Product',
             date: '2024',
             summary: 'AI-powered assignment support tool for spelling, grammar, tone, and educational feedback.',
             content: [
@@ -133,6 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <span class="research-item-header">
                             <span class="research-item-title">${project.title}</span>
                         </span>
+                        ${project.company ? `<span class="research-item-company">${project.company}</span>` : ''}
                         <span class="research-item-meta">${project.meta}</span>
                     </button>
                 `;
