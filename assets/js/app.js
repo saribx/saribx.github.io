@@ -255,6 +255,11 @@ document.addEventListener('DOMContentLoaded', () => {
             date: '2025',
             summary: 'Open source, interactive platform for visualizing uploaded PyTorch models, with per neuron activation histograms and weight mappings built with PyTorch and D3.js.',
             content: [
+                {
+                    image: 'assets/img/projects/neural-network-visualization-platform/screen_composite.jpg',
+                    caption: 'Presenting the Explainable AI poster at TU Berlin\'s Quality in Artificial Intelligence Labs.',
+                    fit: 'full'
+                },
                 `A neural network can be 99% accurate and still be a black box nobody is allowed
                 to trust with someone's diagnosis. At TU Berlin's Quality in
                 Artificial Intelligence Labs, I built a tool that opens that box: an interactive
@@ -350,7 +355,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 each one took.`,
                 {
                     image: 'assets/img/projects/ai-calling-chat-agent/dashboard.png',
-                    caption: 'The SmartDent dashboard: 342 hours of staff time saved this month, a 74% completion rate, and live status across bot, telephony, calendar, and messaging.',
+                    caption: 'The SmartDent dashboard: hours of staff time saved this month, a completion rate, and live status across bot, telephony, calendar, and messaging.',
                     fit: 'full'
                 }
             ]
@@ -581,7 +586,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const researchNav = document.getElementById('research-nav');
     const researchDetail = document.getElementById('research-detail');
-    let activeProjectId = projects[0].id;
+    const mobileNavQuery = window.matchMedia('(max-width: 899px)');
+    let activeProjectId = mobileNavQuery.matches ? null : projects[0].id;
 
     function renderResearchNavigation() {
         if (!researchNav) return;
@@ -594,10 +600,13 @@ document.addEventListener('DOMContentLoaded', () => {
         researchNav.innerHTML = navSections.map((section) => {
             const sectionItems = section.items.map((project) => {
                 const isActive = project.id === activeProjectId;
+                const isHint = mobileNavQuery.matches && !activeProjectId
+                    && section.label === 'Projects' && project.id === projects[0].id;
                 return `
                     <button class="research-item ${isActive ? 'is-active' : ''}" type="button" data-project-id="${project.id}" aria-pressed="${isActive}">
                         <span class="research-item-header">
                             <span class="research-item-title">${project.title}</span>
+                            <span class="research-item-toggle${isHint ? ' research-item-toggle--hint' : ''}" aria-hidden="true"></span>
                         </span>
                         ${project.company ? `<span class="research-item-company">${project.company}</span>` : ''}
                         <span class="research-item-meta">${project.meta}</span>
@@ -615,7 +624,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         researchNav.querySelectorAll('.research-item').forEach((button) => {
             button.addEventListener('click', () => {
-                activeProjectId = button.dataset.projectId;
+                const clickedId = button.dataset.projectId;
+                const isClosing = mobileNavQuery.matches && activeProjectId === clickedId;
+                activeProjectId = isClosing ? null : clickedId;
                 renderResearchNavigation();
                 renderResearchDetail();
             });
@@ -636,11 +647,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return mediaIcons.generic;
     }
 
-    function renderResearchDetail() {
-        if (!researchDetail) return;
-
-        const project = [...projects, ...researchItems].find((item) => item.id === activeProjectId) || projects[0];
-
+    function buildDetailArticleHTML(project) {
         const renderBlock = (block) => {
             if (typeof block === 'string') {
                 return `<p>${block}</p>`;
@@ -671,7 +678,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return '';
         };
 
-        researchDetail.innerHTML = `
+        return `
             <article class="research-detail-card">
                 <div class="research-detail-header">
                     <div class="research-detail-title-group">
@@ -688,14 +695,53 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             </article>
         `;
+    }
 
-        const card = researchDetail.querySelector('.research-detail-card');
+    function animateDetailCard(container) {
+        const card = container.querySelector('.research-detail-card');
         if (card) {
             card.classList.remove('research-animate-in');
             void card.offsetWidth;
             card.classList.add('research-animate-in');
         }
     }
+
+    function updateMobileAccordion(project) {
+        const existingPanel = document.getElementById('research-mobile-detail');
+
+        if (!mobileNavQuery.matches || !project) {
+            if (existingPanel) existingPanel.remove();
+            return;
+        }
+
+        const activeButton = researchNav.querySelector('.research-item.is-active');
+        if (!activeButton) return;
+
+        const panel = existingPanel || document.createElement('div');
+        panel.id = 'research-mobile-detail';
+        panel.className = 'research-mobile-detail';
+        panel.innerHTML = buildDetailArticleHTML(project);
+        activeButton.insertAdjacentElement('afterend', panel);
+        animateDetailCard(panel);
+    }
+
+    function renderResearchDetail() {
+        if (!researchDetail) return;
+
+        const project = [...projects, ...researchItems].find((item) => item.id === activeProjectId) || projects[0];
+
+        researchDetail.innerHTML = buildDetailArticleHTML(project);
+        animateDetailCard(researchDetail);
+        updateMobileAccordion(activeProjectId ? project : null);
+    }
+
+    mobileNavQuery.addEventListener('change', (event) => {
+        if (!event.matches && !activeProjectId) {
+            activeProjectId = projects[0].id;
+        }
+        renderResearchNavigation();
+        renderResearchDetail();
+    });
 
     renderResearchNavigation();
     renderResearchDetail();

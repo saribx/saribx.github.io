@@ -663,6 +663,47 @@ h1 {
     color: rgba(255, 255, 255, 0.96);
 }
 
+.research-item-toggle {
+    width: 7px;
+    height: 7px;
+    flex-shrink: 0;
+    border-right: 1.5px solid rgba(255, 255, 255, 0.45);
+    border-bottom: 1.5px solid rgba(255, 255, 255, 0.45);
+    transform: rotate(45deg);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.research-item.is-active .research-item-toggle {
+    transform: rotate(-135deg);
+    border-color: rgba(255, 255, 255, 0.8);
+}
+
+.research-item-toggle--hint {
+    animation: researchToggleHint 1.3s ease-in-out infinite;
+}
+
+@keyframes researchToggleHint {
+
+    0%,
+    100% {
+        transform: rotate(45deg) translate(0, 0);
+        opacity: 0.5;
+        border-color: rgba(255, 255, 255, 0.45);
+    }
+
+    50% {
+        transform: rotate(45deg) translate(2px, 2px);
+        opacity: 1;
+        border-color: rgba(255, 255, 255, 0.85);
+    }
+}
+
+@media (min-width: 900px) {
+    .research-item-toggle {
+        display: none;
+    }
+}
+
 .research-item-company {
     font-size: 0.65rem;
     letter-spacing: 0.06em;
@@ -870,9 +911,26 @@ h1 {
 }
 
 @media (max-width: 899px) {
-    .research-nav {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    .research-content {
+        display: none;
+    }
+
+    .research-mobile-detail {
+        margin: 6px 0 16px;
+        padding: 14px 14px 6px;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+    }
+
+    .research-mobile-detail .research-detail-card {
+        padding-top: 0;
+    }
+}
+
+@media (min-width: 900px) {
+    .research-mobile-detail {
+        display: none !important;
     }
 }
 
