@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="rgba(255,255,255,0.55)" />
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1200" height="600" fill="#0b0b0e" />
+
+  <!-- sparkle glyph reused for Gemini boxes -->
+  <g id="sparkle-def"></g>
+
+  <!-- App -->
+  <rect x="60" y="70" width="190" height="80" rx="12" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.22)" stroke-width="1.5" />
+  <text x="155" y="105" font-size="15" font-weight="600" fill="#f5f5f7" text-anchor="middle">App</text>
+  <text x="155" y="124" font-size="10.5" fill="rgba(255,255,255,0.55)" text-anchor="middle">Flutter · live camera feed</text>
+
+  <!-- Gemini Live (hub) -->
+  <rect x="320" y="55" width="240" height="110" rx="14" fill="rgba(255,255,255,0.075)" stroke="rgba(255,255,255,0.4)" stroke-width="1.8" />
+  <path d="M345,100 L349,110 L359,114 L349,118 L345,128 L341,118 L331,114 L341,110 Z" fill="#f5f5f7" />
+  <text x="450" y="106" font-size="16" font-weight="600" fill="#f5f5f7" text-anchor="middle">Gemini Live</text>
+  <text x="450" y="125" font-size="10.5" fill="rgba(255,255,255,0.6)" text-anchor="middle">watches the feed in real time</text>
+
+  <!-- Prompt Generation -->
+  <rect x="630" y="70" width="220" height="80" rx="12" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.22)" stroke-width="1.5" />
+  <path d="M655,102 L658,110 L666,113 L658,116 L655,124 L652,116 L644,113 L652,110 Z" fill="rgba(255,255,255,0.75)" />
+  <text x="750" y="106" font-size="14" font-weight="600" fill="#f5f5f7" text-anchor="middle">Prompt Generation</text>
+  <text x="750" y="124" font-size="10.5" fill="rgba(255,255,255,0.55)" text-anchor="middle">turns the frame into a query</text>
+
+  <!-- Response -->
+  <rect x="320" y="210" width="240" height="80" rx="12" fill="rgba(255,255,255,0.045)" stroke="rgba(255,255,255,0.24)" stroke-width="1.5" />
+  <text x="440" y="245" font-size="14" font-weight="600" fill="#f5f5f7" text-anchor="middle">Response</text>
+  <text x="440" y="263" font-size="10.5" fill="rgba(255,255,255,0.55)" text-anchor="middle">grounded, spoken back to the user</text>
+
+  <!-- Vector Search -->
+  <rect x="630" y="210" width="220" height="80" rx="12" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.22)" stroke-width="1.5" />
+  <text x="740" y="245" font-size="14" font-weight="600" fill="#f5f5f7" text-anchor="middle">Vector Search</text>
+  <text x="740" y="263" font-size="10.5" fill="rgba(255,255,255,0.55)" text-anchor="middle">nearest manual passages</text>
+
+  <!-- Arrows: main loop -->
+  <line x1="250" y1="105" x2="317" y2="105" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" marker-end="url(#arrow2)" />
+  <line x1="560" y1="105" x2="627" y2="105" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" marker-end="url(#arrow2)" />
+  <line x1="740" y1="151" x2="740" y2="207" stroke="rgba(255,255,255,0.45)" stroke-width="1.5" marker-end="url(#arrow2)" />
+  <text x="752" y="182" font-size="10.5" fill="rgba(255,255,255,0.55)">prompt</text>
+  <line x1="628" y1="250" x2="562" y2="250" stroke="rgba(255,255,255,0.45)" stroke-width="1.5" marker-end="url(#arrow2)" />
+  <text x="565" y="205" font-size="10.5" fill="rgba(255,255,255,0.55)">passages</text>
+  <line x1="440" y1="208" x2="440" y2="167" stroke="rgba(255,255,255,0.45)" stroke-width="1.5" marker-end="url(#arrow2)" />
+  <text x="452" y="192" font-size="10.5" fill="rgba(255,255,255,0.55)">grounds reply</text>
+
+  <!-- spoken response loop back into the app -->
+  <path d="M400,55 C 400,18 155,18 155,68" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="1.3" stroke-dasharray="3 4" marker-end="url(#arrow2)" />
+  <text x="200" y="30" font-size="10.5" fill="rgba(255,255,255,0.5)">spoken response, played through the app</text>
+
+  <!-- Preprocessing Step -->
+  <rect x="60" y="340" width="1080" height="220" rx="16" fill="rgba(255,255,255,0.012)" stroke="rgba(255,255,255,0.28)" stroke-width="1.5" stroke-dasharray="6 6" />
+  <text x="82" y="366" font-size="14" font-weight="600" fill="#f5f5f7">Preprocessing Step</text>
+  <text x="82" y="383" font-size="10.5" fill="rgba(255,255,255,0.5)">offline, run once per manual</text>
+
+  <rect x="90" y="410" width="170" height="90" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.22)" />
+  <text x="175" y="445" font-size="13" font-weight="600" fill="#f5f5f7" text-anchor="middle">Manuals</text>
+  <text x="175" y="463" font-size="10.5" fill="rgba(255,255,255,0.55)" text-anchor="middle">PDF</text>
+
+  <rect x="300" y="430" width="200" height="55" rx="9" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.22)" />
+  <text x="400" y="453" font-size="12.5" font-weight="600" fill="#f5f5f7" text-anchor="middle">Mistral OCR</text>
+  <text x="400" y="470" font-size="10" fill="rgba(255,255,255,0.55)" text-anchor="middle">text extraction</text>
+
+  <rect x="545" y="430" width="210" height="55" rx="9" fill="rgba(255,255,255,0.055)" stroke="rgba(255,255,255,0.28)" />
+  <path d="M566,450 L568,456 L574,458 L568,460 L566,466 L564,460 L558,458 L564,456 Z" fill="rgba(255,255,255,0.75)" />
+  <text x="655" y="453" font-size="12.5" font-weight="600" fill="#f5f5f7" text-anchor="middle">Gemini Embedding</text>
+  <text x="655" y="470" font-size="10" fill="rgba(255,255,255,0.55)" text-anchor="middle">text to vectors</text>
+
+  <rect x="800" y="410" width="170" height="90" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.22)" />
+  <text x="885" y="445" font-size="13" font-weight="600" fill="#f5f5f7" text-anchor="middle">Vector Store</text>
+  <text x="885" y="463" font-size="10.5" fill="rgba(255,255,255,0.55)" text-anchor="middle">embeddings</text>
+
+  <line x1="260" y1="455" x2="298" y2="455" stroke="rgba(255,255,255,0.45)" stroke-width="1.3" marker-end="url(#arrow2)" />
+  <line x1="500" y1="457" x2="543" y2="457" stroke="rgba(255,255,255,0.45)" stroke-width="1.3" marker-end="url(#arrow2)" />
+  <line x1="755" y1="457" x2="798" y2="455" stroke="rgba(255,255,255,0.45)" stroke-width="1.3" marker-end="url(#arrow2)" />
+
+  <!-- Vector Store back up to Vector Search -->
+  <path d="M900,408 C 900,340 800,300 745,292" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.3" marker-end="url(#arrow2)" />
+  <text x="880" y="345" font-size="10.5" fill="rgba(255,255,255,0.55)">cosine similarity lookup</text>
+</svg>

@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 800" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="rgba(255,255,255,0.55)" />
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1280" height="800" fill="#0b0b0e" />
+
+  <!-- Browser / Client -->
+  <rect x="40" y="40" width="260" height="180" rx="14" fill="rgba(255,255,255,0.015)" stroke="rgba(255,255,255,0.28)" stroke-width="1.5" stroke-dasharray="5 5" />
+  <text x="60" y="65" font-size="14" font-weight="600" fill="#f5f5f7">Browser / Client</text>
+  <rect x="60" y="80" width="220" height="52" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.22)" />
+  <text x="170" y="111" font-size="13" fill="#e8e8ea" text-anchor="middle">Web Browser</text>
+  <rect x="60" y="148" width="220" height="52" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.22)" />
+  <text x="170" y="176" font-size="13" fill="#e8e8ea" text-anchor="middle">Webcam</text>
+  <text x="170" y="192" font-size="11" fill="rgba(255,255,255,0.55)" text-anchor="middle">(robot video source)</text>
+
+  <!-- HTTPS arrow -->
+  <line x1="170" y1="220" x2="170" y2="298" stroke="rgba(255,255,255,0.45)" stroke-width="1.5" marker-end="url(#arrow)" />
+  <text x="182" y="264" font-size="11" fill="rgba(255,255,255,0.55)">HTTPS</text>
+
+  <!-- Frontend Container -->
+  <rect x="40" y="300" width="260" height="230" rx="14" fill="rgba(255,255,255,0.015)" stroke="rgba(255,255,255,0.28)" stroke-width="1.5" stroke-dasharray="5 5" />
+  <text x="60" y="325" font-size="14" font-weight="600" fill="#f5f5f7">Frontend Container</text>
+  <text x="60" y="341" font-size="11" fill="rgba(255,255,255,0.5)">React + TypeScript</text>
+  <rect x="60" y="352" width="220" height="46" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.22)" />
+  <text x="170" y="380" font-size="13" fill="#e8e8ea" text-anchor="middle">Video Player</text>
+  <rect x="60" y="406" width="220" height="46" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.22)" />
+  <text x="170" y="434" font-size="13" fill="#e8e8ea" text-anchor="middle">Canvas · Metadata Overlay</text>
+  <rect x="60" y="460" width="220" height="46" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.22)" />
+  <text x="170" y="488" font-size="13" fill="#e8e8ea" text-anchor="middle">Control Panel</text>
+
+  <!-- Kubernetes Cluster outer -->
+  <rect x="340" y="40" width="900" height="515" rx="16" fill="rgba(255,255,255,0.012)" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" stroke-dasharray="6 6" />
+  <text x="362" y="66" font-size="15" font-weight="600" fill="#f5f5f7">Kubernetes Cluster</text>
+
+  <!-- Signaling Service -->
+  <rect x="360" y="90" width="260" height="225" rx="12" fill="rgba(255,255,255,0.015)" stroke="rgba(255,255,255,0.26)" stroke-width="1.5" stroke-dasharray="4 4" />
+  <text x="380" y="115" font-size="13" font-weight="600" fill="#f5f5f7">WebRTC Signaling</text>
+  <text x="380" y="132" font-size="10.5" fill="rgba(255,255,255,0.5)">Python · aiortc (optional Go + Pion)</text>
+  <rect x="378" y="145" width="224" height="40" rx="7" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.2)" />
+  <text x="490" y="169" font-size="12" fill="#e8e8ea" text-anchor="middle">Session Manager</text>
+  <rect x="378" y="195" width="224" height="40" rx="7" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.2)" />
+  <text x="490" y="215" font-size="12" fill="#e8e8ea" text-anchor="middle">Peer Connections</text>
+  <text x="490" y="229" font-size="10" fill="rgba(255,255,255,0.5)" text-anchor="middle">(up to 6 streams)</text>
+  <rect x="378" y="248" width="224" height="40" rx="7" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.2)" />
+  <text x="490" y="272" font-size="12" fill="#e8e8ea" text-anchor="middle">Token Management</text>
+
+  <!-- Backend Services -->
+  <rect x="650" y="90" width="560" height="225" rx="12" fill="rgba(255,255,255,0.012)" stroke="rgba(255,255,255,0.24)" stroke-width="1.5" />
+  <text x="668" y="115" font-size="13" font-weight="600" fill="#f5f5f7">Backend Services</text>
+
+  <rect x="665" y="135" width="530" height="160" rx="10" fill="rgba(255,255,255,0.015)" stroke="rgba(255,255,255,0.22)" stroke-dasharray="4 4" />
+  <text x="683" y="158" font-size="12" fill="rgba(255,255,255,0.65)">Parallel Stream Processing</text>
+  <g font-size="11" fill="#e8e8ea" text-anchor="middle">
+    <rect x="695" y="190" width="70" height="80" rx="6" fill="rgba(255,255,255,0.045)" stroke="rgba(255,255,255,0.2)" />
+    <text x="730" y="223">S1</text><text x="730" y="238" font-size="9" fill="rgba(255,255,255,0.5)">WebRTC</text>
+    <rect x="775" y="190" width="70" height="80" rx="6" fill="rgba(255,255,255,0.045)" stroke="rgba(255,255,255,0.2)" />
+    <text x="810" y="223">S2</text><text x="810" y="238" font-size="9" fill="rgba(255,255,255,0.5)">WebRTC</text>
+    <rect x="855" y="190" width="70" height="80" rx="6" fill="rgba(255,255,255,0.045)" stroke="rgba(255,255,255,0.2)" />
+    <text x="890" y="223">S3</text><text x="890" y="238" font-size="9" fill="rgba(255,255,255,0.5)">WebRTC</text>
+    <rect x="935" y="190" width="70" height="80" rx="6" fill="rgba(255,255,255,0.045)" stroke="rgba(255,255,255,0.2)" />
+    <text x="970" y="223">S4</text><text x="970" y="238" font-size="9" fill="rgba(255,255,255,0.5)">WebRTC</text>
+    <rect x="1015" y="190" width="70" height="80" rx="6" fill="rgba(255,255,255,0.045)" stroke="rgba(255,255,255,0.2)" />
+    <text x="1050" y="223">S5</text><text x="1050" y="238" font-size="9" fill="rgba(255,255,255,0.5)">WebRTC</text>
+    <rect x="1095" y="190" width="70" height="80" rx="6" fill="rgba(255,255,255,0.045)" stroke="rgba(255,255,255,0.2)" />
+    <text x="1130" y="223">S6</text><text x="1130" y="238" font-size="9" fill="rgba(255,255,255,0.5)">WebRTC</text>
+  </g>
+
+  <!-- SRTP video arrow -->
+  <line x1="620" y1="205" x2="663" y2="205" stroke="rgba(255,255,255,0.45)" stroke-width="1.5" marker-end="url(#arrow)" />
+  <text x="622" y="199" font-size="10" fill="rgba(255,255,255,0.55)">SRTP</text>
+
+  <!-- Processing Services -->
+  <rect x="650" y="340" width="560" height="200" rx="12" fill="rgba(255,255,255,0.012)" stroke="rgba(255,255,255,0.24)" stroke-width="1.5" />
+  <text x="668" y="365" font-size="13" font-weight="600" fill="#f5f5f7">Processing Services</text>
+
+  <rect x="665" y="378" width="530" height="72" rx="9" fill="rgba(255,255,255,0.045)" stroke="rgba(255,255,255,0.22)" />
+  <text x="930" y="401" font-size="13" fill="#f5f5f7" text-anchor="middle" font-weight="600">Video Analysis Service</text>
+  <text x="930" y="418" font-size="10.5" fill="rgba(255,255,255,0.6)" text-anchor="middle">PyTorch · YOLOv8 + MiDaS + distance calc</text>
+  <text x="930" y="433" font-size="10.5" fill="rgba(255,255,255,0.6)" text-anchor="middle">Object detection + depth estimation</text>
+
+  <line x1="930" y1="450" x2="930" y2="466" stroke="rgba(255,255,255,0.45)" stroke-width="1.5" marker-end="url(#arrow)" />
+  <text x="942" y="462" font-size="10" fill="rgba(255,255,255,0.55)">Results</text>
+
+  <rect x="665" y="468" width="530" height="56" rx="9" fill="rgba(255,255,255,0.045)" stroke="rgba(255,255,255,0.22)" />
+  <text x="930" y="491" font-size="13" fill="#f5f5f7" text-anchor="middle" font-weight="600">API Gateway</text>
+  <text x="930" y="507" font-size="10.5" fill="rgba(255,255,255,0.6)" text-anchor="middle">FastAPI · aggregation + distribution</text>
+
+  <!-- Frames arrow -->
+  <line x1="930" y1="296" x2="930" y2="376" stroke="rgba(255,255,255,0.45)" stroke-width="1.5" marker-end="url(#arrow)" />
+  <text x="942" y="340" font-size="10" fill="rgba(255,255,255,0.55)">Frames</text>
+
+  <!-- WebRTC video direct path -->
+  <path d="M280,375 C 470,375 470,225 665,225" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.3" stroke-dasharray="3 4" marker-end="url(#arrow)" />
+  <text x="330" y="368" font-size="10" fill="rgba(255,255,255,0.5)">WebRTC video (peer connection)</text>
+
+  <!-- REST arrow -->
+  <path d="M280,483 C 420,483 500,502 663,502" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.3" marker-end="url(#arrow)" marker-start="url(#arrow)" />
+  <text x="330" y="500" font-size="10" fill="rgba(255,255,255,0.55)">REST</text>
+
+  <!-- WebSocket metadata arrow -->
+  <path d="M665,478 C 500,440 400,430 282,424" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.3" marker-end="url(#arrow)" />
+  <text x="360" y="450" font-size="10" fill="rgba(255,255,255,0.55)">WebSocket · metadata</text>
+
+  <!-- Infrastructure + Support Services -->
+  <rect x="340" y="575" width="900" height="170" rx="16" fill="rgba(255,255,255,0.012)" stroke="rgba(255,255,255,0.28)" stroke-width="1.5" stroke-dasharray="6 6" />
+  <text x="362" y="600" font-size="14" font-weight="600" fill="#f5f5f7">Infrastructure + Support Services</text>
+  <text x="362" y="617" font-size="11" fill="rgba(255,255,255,0.5)">(optional)</text>
+
+  <rect x="362" y="628" width="270" height="100" rx="10" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.2)" />
+  <text x="497" y="652" font-size="12.5" fill="#f5f5f7" text-anchor="middle" font-weight="600">Data Store</text>
+  <text x="497" y="670" font-size="10.5" fill="rgba(255,255,255,0.6)" text-anchor="middle">Events + results</text>
+  <text x="497" y="686" font-size="10" fill="rgba(255,255,255,0.5)" text-anchor="middle">Stream metadata · detection history</text>
+
+  <rect x="652" y="628" width="270" height="100" rx="10" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.2)" />
+  <text x="787" y="652" font-size="12.5" fill="#f5f5f7" text-anchor="middle" font-weight="600">Monitoring</text>
+  <text x="787" y="670" font-size="10.5" fill="rgba(255,255,255,0.6)" text-anchor="middle">Prometheus + Grafana</text>
+  <text x="787" y="686" font-size="10" fill="rgba(255,255,255,0.5)" text-anchor="middle">Latency · health · throughput</text>
+
+  <rect x="942" y="628" width="270" height="100" rx="10" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.2)" />
+  <text x="1077" y="652" font-size="12.5" fill="#f5f5f7" text-anchor="middle" font-weight="600">GPU Nodes</text>
+  <text x="1077" y="670" font-size="10.5" fill="rgba(255,255,255,0.6)" text-anchor="middle">CUDA / TensorRT</text>
+
+  <!-- GPU inference arrow -->
+  <path d="M1100,451 C 1180,500 1160,560 1090,626" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.3" marker-end="url(#arrow)" />
+  <text x="1112" y="560" font-size="10" fill="rgba(255,255,255,0.55)">GPU inference</text>
+
+  <!-- Events arrow -->
+  <path d="M780,524 C 780,565 550,565 500,626" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.3" marker-end="url(#arrow)" />
+  <text x="600" y="562" font-size="10" fill="rgba(255,255,255,0.55)">Events</text>
+</svg>
