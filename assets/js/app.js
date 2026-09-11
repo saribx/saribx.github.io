@@ -234,6 +234,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 `We recorded a demo video showing Optibot detecting objects and estimating
                 distance live on the WebRTC feed.`,
                 {
+                    image: 'assets/img/projects/robotics-x-computer-vision/optibot_shirt.png',
+                    caption: 'Our team t-Shirts for the project.',
+                    fit: 'full'
+                },
+                {
                     media: [
                         {
                             label: 'Project Results & Report',
@@ -257,7 +262,7 @@ document.addEventListener('DOMContentLoaded', () => {
             content: [
                 {
                     image: 'assets/img/projects/neural-network-visualization-platform/screen_composite.jpg',
-                    caption: 'Presenting the Explainable AI poster at TU Berlin\'s Quality in Artificial Intelligence Labs.',
+                    caption: 'Presenting the Explainable AI poster.',
                     fit: 'full'
                 },
                 `A neural network can be 99% accurate and still be a black box nobody is allowed

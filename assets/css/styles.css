@@ -178,6 +178,14 @@ textarea,
     text-decoration: underline;
 }
 
+.social-icon {
+    width: 16px;
+    height: 16px;
+    fill: #ffffff;
+    vertical-align: -2px;
+    margin-right: 6px;
+}
+
 .gradient-text {
     color: #ffffff;
     background: none;
@@ -319,6 +327,40 @@ textarea,
 .avatar-container:hover .avatar-glow {
     opacity: 0.95;
     filter: blur(16px);
+}
+
+.avatar-instagram-badge {
+    position: absolute;
+    bottom: 4px;
+    left: 4px;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    opacity: 0.85;
+    z-index: 4;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.avatar-instagram-badge svg {
+    width: 100%;
+    height: 100%;
+    fill: currentColor;
+    filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.5));
+}
+
+.avatar-instagram-badge:hover {
+    opacity: 1;
+    transform: scale(1.15);
+}
+
+@media (min-width: 768px) {
+    .avatar-instagram-badge {
+        width: 22px;
+        height: 22px;
+    }
 }
 
 @keyframes reticleSpin {
