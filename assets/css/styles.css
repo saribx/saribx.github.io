@@ -329,39 +329,7 @@ textarea,
     filter: blur(16px);
 }
 
-.avatar-instagram-badge {
-    position: absolute;
-    bottom: 4px;
-    left: 4px;
-    width: 18px;
-    height: 18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #ffffff;
-    opacity: 0.85;
-    z-index: 4;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-}
 
-.avatar-instagram-badge svg {
-    width: 100%;
-    height: 100%;
-    fill: currentColor;
-    filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.5));
-}
-
-.avatar-instagram-badge:hover {
-    opacity: 1;
-    transform: scale(1.15);
-}
-
-@media (min-width: 768px) {
-    .avatar-instagram-badge {
-        width: 22px;
-        height: 22px;
-    }
-}
 
 @keyframes reticleSpin {
     from {
@@ -619,23 +587,7 @@ h1 {
     padding: 18px 14px 20px;
 }
 
-.research-sidebar-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 4px 8px 16px;
-    margin-bottom: 10px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-}
 
-.research-kicker {
-    font-size: 0.72rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    opacity: 0.72;
-    color: rgba(255, 255, 255, 0.82);
-    font-weight: 600;
-}
 
 .research-nav {
     display: flex;
@@ -1156,6 +1108,50 @@ h1 {
         margin-top: 32px;
         font-size: 0.82rem;
     }
+}
+
+.footer-content {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    text-align: left;
+    max-width: 100%;
+}
+
+.footer-text {
+    text-align: left;
+}
+
+.footer-social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    color: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.footer-social-link svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+    transition: transform 0.3s ease;
+}
+
+.footer-social-link:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+}
+
+.footer-social-link:hover svg {
+    transform: scale(1.1);
 }
 
 .education-details {
