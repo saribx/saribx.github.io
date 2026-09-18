@@ -262,7 +262,7 @@ document.addEventListener('DOMContentLoaded', () => {
             content: [
                 {
                     image: 'assets/img/projects/neural-network-visualization-platform/screen_composite.jpg',
-                    caption: 'Presenting the Explainable AI poster.',
+                    caption: 'Presenting my XAI poster.',
                     fit: 'full'
                 },
                 `A neural network can be 99% accurate and still be a black box nobody is allowed
@@ -368,7 +368,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             id: 'smart-kitchen-ai-system',
             title: 'Smart Kitchen AI System',
-            company: 'TU Berlin × ZEKI, Centre for Tangible AI',
+            company: 'ZEKI, Centre for Tangible AI',
             meta: 'Computer Vision · Voice AI · Embedded Systems',
             date: '2025',
             summary: 'A physical kitchen at TU Berlin fitted with cameras, a voice assistant, and a web app that tracks groceries, flags expiry, and turns whatever is on the shelf into a recipe.',
