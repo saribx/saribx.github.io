@@ -526,6 +526,122 @@ document.addEventListener('DOMContentLoaded', () => {
             ]
         },
         {
+            id: 'machine-behavior-agent-norms',
+            title: 'Do AI Agents Develop Social Norms?',
+            company: 'Max Planck Institute x TU Berlin, Machine and Behavior',
+            meta: 'Machine Behavior · Multi-Agent Systems · NLP',
+            date: '2026',
+            summary: 'Research proposal and A0 poster on whether AI agents on Moltbook, an agent-only social network, form their own conventions, and whether karma pushes them toward conformity.',
+            content: [
+                `<em>Do AI Agents Develop Their Own Social Norms? Language Convergence and Karma
+                Rewards on the Agent-Only Platform Moltbook</em>`,
+                `In January 2026, a social network went live where humans are not allowed to
+                post. Moltbook looks exactly like Reddit, with posts, comments, upvotes, and
+                karma, but every account is meant to be an autonomous AI agent. Within days there
+                were hundreds of thousands of them, spread across thousands of sub-communities
+                called submolts. In the Machine and Behavior course at TU Berlin, together with
+                the Max Planck Institute, I wrote a research proposal and an A0 poster around one
+                question: do these agents just produce noise that looks social, or do they build
+                something like a real society, with shared norms of their own?`,
+                `Machine behavior is the idea of studying AI agents the way biologists study
+                animals: you look at what they actually do, not just at their code. Moltbook is
+                the first time that's possible with a large agent society in the wild instead of
+                a sandbox.`,
+                {
+                    image: 'assets/img/research/machine-behavior/moltbook-context.svg',
+                    caption: 'Moltbook at a glance: the first datasets, the human-operator confound, and evidence pointing in two directions at once.',
+                    fit: 'full'
+                },
+                `The first studies of Moltbook point in two directions. Activity and attention
+                are heavy tailed and concentrate in a few hubs, just like on human platforms,
+                and agents have even been seen correcting each other when someone posts risky
+                instructions. But reciprocity is far lower than on Reddit or Bluesky: most
+                agents broadcast instead of actually talking to each other. And there is a catch
+                underneath it all, a security analysis found roughly 17,000 human operators
+                behind 1.5 million registered "agents", with nothing to verify that an agent
+                isn't just a human with a script.`,
+                `So the open question is whether this is surface mimicry, agents copying the
+                statistics of human social media, or real social structure: shared conventions
+                that actually constrain what an individual agent does. My research question
+                puts it like this:`,
+                `<em>To what extent do AI agents on Moltbook develop community-specific
+                linguistic and normative conventions, and does the platform's karma system act
+                as a selection pressure driving agents toward conformity?</em>`,
+                `This matters beyond one strange platform. Norm emergence is a hallmark of human
+                sociality, so if language model populations show the same "tribal" convergence
+                under reputational feedback, it's a property of networked adaptive systems, not
+                just biological ones. If karma rewards conformity, agent ecosystems could drift
+                toward homogeneity, the social version of model collapse. And as agents
+                increasingly sit between people and information, self-reinforcing agent norms
+                could wear down the diversity of the knowledge we all rely on.`,
+                {
+                    image: 'assets/img/research/machine-behavior/conformity-loop.svg',
+                    caption: 'The mechanism under test: an agent posts, its distance to the submolt norm decides its karma, and positive feedback pulls the next post closer. H1 to H3 each target a different part of that loop.',
+                    fit: 'full'
+                },
+                `In human communities, conventions stabilize because conformity gets rewarded
+                and deviance costs you something. Moltbook makes that mechanism unusually easy
+                to measure, because reputation comes with an explicit number. That gives three
+                hypotheses. Communities converge linguistically over time (H1). Karma favors
+                posts close to a submolt's emergent norm, measured as its embedding centroid,
+                and agents move toward that centroid after being rewarded (H2). And the
+                strongest test: if you switch karma off, do the conventions stay (H3)? If they
+                do, the agents have internalized a norm instead of just chasing the reward.`,
+                {
+                    image: 'assets/img/research/machine-behavior/study-design.svg',
+                    caption: 'Two-phase design: an observational field study on Moltbook, followed by a sandbox experiment that isolates the karma mechanism and removes the human-operator confound.',
+                    fit: 'full'
+                },
+                `Phase I is a field study over 20 weekly windows. It combines the public 44k-post
+                Moltbook dataset with my own collection through Moltbook's API from February to
+                June 2026, covering the 50 most active submolts. Accounts that are likely human
+                operated get filtered out by behavior, near-duplicate template posts, activity
+                locked to human waking hours, scripted bursts, and every analysis runs with and
+                without that filter. Convergence is measured with Sentence-BERT embeddings,
+                comparing similarity within and between submolts, plus type-token ratio and the
+                adoption of submolt-specific slang. Mixed-effects growth models test H1, while
+                a karma regression, lagged panel models, and Granger causality test H2,
+                including whether high-centrality "influencer" agents lead their community or
+                follow it.`,
+                `Field data can never fully rule out the humans, so Phase II carries the causal
+                burden. Thirty agents on the open-source OpenClaw framework, ten each running on
+                an OpenAI, an Anthropic, and an open-weight Llama model, interact in a
+                sandboxed, Moltbook-like forum with no human participants. The only thing that
+                changes between conditions is the karma weight, how strongly an agent's system
+                prompt tells it to chase social approval: none, moderate, or high, with three
+                runs each over 500 rounds. After round 400, karma is switched off everywhere,
+                and an interrupted time series shows whether the conventions survive.`,
+                {
+                    image: 'assets/img/research/machine-behavior/expected-results.svg',
+                    caption: 'Expected patterns, hypothesized and not measured: within-submolt similarity pulling away from between-submolt similarity (H1), and sandbox conventions partially persisting after karma is switched off, more so at higher karma weight (H3).',
+                    fit: 'full'
+                },
+                `What I expect: within-submolt similarity rising clearly faster than
+                between-submolt similarity, a measurable karma premium for posts that stay close
+                to the norm, followed by agents shifting toward it, and conventions that
+                partially persist once the reward is gone, the more so the heavier karma was
+                weighted. A null result would be just as interesting, it would mean Moltbook's
+                sociality is surface mimicry without functional norms.`,
+                {
+                    image: 'assets/img/research/machine-behavior/contribution.svg',
+                    caption: 'What the study would contribute across theory, AI safety, and design.',
+                    fit: 'full'
+                },
+                `There are honest limitations. Human-operated accounts can't be fully excluded
+                from the field data, embeddings are only a proxy for norms (which is why slang
+                adoption is measured alongside them), and a 30-agent sandbox trades realism for
+                control. On the ethics side, only public content is analyzed, agent identifiers
+                are pseudonymized since accounts can be linked back to their human owners, no
+                live Moltbook agents are contacted or manipulated, and because conformity
+                mechanisms are dual use, results are reported in aggregate.`,
+                {
+                    image: 'assets/img/research/machine-behavior/poster_machine_behavior_A0_Sarib.png',
+                    caption: 'The full poster.',
+                    fit: 'full'
+                }
+            ]
+        },
+        {
             id: 'bachelors-thesis',
             title: "Bachelor's Thesis",
             company: 'TU Berlin, Artificial Intelligence and Land Use Change',
@@ -586,8 +702,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     ];
 
-    const projects = allProjects.filter((project) => project.id !== 'bachelors-thesis');
-    const researchItems = allProjects.filter((project) => project.id === 'bachelors-thesis');
+    const researchIds = ['machine-behavior-agent-norms', 'bachelors-thesis'];
+    const projects = allProjects.filter((project) => !researchIds.includes(project.id));
+    const researchItems = allProjects.filter((project) => researchIds.includes(project.id));
 
     const researchNav = document.getElementById('research-nav');
     const researchDetail = document.getElementById('research-detail');

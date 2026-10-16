@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 580" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow-loop" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="rgba(255,255,255,0.6)" />
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1200" height="580" fill="#0b0b0e" />
+
+  <!-- Loop nodes -->
+  <rect x="60" y="60" width="230" height="84" rx="12" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.24)" stroke-width="1.5" />
+  <text x="175" y="96" font-size="16" font-weight="600" fill="#f5f5f7" text-anchor="middle">Agent posts</text>
+  <text x="175" y="117" font-size="12" fill="rgba(255,255,255,0.55)" text-anchor="middle">writes into its submolt</text>
+
+  <rect x="500" y="60" width="230" height="84" rx="12" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.24)" stroke-width="1.5" />
+  <text x="615" y="96" font-size="16" font-weight="600" fill="#f5f5f7" text-anchor="middle">Norm proximity</text>
+  <text x="615" y="117" font-size="12" fill="rgba(255,255,255,0.55)" text-anchor="middle">distance to the submolt centroid</text>
+
+  <rect x="500" y="420" width="230" height="84" rx="12" fill="rgba(255,255,255,0.075)" stroke="rgba(255,255,255,0.4)" stroke-width="1.8" />
+  <text x="615" y="456" font-size="16" font-weight="600" fill="#f5f5f7" text-anchor="middle">Karma</text>
+  <text x="615" y="477" font-size="12" fill="rgba(255,255,255,0.6)" text-anchor="middle">the platform's reputational reward</text>
+
+  <rect x="60" y="420" width="230" height="84" rx="12" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.24)" stroke-width="1.5" />
+  <text x="175" y="456" font-size="16" font-weight="600" fill="#f5f5f7" text-anchor="middle">Conformity shift</text>
+  <text x="175" y="477" font-size="12" fill="rgba(255,255,255,0.55)" text-anchor="middle">next post moves toward the norm</text>
+
+  <!-- Centre: the emergent norm -->
+  <circle cx="395" cy="282" r="100" fill="rgba(255,255,255,0.015)" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" stroke-dasharray="5 5" />
+  <g fill="rgba(255,255,255,0.35)">
+    <circle cx="345" cy="232" r="3.5" />
+    <circle cx="448" cy="226" r="3.5" />
+    <circle cx="330" cy="275" r="3.5" />
+    <circle cx="462" cy="270" r="3.5" />
+    <circle cx="372" cy="208" r="3.5" />
+    <circle cx="425" cy="204" r="3.5" />
+  </g>
+  <g stroke="rgba(255,255,255,0.22)" stroke-width="1">
+    <line x1="345" y1="232" x2="388" y2="246" />
+    <line x1="448" y1="226" x2="402" y2="244" />
+    <line x1="330" y1="275" x2="386" y2="252" />
+    <line x1="462" y1="270" x2="404" y2="252" />
+    <line x1="372" y1="208" x2="391" y2="242" />
+    <line x1="425" y1="204" x2="399" y2="242" />
+  </g>
+  <circle cx="395" cy="248" r="7" fill="#f5f5f7" />
+  <text x="395" y="306" font-size="15" font-weight="600" fill="#f5f5f7" text-anchor="middle">Submolt norm</text>
+  <text x="395" y="325" font-size="11.5" fill="rgba(255,255,255,0.55)" text-anchor="middle">embedding centroid</text>
+  <rect x="377" y="340" width="36" height="22" rx="11" fill="#0b0b0e" stroke="rgba(255,255,255,0.5)" />
+  <text x="395" y="355" font-size="11.5" font-weight="700" fill="#f5f5f7" text-anchor="middle">H1</text>
+
+  <!-- Loop arrows -->
+  <line x1="290" y1="102" x2="497" y2="102" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" marker-end="url(#arrow-loop)" />
+  <text x="394" y="90" font-size="11.5" fill="rgba(255,255,255,0.55)" text-anchor="middle">Sentence-BERT embedding</text>
+
+  <line x1="615" y1="144" x2="615" y2="417" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" marker-end="url(#arrow-loop)" />
+  <rect x="597" y="268" width="36" height="22" rx="11" fill="#0b0b0e" stroke="rgba(255,255,255,0.5)" />
+  <text x="615" y="283" font-size="11.5" font-weight="700" fill="#f5f5f7" text-anchor="middle">H2</text>
+  <text x="630" y="222" font-size="11.5" fill="rgba(255,255,255,0.55)">closer to the norm,</text>
+  <text x="630" y="238" font-size="11.5" fill="rgba(255,255,255,0.55)">more karma?</text>
+
+  <line x1="500" y1="462" x2="293" y2="462" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" marker-end="url(#arrow-loop)" />
+  <text x="396" y="450" font-size="11.5" fill="rgba(255,255,255,0.55)" text-anchor="middle">positive feedback</text>
+
+  <line x1="175" y1="420" x2="175" y2="147" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" marker-end="url(#arrow-loop)" />
+  <text x="163" y="276" font-size="11.5" fill="rgba(255,255,255,0.55)" text-anchor="end">next post drifts</text>
+  <text x="163" y="292" font-size="11.5" fill="rgba(255,255,255,0.55)" text-anchor="end">toward the centroid</text>
+
+  <!-- H3: reward switch -->
+  <rect x="597" y="518" width="36" height="22" rx="11" fill="#0b0b0e" stroke="rgba(255,255,255,0.5)" />
+  <text x="615" y="533" font-size="11.5" font-weight="700" fill="#f5f5f7" text-anchor="middle">H3</text>
+  <text x="643" y="533" font-size="11.5" fill="rgba(255,255,255,0.55)">off after round 400</text>
+
+  <!-- Hypothesis cards -->
+  <rect x="800" y="40" width="360" height="150" rx="14" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.22)" stroke-width="1.5" />
+  <circle cx="838" cy="82" r="22" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.45)" />
+  <text x="838" y="87" font-size="14" font-weight="700" fill="#f5f5f7" text-anchor="middle">H1</text>
+  <text x="876" y="80" font-size="15.5" font-weight="600" fill="#f5f5f7">Linguistic convergence</text>
+  <g font-size="12.5" fill="rgba(255,255,255,0.7)">
+    <text x="876" y="108">Within submolts, semantic and stylistic</text>
+    <text x="876" y="127">similarity rises over time and beats</text>
+    <text x="876" y="146">between-submolt similarity, beyond</text>
+    <text x="876" y="165">what shared topics explain.</text>
+  </g>
+
+  <rect x="800" y="215" width="360" height="150" rx="14" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.22)" stroke-width="1.5" />
+  <circle cx="838" cy="257" r="22" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.45)" />
+  <text x="838" y="262" font-size="14" font-weight="700" fill="#f5f5f7" text-anchor="middle">H2</text>
+  <text x="876" y="255" font-size="15.5" font-weight="600" fill="#f5f5f7">Reputational selection</text>
+  <g font-size="12.5" fill="rgba(255,255,255,0.7)">
+    <text x="876" y="283">Posts closer to their submolt's norm</text>
+    <text x="876" y="302">earn more karma, and agents shift</text>
+    <text x="876" y="321">toward it after positive feedback:</text>
+    <text x="876" y="340">a conformity feedback loop.</text>
+  </g>
+
+  <rect x="800" y="390" width="360" height="150" rx="14" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.22)" stroke-width="1.5" />
+  <circle cx="838" cy="432" r="22" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.45)" />
+  <text x="838" y="437" font-size="14" font-weight="700" fill="#f5f5f7" text-anchor="middle">H3</text>
+  <text x="876" y="430" font-size="15.5" font-weight="600" fill="#f5f5f7">Norm persistence</text>
+  <g font-size="12.5" fill="rgba(255,255,255,0.7)">
+    <text x="876" y="458">In an agent-only sandbox, conventions</text>
+    <text x="876" y="477">survive after karma is switched off:</text>
+    <text x="876" y="496">internalized norms, not momentary</text>
+    <text x="876" y="515">reward-following.</text>
+  </g>
+</svg>
