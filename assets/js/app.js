@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 `The idea won a track at the hackathon. You can see the plattform in this
                 <a class="research-link" href="https://www.loom.com/share/14585aa36ecf4a6da3caebbbd57b90c3" target="_blank" rel="noopener">Video</a>.`,
                 {
-                    image: 'assets/img/projects/berlin-citizen-fund/bad1_present2.PNG',
+                    image: 'assets/img/projects/berlin-citizen-fund/bad1_present2.webp',
                     caption: 'The jury and audience during the hackathon pitch.'
                 },
                 `That win opened a door: an invitation to a Sparkasse Berlin event, where I
@@ -143,7 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 designing the UX and UI, and driving marketing and direction. Together, with a small
                 team that joined us along the way, we built DramaLabs, an AI powered desktop companion built in Electron.`,
                 {
-                    image: 'assets/img/projects/desktop-ai-assistant-dramalabs/team_call.png',
+                    image: 'assets/img/projects/desktop-ai-assistant-dramalabs/team_call.webp',
                     caption: 'The DramaLabs team, mid call <3: Woundioun, Sapar, Nisa, and me.',
                     fit: 'full'
                 },
@@ -183,7 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 the robot sees: detected objects, their distances, and enough context to step in
                 if something looks wrong.`,
                 {
-                    image: 'assets/img/projects/robotics-x-computer-vision/optibot_interface.png',
+                    image: 'assets/img/projects/robotics-x-computer-vision/optibot_interface.webp',
                     caption: 'The operator dashboard: live bounding boxes with per-object distance readings, a detections panel grouped by class, and a radar view of everything in frame.',
                     fit: 'full'
                 },
@@ -234,7 +234,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 `We recorded a demo video showing Optibot detecting objects and estimating
                 distance live on the WebRTC feed.`,
                 {
-                    image: 'assets/img/projects/robotics-x-computer-vision/optibot_shirt.png',
+                    image: 'assets/img/projects/robotics-x-computer-vision/optibot_shirt.webp',
                     caption: 'Our team t-Shirts for the project.',
                     fit: 'full'
                 },
@@ -329,7 +329,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 agent that answers immediately, in the business's own words, and offers to
                 call right back if typing is not enough.`,
                 {
-                    image: 'assets/img/projects/ai-calling-chat-agent/whatsapp_chat.png',
+                    image: 'assets/img/projects/ai-calling-chat-agent/whatsapp_chat.webp',
                     caption: 'The agent summarizing an x-ray report on WhatsApp, then placing an outbound call the moment the patient asks for one.',
                     fit: 'full'
                 },
@@ -338,7 +338,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 answering policy questions, sending reminders, while keeping a real call
                 one tap away for whatever text cannot resolve.`,
                 {
-                    image: 'assets/img/projects/ai-calling-chat-agent/architecture.png',
+                    image: 'assets/img/projects/ai-calling-chat-agent/architecture.webp',
                     caption: 'The pipeline behind it: an n8n agent triages WhatsApp messages and, when a call is requested, hands the customer to a LiveKit voice agent that checks live availability through an MCP server.',
                     fit: 'full'
                 },
@@ -349,7 +349,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 holds conversation memory across the exchange, and Twilio is what actually
                 dials out the moment a customer asks to talk.`,
                 {
-                    image: 'assets/img/projects/ai-calling-chat-agent/n8n_workflow.png',
+                    image: 'assets/img/projects/ai-calling-chat-agent/n8n_workflow.webp',
                     caption: 'The n8n canvas: the ingestion flow that embeds the knowledge base on top, the live agent wired to memory, the chat model, and its tools below.',
                     fit: 'full'
                 },
@@ -359,7 +359,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 staff time saved, how many calls the agent handled without a human, how long
                 each one took.`,
                 {
-                    image: 'assets/img/projects/ai-calling-chat-agent/dashboard.png',
+                    image: 'assets/img/projects/ai-calling-chat-agent/dashboard.webp',
                     caption: 'The SmartDent dashboard: hours of staff time saved this month, a completion rate, and live status across bot, telephony, calendar, and messaging.',
                     fit: 'full'
                 }
@@ -689,7 +689,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 live Moltbook agents are contacted or manipulated, and because conformity
                 mechanisms are dual use, results are reported in aggregate.`,
                 {
-                    image: 'assets/img/research/machine-behavior/poster_machine_behavior_A0_Sarib.png',
+                    image: 'assets/img/research/machine-behavior/poster_machine_behavior_A0_Sarib.webp',
                     caption: 'The full poster.',
                     fit: 'full'
                 }
@@ -720,7 +720,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 regularisation, and hyperparameter search, so the comparison came down to the
                 architecture and training strategy alone.`,
                 {
-                    image: 'assets/img/research/bachelor-thesis/station_30370039_comparison.png',
+                    image: 'assets/img/research/bachelor-thesis/station_30370039_comparison.webp',
                     caption: 'Prediction comparison for station 30370039 (1 out of 238) across all four transformer implementations with error distributions.',
                     fit: 'full'
                 },
@@ -735,7 +735,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 trend and seasonal separation do not hold well against Brandenburg's irregular
                 recharge patterns.`,
                 {
-                    image: 'assets/img/research/bachelor-thesis/results_summary.png',
+                    image: 'assets/img/research/bachelor-thesis/results_summary.webp',
                     caption: 'Summary of mean evaluation metrics and runtime across all four architectures, aggregated over all 238 stations.',
                     fit: 'full'
                 },
@@ -1045,6 +1045,7 @@ document.addEventListener('DOMContentLoaded', () => {
             this.pulseSpeed = Math.random() * 0.015 + 0.008;
             this.pulsePhase = Math.random() * Math.PI * 2;
             this.isHighlight = Math.random() > 0.65;
+            this.sprite = createParticleSprite(this.baseRadius, this.isHighlight);
         }
 
         update() {
@@ -1061,27 +1062,55 @@ document.addEventListener('DOMContentLoaded', () => {
         draw() {
             const pulse = (Math.sin(this.pulsePhase) + 1) * 0.5;
             const alpha = (0.32 + pulse * 0.24) * (this.isHighlight ? 1.25 : 0.92);
-            const currentRadius = this.baseRadius * (1 + pulse * 0.22);
-            const glowRadius = this.isHighlight ? currentRadius * 4.8 : currentRadius * 3.4;
+            const size = this.sprite.size * (1 + pulse * 0.22);
+            const x = this.x - size / 2;
+            const y = this.y - size / 2;
 
-            const grad = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, glowRadius);
-            grad.addColorStop(0, `rgba(255, 255, 255, ${0.45 * alpha})`);
-            grad.addColorStop(0.35, `rgba(255, 255, 255, ${0.14 * alpha})`);
-            grad.addColorStop(1, 'rgba(255, 255, 255, 0)');
-
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, glowRadius, 0, Math.PI * 2);
-            ctx.fillStyle = grad;
-            ctx.fill();
-
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, currentRadius * 0.8, 0, Math.PI * 2);
-            ctx.shadowBlur = this.isHighlight ? 8 : 4;
-            ctx.shadowColor = 'rgba(255, 255, 255, 0.45)';
-            ctx.fillStyle = `rgba(255, 255, 255, ${alpha * 0.9})`;
-            ctx.fill();
-            ctx.shadowBlur = 0;
+            ctx.globalAlpha = alpha;
+            ctx.drawImage(this.sprite.glow, x, y, size, size);
+            ctx.drawImage(this.sprite.core, x, y, size, size);
+            ctx.globalAlpha = 1;
         }
+    }
+
+    // Glow and core rendered once per particle at full alpha; draw() only scales and fades them.
+    // Gradients and shadowBlur are the most expensive canvas ops, so they stay off the per-frame path.
+    // Two layers instead of one so fading each separately composites exactly like drawing them live.
+    function createParticleSprite(radius, isHighlight) {
+        const scale = 2;
+        const glowRadius = radius * (isHighlight ? 4.8 : 3.4);
+        const shadowBlur = isHighlight ? 8 : 4;
+        const half = Math.ceil(glowRadius + shadowBlur * 2);
+
+        const layer = (paint) => {
+            const canvas = document.createElement('canvas');
+            canvas.width = canvas.height = half * 2 * scale;
+            const sctx = canvas.getContext('2d');
+            sctx.scale(scale, scale);
+            sctx.beginPath();
+            paint(sctx);
+            return canvas;
+        };
+
+        const glow = layer((sctx) => {
+            const grad = sctx.createRadialGradient(half, half, 0, half, half, glowRadius);
+            grad.addColorStop(0, 'rgba(255, 255, 255, 0.45)');
+            grad.addColorStop(0.35, 'rgba(255, 255, 255, 0.14)');
+            grad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+            sctx.arc(half, half, glowRadius, 0, Math.PI * 2);
+            sctx.fillStyle = grad;
+            sctx.fill();
+        });
+
+        const core = layer((sctx) => {
+            sctx.arc(half, half, radius * 0.8, 0, Math.PI * 2);
+            sctx.shadowBlur = shadowBlur * scale;
+            sctx.shadowColor = 'rgba(255, 255, 255, 0.45)';
+            sctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+            sctx.fill();
+        });
+
+        return { glow, core, size: half * 2 };
     }
 
     function initParticles() {
@@ -1162,8 +1191,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     ctx.beginPath();
                     ctx.strokeStyle = `rgba(255, 255, 255, ${baseAlpha * 0.35})`;
                     ctx.lineWidth = ratio > 0.6 ? 2.4 : 1.8;
-                    ctx.shadowBlur = 4;
-                    ctx.shadowColor = 'rgba(255, 255, 255, 0.3)';
                     ctx.moveTo(particles[i].x, particles[i].y);
                     ctx.lineTo(particles[j].x, particles[j].y);
                     ctx.stroke();
@@ -1171,7 +1198,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     ctx.beginPath();
                     ctx.strokeStyle = `rgba(255, 255, 255, ${baseAlpha})`;
                     ctx.lineWidth = ratio > 0.6 ? 0.9 : 0.65;
-                    ctx.shadowBlur = 0;
                     ctx.moveTo(particles[i].x, particles[i].y);
                     ctx.lineTo(particles[j].x, particles[j].y);
                     ctx.stroke();
