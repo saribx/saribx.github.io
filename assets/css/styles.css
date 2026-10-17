@@ -55,9 +55,7 @@ h4,
 h5,
 h6,
 .section-title,
-.card-title,
-.metric-value,
-.role {
+.card-title {
     font-family: var(--font-display);
     color: #ffffff;
 }
@@ -110,7 +108,7 @@ textarea,
     background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.03) 0%, transparent 65%);
     position: relative;
     overflow: hidden;
-    padding: 100px 0 40px;
+    padding: 64px 0 40px;
 }
 
 @media (min-width: 768px) {
@@ -146,22 +144,105 @@ textarea,
     width: 100%;
 }
 
-.title-group {
+/* Hero: one grid so the same markup can reorder per breakpoint.
+   Phones/tablets stack (name, photo + badge, bio); desktop puts the
+   photo + badge in a fixed-width right column next to the text. */
+.hero-grid {
+    --badge-w: min(80vw, 280px);
+    --hero-aside-w: 300px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+        "title"
+        "aside"
+        "copy";
+    row-gap: 2.25rem;
+    justify-items: center;
+    text-align: center;
+}
+
+.hero-title {
+    grid-area: title;
+    min-width: 0;
+}
+
+.hero-title h1 {
+    letter-spacing: -0.01em;
+}
+
+.hero-tagline {
+    max-width: 44ch;
+    margin: 0.2rem auto 0;
+    font-size: 1.15rem;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.65);
+}
+
+.hero-tagline strong {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-size: clamp(1.5rem, 5vw, 2.1rem);
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: #ffffff;
+}
+
+.hero-aside {
+    grid-area: aside;
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
-    gap: 2rem;
-    margin-bottom: 2rem;
+    width: 100%;
+    min-width: 0;
+}
+
+.hero-aside .avatar-container {
+    z-index: 2;
+}
+
+.hero-copy {
+    grid-area: copy;
+    width: 100%;
+    min-width: 0;
 }
 
 @media (min-width: 768px) {
-    .title-group {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
+    .hero-grid {
+        --badge-w: 260px;
+        row-gap: 2.75rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .hero-grid {
+        --badge-w: 280px;
+        grid-template-columns: minmax(0, 1fr) var(--hero-aside-w);
+        grid-template-rows: auto 1fr;
+        grid-template-areas:
+            "title aside"
+            "copy  aside";
+        column-gap: clamp(40px, 5vw, 72px);
+        row-gap: 1.75rem;
+        justify-items: start;
+        align-items: start;
         text-align: left;
-        gap: 2rem;
+    }
+
+    .hero-title {
+        padding-top: 36px;
+    }
+
+    .hero-title h1 {
+        font-size: clamp(2.75rem, 6.16vw, 6.05rem);
+    }
+
+    .hero-tagline {
+        margin-left: 0;
+    }
+
+    .hero-aside {
+        width: var(--hero-aside-w);
     }
 }
 
@@ -381,54 +462,56 @@ textarea,
 }
 
 h1 {
-    font-size: clamp(2.5rem, 8vw, 5.5rem);
+    font-size: clamp(2.75rem, 8.8vw, 6.05rem);
     line-height: 1.1;
     color: #ffffff;
     font-weight: 500;
 }
 
-.role {
-    font-size: clamp(1.2rem, 4vw, 2.5rem);
-    opacity: 0.9;
-    margin-top: 8px;
-    color: #ffffff;
-}
-
-.bio {
+.bio,
+.hero-cta {
     font-size: 1.1rem;
     color: #ffffff;
-    max-width: 800px;
-    margin-bottom: 40px;
+    max-width: 70ch;
+    margin: 0 auto;
     text-align: center;
 }
 
+.bio {
+    text-align: justify;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
+
+.bio p + p {
+    margin-top: 1em;
+}
+
+.hero-cta {
+    margin-top: 1.7em;
+    margin-bottom: 40px;
+}
+
 @media (min-width: 768px) {
-    .bio {
+
+    .bio,
+    .hero-cta {
         font-size: 1.25rem;
+    }
+
+    .hero-cta {
         text-align: left;
-        max-width: 100%;
     }
 }
 
-.metrics {
-    position: relative;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-    margin-top: 28px;
-    padding: 22px 18px;
-    background: var(--glass-bg);
-    backdrop-filter: var(--glass-blur);
-    -webkit-backdrop-filter: var(--glass-blur);
-    border-radius: 24px;
-    border: var(--glass-border);
-    box-shadow: var(--glass-shadow);
-    overflow: hidden;
-    transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
-    isolation: isolate;
+@media (min-width: 1024px) {
+
+    .bio,
+    .hero-cta {
+        margin-left: 0;
+    }
 }
 
-.metrics::before,
 .card::before,
 .ai-demo::before,
 .download-link::before,
@@ -443,7 +526,6 @@ h1 {
     opacity: 0.8;
 }
 
-.metrics::after,
 .card::after,
 .ai-demo::after,
 .download-link::after,
@@ -464,7 +546,6 @@ h1 {
     content: none;
 }
 
-.metrics>*,
 .card>*,
 .ai-demo>*,
 .tech-badge,
@@ -472,48 +553,6 @@ h1 {
 .audio-controls>* {
     position: relative;
     z-index: 1;
-}
-
-.metrics:hover {
-    border-color: rgba(255, 255, 255, 0.22);
-    transform: translateY(-1px);
-    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.28), inset 0 -1px 0 rgba(255, 255, 255, 0.04);
-    background: var(--glass-bg-strong);
-}
-
-.metric {
-    text-align: center;
-}
-
-.metric-value {
-    font-size: 1.6rem;
-    font-weight: 700;
-    color: #ffffff;
-    background: none;
-    -webkit-text-fill-color: #ffffff;
-}
-
-.metric p {
-    font-size: 0.82rem;
-    margin-top: 6px;
-    line-height: 1.35;
-    color: #ffffff;
-}
-
-@media (min-width: 768px) {
-    .metrics {
-        grid-template-columns: repeat(4, 1fr);
-        gap: 20px;
-        padding: 24px 28px;
-    }
-
-    .metric-value {
-        font-size: 1.75rem;
-    }
-
-    .metric p {
-        font-size: 0.85rem;
-    }
 }
 
 .section {
@@ -1111,16 +1150,15 @@ h1 {
 }
 
 .footer-content {
-    display: inline-flex;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 16px;
-    text-align: left;
+    gap: 10px;
     max-width: 100%;
 }
 
 .footer-text {
-    text-align: left;
+    text-align: center;
 }
 
 .footer-social-link {
@@ -1346,5 +1384,517 @@ h1 {
     to {
         opacity: 1;
         transform: scale(1);
+    }
+}
+/* ------------------------------------------------------------------
+   Developer ID badge
+   .id-badge        idle sway (rotate, origin = top of lanyard)
+   .id-badge__stage perspective + press feedback
+   .id-badge__tilt  cursor tilt + lift (transform set by id-badge.js)
+   .id-badge__flip  rotateY flip
+   .id-face         front / back, backface hidden
+   ------------------------------------------------------------------ */
+.id-badge-mount {
+    --bw: var(--badge-w, 280px);
+    --badge-r: calc(var(--bw) * 0.06);
+    --pad: calc(var(--bw) * 0.065);
+    --font-mono: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
+    --badge-label: clamp(11px, calc(var(--bw) * 0.04), 12px);
+    position: relative;
+    z-index: 1;
+    width: var(--bw);
+    max-width: 100%;
+    /* the strap starts behind the photo */
+    margin-top: -46px;
+}
+
+.id-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform-origin: 50% 0;
+    animation: idBadgeSway 6s ease-in-out infinite;
+}
+
+@keyframes idBadgeSway {
+
+    0%,
+    100% {
+        transform: rotate(-1.5deg);
+    }
+
+    50% {
+        transform: rotate(1.5deg);
+    }
+}
+
+/* Lanyard + clip */
+.id-badge__lanyard {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 15px;
+    height: 104px;
+    overflow: hidden;
+    background:
+        repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.025) 0 1px, transparent 1px 3px),
+        linear-gradient(90deg, #16161a 0%, #2a2a30 22%, #222227 50%, #2a2a30 78%, #16161a 100%);
+    box-shadow: inset 1px 0 0 rgba(255, 255, 255, 0.07), inset -1px 0 0 rgba(255, 255, 255, 0.07), 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+.id-badge__lanyard span {
+    padding-top: 50px;
+    writing-mode: vertical-rl;
+    font-family: var(--font-mono);
+    font-size: 7px;
+    font-weight: 700;
+    line-height: 15px;
+    letter-spacing: 0.2em;
+    white-space: nowrap;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.id-badge__clip {
+    position: relative;
+    z-index: 2;
+    width: 26px;
+    height: 13px;
+    margin-top: -2px;
+    border-radius: 3px 3px 6px 6px;
+    background: linear-gradient(180deg, #f0f0f4 0%, #b4b4bb 40%, #6c6c73 58%, #c4c4ca 100%);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), inset 0 -1px 0 rgba(0, 0, 0, 0.35), 0 2px 4px rgba(0, 0, 0, 0.55);
+}
+
+.id-badge__clip::before {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    background: radial-gradient(circle at 40% 35%, #8c8c93, #2c2c31 70%);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+/* jaw that reaches down into the card's slot */
+.id-badge__clip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    width: 9px;
+    height: calc(var(--bw) * 0.035 + 9px);
+    transform: translateX(-50%);
+    border-radius: 0 0 2px 2px;
+    background: linear-gradient(90deg, #77777e 0%, #e6e6ea 45%, #9a9aa1 100%);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.6);
+}
+
+/* 3D stack */
+.id-badge__stage {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    perspective: 1000px;
+    transition: transform 0.18s ease;
+}
+
+.id-badge__stage.is-pressed {
+    transform: scale(0.97);
+}
+
+.id-badge__tilt {
+    position: relative;
+    display: block;
+    border-radius: var(--badge-r);
+    transform-origin: 50% 0;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+}
+
+.id-badge__tilt:focus-visible {
+    outline: 2px solid rgba(255, 255, 255, 0.85);
+    outline-offset: 6px;
+}
+
+.id-badge__flip {
+    display: grid;
+    aspect-ratio: 5 / 7;
+    border-radius: inherit;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.25, 1.12);
+}
+
+.id-badge.is-flipped .id-badge__flip {
+    transform: rotateY(180deg);
+}
+
+/* Faces */
+.id-face {
+    grid-area: 1 / 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    padding: var(--pad) var(--pad) calc(var(--pad) + 12px);
+    border-radius: var(--badge-r);
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    background:
+        radial-gradient(120% 70% at 0% 0%, rgba(255, 255, 255, 0.075), transparent 55%),
+        linear-gradient(160deg, #1b1b20 0%, #0f0f13 55%, #131317 100%);
+    box-shadow:
+        0 18px 38px -14px rgba(0, 0, 0, 0.75),
+        0 3px 8px rgba(0, 0, 0, 0.45),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    text-align: left;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform: translateZ(0.1px);
+}
+
+.id-face--back {
+    transform: rotateY(180deg) translateZ(0.1px);
+}
+
+.id-face[aria-hidden="true"] {
+    pointer-events: none;
+}
+
+/* deeper shadow while lifted (opacity only, driven by --lift) */
+.id-face::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    box-shadow: 0 42px 70px -20px rgba(0, 0, 0, 0.9), 0 14px 28px -8px rgba(0, 0, 0, 0.55);
+    opacity: var(--lift, 0);
+    pointer-events: none;
+}
+
+.id-face__texture,
+.id-face__glare {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+}
+
+.id-face__texture {
+    z-index: -1;
+    opacity: 0.07;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .6 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 160px 160px;
+}
+
+.id-face__glare {
+    --glare-x: calc(var(--gx, 50) * 1%);
+    --glare-y: calc(var(--gy, 30) * 1%);
+    z-index: 3;
+    opacity: var(--lift, 0);
+    background:
+        radial-gradient(circle at var(--glare-x) var(--glare-y), rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.06) 22%, transparent 55%),
+        linear-gradient(105deg, transparent calc(var(--glare-x) - 28%), rgba(255, 255, 255, 0.06) var(--glare-x), transparent calc(var(--glare-x) + 28%));
+}
+
+/* the back face is mirrored, so the light has to be too */
+.id-face--back .id-face__glare {
+    --glare-x: calc((100 - var(--gx, 50)) * 1%);
+}
+
+.id-face__slot {
+    position: absolute;
+    top: calc(var(--bw) * 0.035);
+    left: 50%;
+    width: calc(var(--bw) * 0.17);
+    height: 7px;
+    transform: translateX(-50%);
+    border-radius: 999px;
+    background: #050507;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.95), 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+/* Front */
+.id-face__header {
+    margin: calc(var(--pad) * -1) calc(var(--pad) * -1) 0;
+    padding: calc(var(--bw) * 0.035 + 7px + var(--pad) * 0.65) var(--pad) calc(var(--pad) * 0.75);
+    border-radius: var(--badge-r) var(--badge-r) 0 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.02));
+    text-align: center;
+}
+
+.id-face__title {
+    font-family: var(--font-mono);
+    font-size: var(--badge-label);
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.id-face__body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding-top: calc(var(--pad) * 0.95);
+}
+
+.id-name,
+.id-role {
+    text-align: center;
+}
+
+.id-name {
+    font-family: var(--font-display);
+    font-size: calc(var(--bw) * 0.074);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+.id-role {
+    margin-top: 3px;
+    font-size: clamp(12px, calc(var(--bw) * 0.048), 14px);
+    line-height: 1.3;
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.id-fields {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: calc(var(--pad) * 0.75) calc(var(--pad) * 0.6);
+    /* sit centred in whatever space the 5:7 card leaves */
+    margin: auto 0;
+    padding-top: calc(var(--pad) * 0.9);
+}
+
+.id-field {
+    min-width: 0;
+    padding-top: 7px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.id-field dt {
+    font-family: var(--font-mono);
+    font-size: var(--badge-label);
+    line-height: 1.25;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.id-field dd {
+    margin-top: 3px;
+    font-family: var(--font-display);
+    font-size: calc(var(--bw) * 0.075);
+    font-weight: 700;
+    line-height: 1.15;
+    color: #ffffff;
+}
+
+.id-field dd small {
+    display: block;
+    margin-top: 2px;
+    font-family: var(--font-text);
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 1.3;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.id-face__footer {
+    margin-top: auto;
+    padding-top: calc(var(--pad) * 0.9);
+}
+
+.id-barcode {
+    height: calc(var(--bw) * 0.13);
+}
+
+.id-barcode svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.id-hint {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: calc(var(--pad) * 0.35);
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.04em;
+    text-align: center;
+    color: #66666e;
+}
+
+.id-hint span {
+    color: inherit;
+}
+
+.id-hint__icon {
+    display: inline-block;
+    transform: rotate(90deg);
+}
+
+.id-hint__pointer {
+    display: none;
+}
+
+/* Back */
+.id-back__stripe {
+    flex-shrink: 0;
+    height: calc(var(--bw) * 0.08);
+    margin: calc(var(--bw) * 0.035 + 7px + var(--pad) * 0.55) calc(var(--pad) * -1) 0;
+    background: linear-gradient(180deg, #08080a, #1b1b1f 45%, #0b0b0d);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05), inset 0 -1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.id-back__quote {
+    margin: auto 0;
+    padding: calc(var(--pad) * 0.8) 0;
+}
+
+/* decorative opening mark */
+.id-back__quote::before {
+    content: '\201C';
+    display: block;
+    height: calc(var(--bw) * 0.065);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: calc(var(--bw) * 0.13);
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1;
+    color: #ffffff;
+}
+
+.id-back__quote p {
+    white-space: pre-line;
+    font-family: var(--font-display);
+    font-size: calc(var(--bw) * 0.066);
+    font-weight: 600;
+    line-height: 1.22;
+    text-wrap: balance;
+    color: #ffffff;
+}
+
+.id-back__signature {
+    padding-top: calc(var(--pad) * 0.9);
+}
+
+.id-back__sig {
+    padding: 0 4px 3px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* drawn signature (outlines + ballpoint, animated by id-badge.js) */
+.id-sig {
+    display: block;
+    width: 86%;
+    height: auto;
+    overflow: visible;
+}
+
+.id-sig__fill {
+    fill: rgba(255, 255, 255, 0.94);
+}
+
+.id-sig__stroke {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.94);
+    stroke-width: 2;
+    stroke-linejoin: round;
+}
+
+.id-sig__flourish {
+    fill: rgba(255, 255, 255, 0.85);
+}
+
+.id-sig__mask-line {
+    fill: none;
+    stroke: #ffffff;
+    stroke-width: 14;
+}
+
+.id-back__sig-label {
+    display: block;
+    margin-top: 4px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+/* Desktop / fine pointers: click hint. Touch: no selection, no callout. */
+@media (hover: hover) and (pointer: fine) {
+    .id-hint__touch {
+        display: none;
+    }
+
+    .id-hint__pointer {
+        display: inline;
+    }
+}
+
+@media (hover: none),
+(pointer: coarse) {
+    .id-badge__tilt {
+        -webkit-user-select: none;
+        user-select: none;
+        -webkit-touch-callout: none;
+    }
+}
+
+@media (min-width: 1024px) {
+    .id-badge__lanyard {
+        height: 118px;
+    }
+}
+
+/* No sway or tilt; the flip becomes a short crossfade */
+@media (prefers-reduced-motion: reduce) {
+    .id-badge {
+        animation: none !important;
+        transform: none;
+    }
+
+    .id-badge__stage.is-pressed {
+        transform: none;
+    }
+
+    .id-badge .id-badge__flip,
+    .id-badge.is-flipped .id-badge__flip {
+        transform: none;
+    }
+
+    .id-badge .id-face {
+        -webkit-backface-visibility: visible;
+        backface-visibility: visible;
+        transform: none;
+        transition: opacity 0.25s ease, visibility 0.25s !important;
+    }
+
+    .id-badge .id-face--back,
+    .id-badge.is-flipped .id-face--front {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .id-badge.is-flipped .id-face--back {
+        opacity: 1;
+        visibility: visible;
     }
 }

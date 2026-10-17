@@ -14,6 +14,10 @@
         })(window, document, "clarity", "script", "ygadwbj20o");
     </script>
     <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/sf-pro-display">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- only the “ glyph for the quote on the badge -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300&text=%E2%80%9C&display=swap">
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
@@ -21,12 +25,17 @@
     <canvas id="bg-canvas"></canvas>
     <header class="header">
         <div class="container">
-            <div class="header-content">
-                <div class="title-group">
-                    <div class="title-and-role fade-in" style="animation-delay: 0.2s">
-                        <h1 class="gradient-text">Sarib Samdani</h1>
-                        <div class="role">AI Engineer</div>
-                    </div>
+            <div class="header-content hero-grid">
+                <div class="hero-title fade-in" style="animation-delay: 0.2s">
+                    <h1 class="gradient-text">Sarib Samdani</h1>
+                    <p class="hero-tagline">
+                        <strong>AI Engineer who also sells.</strong>
+                        I build AI products and get them in front of customers, from the first prototype to
+                        go&#8209;to&#8209;market.
+                    </p>
+                </div>
+
+                <div class="hero-aside">
                     <div class="avatar-container scale-in" style="animation-delay: 0.4s">
                         <div class="avatar-glow"></div>
                         <div class="avatar-outer-reticle"></div>
@@ -40,54 +49,120 @@
                         </div>
                         <img src="profilepicture.png" alt="Profile Picture" class="profile-picture">
                     </div>
-                </div>
-                <p class="bio slide-up" style="animation-delay: 0.6s">
-                    Over the years, I’ve built a solid foundation in Artificial Intelligence through my academic
-                    studies, hands-on projects,
-                    internships, and active involvement in student associations, with the goal of using AI to solve
-                    real-world challenges and explore the intersection of technology, creativity, and leadership.<br>
-                    Driven by a global perspective, I regularly visit and explore international tech ecosystems across
-                    regions like China, Hong Kong, and the UAE to study how they build and deploy cutting-edge AI
-                    systems and
-                    robotics firsthand.
-                    To keep challenging myself, I regularly compete in hackathons to test my skills under pressure and
-                    build real projects from scratch.
-                    With a vision of one day stepping responsibly into a leadership role, I am focused on developing the
-                    expertise and experience needed to make meaningful contributions in the fields of AI. <br>
-                    Currently, I'm building AI Solutions in a variety of projects/startups, taking full ownership (
-                    cool new projects to be shared soon!).
-                    Previously, as an AI Engineer at Lufthansa Industry Solutions, I collaborated on a RAG-based "Smart
-                    Assistant" chatbot, focusing on Python backend development with Haystack, ElasticSearch, and
-                    FastAPI. There, I gained hands-on experience in enterprise AI architecture. Prior to that, I worked
-                    as an IT
-                    Architect at KPMG, where I initiated an AI prototype for SAP S/4HANA error analysis by leveraging
-                    insights from industry-leading experts and promoting innovation management. <br><br>
-                    <a href="https://www.linkedin.com/in/sarib-samdani/" class="social-link" target="_blank"
-                        rel="noopener">
-                        <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path
-                                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                        </svg>
-                        Message me here, I’ll get back to you within 12h →</a>
-                </p>
-                <div class="metrics slide-up" style="animation-delay: 0.8s">
 
-                    <div class="metric">
-                        <div class="metric-value">15+</div>
-                        <p>AI Projects 🏗️</p>
+                    <!-- Developer ID badge: sway (outer) > stage/perspective > tilt (button) > flip > faces -->
+                    <div class="id-badge-mount slide-up" style="animation-delay: 0.7s">
+                        <div class="id-badge" data-id-badge>
+                            <div class="id-badge__lanyard" aria-hidden="true">
+                                <span>EXCLUSIVE · EXCLUSIVE · EXCLUSIVE ·</span>
+                            </div>
+                            <div class="id-badge__clip" aria-hidden="true"></div>
+                            <div class="id-badge__stage">
+                                <div class="id-badge__tilt" role="button" tabindex="0" aria-pressed="false"
+                                    aria-label="ID badge, press to flip" aria-describedby="id-badge-front">
+                                    <div class="id-badge__flip">
+                                        <div class="id-face id-face--front" id="id-badge-front">
+                                            <span class="id-face__texture" aria-hidden="true"></span>
+                                            <span class="id-face__glare" aria-hidden="true"></span>
+                                            <span class="id-face__slot" aria-hidden="true"></span>
+
+                                            <div class="id-face__header">
+                                                <span class="id-face__title">Portfolio Badge</span>
+                                            </div>
+
+                                            <div class="id-face__body">
+                                                <p class="id-name">Sarib Samdani</p>
+                                                <p class="id-role">Technical Builder &amp; Creative</p>
+
+                                                <dl class="id-fields">
+                                                    <div class="id-field">
+                                                        <dt>AI Projects</dt>
+                                                        <dd>15+</dd>
+                                                    </div>
+                                                    <div class="id-field">
+                                                        <dt>Events attended</dt>
+                                                        <dd>50+ <small>AI events, in person</small></dd>
+                                                    </div>
+                                                    <div class="id-field">
+                                                        <dt>Countries</dt>
+                                                        <dd>20+ <small>visited</small></dd>
+                                                    </div>
+                                                    <div class="id-field">
+                                                        <dt>Age / Born</dt>
+                                                        <dd>22 <small>Berlin, DE</small></dd>
+                                                    </div>
+                                                </dl>
+                                            </div>
+
+                                            <div class="id-face__footer">
+                                                <!-- Code 128 for "SARIB" -->
+                                                <div class="id-barcode" aria-hidden="true">
+                                                    <svg viewBox="0 0 90 1" preserveAspectRatio="none"
+                                                        shape-rendering="crispEdges" focusable="false">
+                                                        <defs>
+                                                            <linearGradient id="id-barcode-fill" x1="0" y1="0" x2="0"
+                                                                y2="1">
+                                                                <stop offset="0" stop-color="#ffffff"
+                                                                    stop-opacity="0.95" />
+                                                                <stop offset="0.7" stop-color="#ffffff"
+                                                                    stop-opacity="0.8" />
+                                                                <stop offset="1" stop-color="#ffffff"
+                                                                    stop-opacity="0.35" />
+                                                            </linearGradient>
+                                                        </defs>
+                                                        <path fill="url(#id-barcode-fill)"
+                                                            d="M0 0h2v1h-2zM3 0h1v1h-1zM6 0h1v1h-1zM11 0h2v1h-2zM14 0h3v1h-3zM18 0h1v1h-1zM22 0h1v1h-1zM24 0h1v1h-1zM28 0h2v1h-2zM33 0h2v1h-2zM38 0h1v1h-1zM40 0h3v1h-3zM44 0h2v1h-2zM49 0h1v1h-1zM53 0h1v1h-1zM55 0h1v1h-1zM59 0h1v1h-1zM61 0h2v1h-2zM66 0h4v1h-4zM72 0h1v1h-1zM74 0h1v1h-1zM77 0h2v1h-2zM82 0h3v1h-3zM86 0h1v1h-1zM88 0h2v1h-2z" />
+                                                    </svg>
+                                                </div>
+                                            </div>
+
+                                            <span class="id-hint" aria-hidden="true">
+                                                <span class="id-hint__touch">Tap to flip <span
+                                                        class="id-hint__icon">↻</span></span>
+                                                <span class="id-hint__pointer">Click to flip <span
+                                                        class="id-hint__icon">↻</span></span>
+                                            </span>
+                                        </div>
+
+                                        <!-- Back side is rendered from ID_BADGE_BACK in assets/js/id-badge.js -->
+                                        <div class="id-face id-face--back" id="id-badge-back" aria-hidden="true"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="metric">
-                        <div class="metric-value">50+</div>
-                        <p>AI-related events attended in person 💺</p>
+                </div>
+
+                <div class="hero-copy slide-up" style="animation-delay: 0.6s">
+                    <div class="bio">
+                        <p>
+                            Over the years, I’ve built a solid foundation in Artificial Intelligence through my
+                            academic studies, hands-on projects, internships, and active involvement in student
+                            associations, with the goal of using AI to solve real-world challenges and explore
+                            the intersection of technology, creativity, and leadership.
+                        </p>
+                        <p>
+                            Driven by a global perspective, I regularly visit and explore international tech
+                            ecosystems across regions like China, Hong Kong, and the UAE to study how they build
+                            and deploy cutting-edge AI systems and robotics firsthand.
+                        </p>
+                        <p>
+                            To keep challenging myself, I regularly compete in hackathons to test my skills
+                            under pressure and build real projects from scratch. With a vision of one day
+                            stepping responsibly into a leadership role, I am focused on developing the
+                            expertise and experience needed to make meaningful contributions in the fields of
+                            AI.
+                        </p>
                     </div>
-                    <div class="metric">
-                        <div class="metric-value">20+</div>
-                        <p>Countries visited 🌍</p>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-value">22</div>
-                        <p>Years old, based in Berlin 🇩🇪</p>
-                    </div>
+                    <p class="hero-cta">
+                        <a href="https://www.linkedin.com/in/sarib-samdani/" class="social-link" target="_blank"
+                            rel="noopener">
+                            <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                            </svg>
+                            Message me here, I’ll get back to you within 12h →</a>
+                    </p>
                 </div>
             </div>
         </div>
@@ -206,6 +281,7 @@
     </div>
 
     <script src="assets/js/app.js" defer></script>
+    <script src="assets/js/id-badge.js" defer></script>
 </body>
 
 </html>

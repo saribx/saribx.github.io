@@ -391,8 +391,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 Linus and Anton on the frontend, recipes, and barcode scanning, and I
                 coordinated the team and tied the pieces into one working system.`,
                 {
-                    image: 'assets/img/projects/smart-kitchen/smartkitchen_inventory_screen.png',
-                    caption: 'The inventory view: every item color coded by how close it is to its expiry date.',
+                    image: 'assets/img/projects/smart-kitchen/smartkitchen_dashboard.jpg',
+                    caption: 'Inventory dashboard: every item sorted and color coded by how close it is to expiring, next to live camera events and a recipe that uses up what is about to spoil.',
                     fit: 'full'
                 },
                 `GPT-4o handles the object detection, replacing an earlier YOLO model once we
@@ -400,6 +400,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 The cabinet camera runs on a VL53L0X distance sensor to tell when something
                 was actually placed inside. Vue and Python carry the app, Arduino runs the
                 microcontrollers, and PyzBar decodes barcodes for bulk grocery imports.`,
+                {
+                    image: 'assets/img/projects/smart-kitchen/smartkitchen_mobile.jpg',
+                    caption: 'The kitchen in your pocket: checking stock from the supermarket, cooking what is about to expire, and asking Luna what is on the shopping list.',
+                    fit: 'full'
+                },
                 `It is a working prototype, not a finished product. Wider camera coverage,
                 letting Luna add items by voice, and weighing quantities instead of
                 estimating them are the clear next steps.`,
@@ -432,8 +437,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 yield loss. This project asked how much of that inspection a single photo,
                 read by a fine-tuned neural network, could replace.`,
                 {
-                    image: 'assets/img/projects/plant-disease-classification/sample_predictions.png',
-                    caption: 'Predictions on held-out test leaves: actual class, predicted class, and confidence, shown across the color, grayscale, and segmented versions of the same images.',
+                    image: 'assets/img/projects/plant-disease-classification/pd_three_inputs.jpg?v=2',
+                    caption: 'Same leaf, three inputs: one early blight leaf sliced across the color, grayscale, and segmented versions of PlantVillage. Each square is one of the 216 test leaves, the red ones were misclassified.',
                     fit: 'full'
                 },
                 `The model is Xception, pretrained on ImageNet and fully fine-tuned, not just
@@ -445,35 +450,56 @@ document.addEventListener('DOMContentLoaded', () => {
                 three way comparison was last run in 2016 with older architectures like
                 AlexNet, so revisiting it with a modern, more parameter-efficient network was
                 a genuine gap worth closing.`,
+                `To make that comparison fair, everything except the input stays fixed. Every
+                image is resized to 128 by 128 and scaled to values between 0 and 1, and each
+                training image gets a fresh random rotation, shift, shear, zoom, or flip every
+                epoch, so the model cannot memorize how a leaf happened to be lying on the
+                table. On top of Xception sits a small head, batch normalization, a 256 unit
+                dense layer, dropout of 0.5, and a three way softmax, trained with Adamax for
+                six epochs. The tanh activation in that head was a deliberate choice, in my
+                documented trials it beat ReLU on validation accuracy.`,
                 {
-                    image: 'assets/img/projects/plant-disease-classification/confusion_matrix.png',
-                    caption: 'Confusion matrix for the segmented model: 1 misclassification out of 216 test images, for an overall accuracy of 99.54%.',
+                    image: 'assets/img/projects/plant-disease-classification/pd_training_pipeline.jpg?v=2',
+                    caption: 'The training pipeline: 2,152 leaves split 80/10/10, augmented on the fly, and fed through Xception and a small classifier head. The prediction on the right is a real test leaf.',
                     fit: 'full'
                 },
-                `The segmented model came out on top at 99.54% accuracy, color followed closely
-                at 99.07%, and grayscale trailed at 94.44%, a five point gap that comes almost
-                entirely from losing color cues like yellowing and brown spotting that the
-                model leans on to tell blight from healthy tissue. Segmentation wins by
-                removing the background entirely, but that background removal is itself a
-                processing step a real deployment would need to run first, which is part of
-                why color, not segmented, is the more honest default for a tool meant to work
-                on a photo straight from a farmer's phone.`,
+                `The segmented model came out on top at 99.54% accuracy, missing a single leaf
+                out of 216. Color followed closely at 99.07%, and grayscale trailed at 94.44%,
+                a five point gap that comes almost entirely from losing color cues like
+                yellowing and brown spotting that the model leans on to tell blight from
+                healthy tissue. The confusion matrices show where it hurts: without color, late
+                blight gets mistaken in both directions, and healthy recall drops to 88% on a
+                class that makes up only 7 percent of the data.`,
+                {
+                    image: 'assets/img/projects/plant-disease-classification/pd_confusion_matrices.jpg?v=2',
+                    caption: 'Confusion matrices for all three models on the same 216 test leaves, rows are the true class and columns the prediction: color misses 2, grayscale 12, and segmented 1.',
+                    fit: 'full'
+                },
+                `Segmentation wins by removing the background entirely, but that background
+                removal is itself a processing step a real deployment would need to run first,
+                which is part of why color, not segmented, is the more honest default for a
+                tool meant to work on a photo straight from a farmer's phone.`,
                 `Most published work on this topic stops at that evaluation. I wanted to see
-                the model actually used, so I built Plant Disease Detector, a FastAPI web app
+                the model actually used, so I turned the training notebook into a clean,
+                reproducible codebase and built Plant Disease Detector, a FastAPI web app
                 where anyone can upload a leaf photo, pick a model or run all three side by
                 side, and get a diagnosis back in under a second and a half.`,
                 {
-                    image: 'assets/img/projects/plant-disease-classification/app_overview.jpeg',
-                    caption: 'The Plant Disease Detector interface: upload a leaf, choose one model or compare all three, and review diagnosis, confidence, and inference time for each.',
+                    image: 'assets/img/projects/plant-disease-classification/pd_web_app.jpg?v=2',
+                    caption: 'Plant Disease Detector: pick a model or compare all three, drop in a leaf, and get a diagnosis, confidence, and inference time from each, with the last five scans kept in the browser.',
                     fit: 'full'
                 },
-                `Every prediction comes with a confidence score and an inference time, and a
-                simple correct or incorrect button turns each diagnosis into feedback, the
-                start of an active learning loop rather than a one-way prediction. Scan
-                history is kept entirely in the browser, so nothing about a user's fields
-                leaves their device unless they choose to act on it. It is the detail that
-                usually gets skipped once a model hits a good accuracy number: a result is
-                only useful if the person holding the camera can actually read and trust it.`,
+                `Running all three at once turned out to be more than a demo feature. On two
+                late blight leaves in my own scan history, color and segmented both got it
+                right, while grayscale answered early blight with 98.79% and 99.94% confidence,
+                a good reminder that a confident model is not the same as a correct one. That
+                is why every prediction comes with a confidence score, an inference time, and
+                a simple correct or incorrect button that turns each diagnosis into feedback,
+                the start of an active learning loop rather than a one-way prediction. Scan
+                history lives only in the browser's local storage, so past scans are never
+                stored on a server. It is the detail that usually gets skipped once a model
+                hits a good accuracy number: a result is only useful if the person holding the
+                camera can actually read and trust it.`,
                 {
                     media: [
                         {
@@ -500,12 +526,45 @@ document.addEventListener('DOMContentLoaded', () => {
             date: '2024',
             summary: 'AI tool that corrects assignments for spelling, grammar, tone, and content, built and shipped at a student education lab.',
             content: [
-                `At the Designing Education Project Lab, my team and I built an AI tool that
-                checks student assignments for spelling, grammar, tone, and content, and
-                deployed it live on Vercel.`,
-                `Alongside the build, we organized a podcast with a few well known voices
-                from the education industry, and later pitched the project on stage, where it
-                received the Best Code prize.`,
+                `Grading is where a teacher's evening goes. Thirty essays means reading for
+                the same comma mistakes thirty times before you even get to what each student
+                actually argued. At the Designing Education Project Lab in Berlin, Gabriel
+                Sjögren, Yertay Yeskaliyev, and I built SmartTeachers, an AI assistant that
+                takes the first pass: it reads an assignment, flags spelling, grammar, tone,
+                and content, and hands the teacher a review instead of a blank page.`,
+                {
+                    image: 'assets/img/projects/ai-assignment-assistant/smartteachers_workspace.jpg',
+                    caption: 'The grading workspace: every suggestion is pinned to the exact words it is about, color coded by type, and nothing reaches the student until the teacher approves it.',
+                    fit: 'full'
+                },
+                `The four checks are deliberately separate jobs. Spelling and grammar look at
+                the surface of the text, tone asks whether the register fits an academic
+                piece, and content holds the essay against the assignment brief, which is
+                where a wrong date or a missing argument gets caught. Keeping them apart means
+                a teacher can see at a glance whether an essay has a language problem or a
+                thinking problem, and those are two very different conversations to have with
+                a student.`,
+                {
+                    image: 'assets/img/projects/ai-assignment-assistant/smartteachers_four_lenses.jpg?v=2',
+                    caption: 'One essay, four lenses: the same text read separately for spelling, grammar, tone, and content, then merged into a single review for the teacher.',
+                    fit: 'full'
+                },
+                `The teacher stays in charge. The tool suggests, it does not grade: every flag
+                can be accepted, edited, or dismissed, and the drafted note to the student is
+                only a starting point. Zoomed out to a whole class, the same flags show which
+                mistakes keep coming back, so the next lesson can tackle the subject-verb
+                agreement half the class is getting wrong, instead of correcting it thirty
+                times in red ink.`,
+                {
+                    image: 'assets/img/projects/ai-assignment-assistant/smartteachers_class_overview.jpg',
+                    caption: 'Class overview: where each student needs help, broken down by type of check, and the mistakes that point to a gap in the lesson rather than in one essay.',
+                    fit: 'full'
+                },
+                `We deployed it live on Vercel and pitched it on stage at the AI + Education
+                Demo Day at TU Berlin, where it won the Best Code prize, with the jury pointing
+                out that it was a fully working prototype the audience could try out
+                themselves. Alongside the build, we organized a podcast with a few well known
+                voices from the education industry.`,
                 `All the links, as usual, are below.`,
                 {
                     media: [
@@ -622,11 +681,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 partially persist once the reward is gone, the more so the heavier karma was
                 weighted. A null result would be just as interesting, it would mean Moltbook's
                 sociality is surface mimicry without functional norms.`,
-                {
-                    image: 'assets/img/research/machine-behavior/contribution.svg',
-                    caption: 'What the study would contribute across theory, AI safety, and design.',
-                    fit: 'full'
-                },
                 `There are honest limitations. Human-operated accounts can't be fully excluded
                 from the field data, embeddings are only a proxy for norms (which is why slang
                 adoption is measured alongside them), and a 30-agent sandbox trades realism for
