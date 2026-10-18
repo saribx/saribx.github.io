@@ -217,6 +217,8 @@ textarea,
 @media (min-width: 1024px) {
     .hero-grid {
         --badge-w: 280px;
+        --name-size: clamp(2.75rem, 6.16vw, 6.05rem);
+        --title-pad: 36px;
         grid-template-columns: minmax(0, 1fr) var(--hero-aside-w);
         grid-template-rows: auto 1fr;
         grid-template-areas:
@@ -230,11 +232,11 @@ textarea,
     }
 
     .hero-title {
-        padding-top: 36px;
+        padding-top: var(--title-pad);
     }
 
     .hero-title h1 {
-        font-size: clamp(2.75rem, 6.16vw, 6.05rem);
+        font-size: var(--name-size);
     }
 
     .hero-tagline {
@@ -243,6 +245,9 @@ textarea,
 
     .hero-aside {
         width: var(--hero-aside-w);
+        /* top of the photo lines up with the top of the capital letters in the name
+           (half-leading + ascender gap above cap height ≈ 0.19em) */
+        padding-top: calc(var(--title-pad) + var(--name-size) * 0.19);
     }
 }
 
@@ -631,21 +636,22 @@ h1 {
 .research-nav {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 22px;
 }
 
 .research-nav-section {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 12px;
 }
 
 .research-nav-label {
     padding: 0 8px;
-    font-size: 0.64rem;
-    letter-spacing: 0.12em;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(255, 255, 255, 0.92);
 }
 
 .research-nav-group {
@@ -946,6 +952,10 @@ h1 {
 @media (max-width: 899px) {
     .research-content {
         display: none;
+    }
+
+    .research-item {
+        scroll-margin-top: 12px;
     }
 
     .research-mobile-detail {
@@ -1431,27 +1441,15 @@ h1 {
 /* Lanyard + clip */
 .id-badge__lanyard {
     position: relative;
-    display: flex;
-    justify-content: center;
     width: 15px;
     height: 104px;
     overflow: hidden;
+    /* embossed crocodile leather: round side shading and a soft center sheen over a scale tile */
     background:
-        repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.025) 0 1px, transparent 1px 3px),
-        linear-gradient(90deg, #16161a 0%, #2a2a30 22%, #222227 50%, #2a2a30 78%, #16161a 100%);
+        linear-gradient(90deg, rgba(0, 0, 0, 0.4) 0%, transparent 24%, rgba(255, 255, 255, 0.05) 50%, transparent 76%, rgba(0, 0, 0, 0.4) 100%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='47.73' viewBox='0 0 15 47.73'%3E%3Cdefs%3E%3CradialGradient id='d' cx='.45' cy='.38' r='.75'%3E%3Cstop offset='0' stop-color='%23333339'/%3E%3Cstop offset='.55' stop-color='%2328282d'/%3E%3Cstop offset='1' stop-color='%231e1e22'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width='15' height='47.73' fill='%23141417'/%3E%3Cg fill='url%28%23d%29'%3E%3Crect x='-1.0' y='0.38' width='4.88' height='6.4' rx='1.88'/%3E%3Crect x='4.63' y='0.38' width='5.75' height='6.4' rx='1.90'/%3E%3Crect x='11.13' y='0.38' width='4.87' height='2.84' rx='1.09'/%3E%3Crect x='11.13' y='3.96' width='4.87' height='2.81' rx='1.08'/%3E%3Crect x='-1.0' y='7.53' width='5.0' height='2.36' rx='0.91'/%3E%3Crect x='-1.0' y='10.64' width='5.0' height='2.09' rx='0.80'/%3E%3Crect x='4.75' y='7.53' width='5.29' height='5.2' rx='1.90'/%3E%3Crect x='10.79' y='7.53' width='5.21' height='5.2' rx='1.90'/%3E%3Crect x='-1.0' y='13.48' width='4.56' height='3.59' rx='1.38'/%3E%3Crect x='-1.0' y='17.81' width='4.56' height='2.66' rx='1.02'/%3E%3Crect x='4.31' y='13.48' width='5.84' height='7.0' rx='1.90'/%3E%3Crect x='10.9' y='13.48' width='5.1' height='2.44' rx='0.94'/%3E%3Crect x='10.9' y='16.66' width='5.1' height='3.81' rx='1.47'/%3E%3Crect x='-1.0' y='21.23' width='5.36' height='2.67' rx='1.03'/%3E%3Crect x='-1.0' y='24.64' width='5.36' height='2.38' rx='0.92'/%3E%3Crect x='5.11' y='21.23' width='5.63' height='5.8' rx='1.90'/%3E%3Crect x='11.49' y='21.23' width='4.51' height='1.94' rx='0.75'/%3E%3Crect x='11.49' y='23.91' width='4.51' height='3.11' rx='1.20'/%3E%3Crect x='-1.0' y='27.78' width='4.95' height='2.56' rx='0.98'/%3E%3Crect x='-1.0' y='31.09' width='4.95' height='3.29' rx='1.27'/%3E%3Crect x='4.7' y='27.78' width='5.23' height='6.6' rx='1.90'/%3E%3Crect x='10.68' y='27.78' width='5.32' height='2.87' rx='1.10'/%3E%3Crect x='10.68' y='31.4' width='5.32' height='2.98' rx='1.15'/%3E%3Crect x='-1.0' y='35.12' width='4.87' height='4.9' rx='1.87'/%3E%3Crect x='4.62' y='35.12' width='6.01' height='4.9' rx='1.88'/%3E%3Crect x='11.38' y='35.12' width='4.62' height='4.9' rx='1.78'/%3E%3Crect x='-1.0' y='40.77' width='4.94' height='2.94' rx='1.13'/%3E%3Crect x='-1.0' y='44.46' width='4.94' height='2.51' rx='0.97'/%3E%3Crect x='4.69' y='40.77' width='5.76' height='6.2' rx='1.90'/%3E%3Crect x='11.2' y='40.77' width='4.8' height='2.43' rx='0.93'/%3E%3Crect x='11.2' y='43.96' width='4.8' height='3.02' rx='1.16'/%3E%3C/g%3E%3C/svg%3E") 0 0 / 15px 47.73px repeat-y,
+        #16161a;
     box-shadow: inset 1px 0 0 rgba(255, 255, 255, 0.07), inset -1px 0 0 rgba(255, 255, 255, 0.07), 0 2px 6px rgba(0, 0, 0, 0.5);
-}
-
-.id-badge__lanyard span {
-    padding-top: 50px;
-    writing-mode: vertical-rl;
-    font-family: var(--font-mono);
-    font-size: 7px;
-    font-weight: 700;
-    line-height: 15px;
-    letter-spacing: 0.2em;
-    white-space: nowrap;
-    color: rgba(255, 255, 255, 0.5);
 }
 
 .id-badge__clip {

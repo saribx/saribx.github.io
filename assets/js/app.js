@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 'berlin-citizen-fund',
             title: 'Berlin Citizen Fund (Hackathon win)',
             company: 'Berlin Auf Die Eins, BAD1',
-            meta: 'Funding · Finance · GovTech',
+            meta: 'GovTech · Venture Capital · Public Policy',
             date: '2026',
             summary: 'Democratic, taxpayer-funded startup investment platform concept for Berlin.',
             content: [
@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 'ai-assistant',
             title: 'AI Video Assistant (Hackathon win)',
             company: 'Google x BLISS ',
-            meta: 'Flutter · Gemini API · RAG',
+            meta: 'Gemini Live · RAG · Flutter',
             date: '2025',
             summary: 'Real-time, Flutter-based video assistant that recognizes what the camera sees and answers by voice, grounded in thousands of manuals via RAG.',
             content: [
@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 'desktop-ai-assistant-dramalabs',
             title: 'Desktop AI Assistant',
             company: 'DramaLabs',
-            meta: 'Electron · Desktop · Productivity',
+            meta: 'Live Product · Electron · Freemium',
             date: '2026',
             summary: 'An AI powered desktop companion for Mac, Windows, and Linux, free to try and built to boost daily productivity.',
             content: [
@@ -168,7 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 'robotics-x-computer-vision',
             title: 'Robotics x Computer Vision',
             company: 'T-Systems (Deutsche Telekom)',
-            meta: 'WebRTC · YOLO · MiDaS',
+            meta: 'YOLOv8 · Monocular Depth · Kubernetes',
             date: '2026',
             summary: 'Optibot: an open-source, containerized perception system that gives warehouse robots real-time object detection and distance estimates through a live WebRTC feed.',
             content: [
@@ -256,7 +256,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 'neural-network-visualization-platform',
             title: 'Neural Network Visualization Platform',
             company: 'Quality in Artificial Intelligence Labs',
-            meta: 'PyTorch · D3.js · XAI',
+            meta: 'Explainable AI · PyTorch · Open Source',
             date: '2025',
             summary: 'Open source, interactive platform for visualizing uploaded PyTorch models, with per neuron activation histograms and weight mappings built with PyTorch and D3.js.',
             content: [
@@ -319,7 +319,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 'ai-calling-chat-agent',
             title: 'AI Calling & Chat Agent',
             company: '{Tech:Europe} Hackathon',
-            meta: 'n8n · Twilio · LiveKit',
+            meta: 'Voice Agent · RAG · MCP',
             date: '2025',
             summary: 'Round the clock support agent for businesses: it answers on WhatsApp, books appointments, and can call a customer back live when text is not enough.',
             content: [
@@ -369,7 +369,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 'smart-kitchen-ai-system',
             title: 'Smart Kitchen AI System',
             company: 'ZEKI, Centre for Tangible AI',
-            meta: 'Computer Vision · Voice AI · Embedded Systems',
+            meta: 'Computer Vision · Voice AI · IoT',
             date: '2025',
             summary: 'A physical kitchen at TU Berlin fitted with cameras, a voice assistant, and a web app that tracks groceries, flags expiry, and turns whatever is on the shelf into a recipe.',
             content: [
@@ -426,7 +426,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 'plant-disease-classification',
             title: 'Plant Disease Classification',
             company: 'TU Berlin, AI in Human-Water Systems',
-            meta: 'Xception · Transfer Learning · FastAPI',
+            meta: 'CNN · 99.5% Accuracy · FastAPI',
             date: '2026',
             summary: 'A fine-tuned Xception model that reads potato leaf disease from a photo with over 99% accuracy, wrapped in a web app anyone can actually use.',
             content: [
@@ -522,7 +522,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 'ai-assignment-assistant',
             title: 'AI Assignment Assistant',
             company: 'Designing Education Project Lab',
-            meta: 'EdTech · Vercel · Product',
+            meta: 'EdTech · LLMs · Best Code Prize',
             date: '2024',
             summary: 'AI tool that corrects assignments for spelling, grammar, tone, and content, built and shipped at a student education lab.',
             content: [
@@ -588,7 +588,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 'machine-behavior-agent-norms',
             title: 'Do AI Agents Develop Social Norms?',
             company: 'Max Planck Institute x TU Berlin, Machine and Behavior',
-            meta: 'Machine Behavior · Multi-Agent Systems · NLP',
+            meta: 'Multi-Agent · NLP · Causal Inference',
             date: '2026',
             summary: 'Research proposal and A0 poster on whether AI agents on Moltbook, an agent-only social network, form their own conventions, and whether karma pushes them toward conformity.',
             content: [
@@ -699,7 +699,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 'bachelors-thesis',
             title: "Bachelor's Thesis",
             company: 'TU Berlin, Artificial Intelligence and Land Use Change',
-            meta: 'Groundwater · Transformer · Time Series',
+            meta: 'Transformers · Time Series · PyTorch',
             date: '2025',
             summary: 'Transformer-based forecasting for groundwater level prediction across 238 monitoring stations in Brandenburg, comparing four architectures and two training strategies.',
             content: [
@@ -805,6 +805,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 activeProjectId = isClosing ? null : clickedId;
                 renderResearchNavigation();
                 renderResearchDetail();
+
+                // Closing the previously open panel shifts everything below it,
+                // so pin the newly opened project to the top of the viewport.
+                if (mobileNavQuery.matches && !isClosing) {
+                    const activeButton = researchNav.querySelector('.research-item.is-active');
+                    if (activeButton) activeButton.scrollIntoView({ block: 'start' });
+                }
             });
         });
     }
